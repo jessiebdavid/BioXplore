@@ -1,0 +1,46 @@
+{
+  "domain": "tamil",
+  "terms": [
+    {
+      "name": "thirukkural",
+      "aliases": ["tirukkural", "thirukural", "tirukural", "kural", "kural verses", "திருக்குறள்", "குறள்"],
+      "type": "text_source",
+      "script_aliases": true
+    },
+    {
+      "name": "tholkappiyam",
+      "aliases": ["tholkappiam", "tolkappiyam", "tolkappiyam", "தொல்காப்பியம்"],
+      "type": "text_source",
+      "script_aliases": true
+    },
+    {
+      "name": "thirumandiram",
+      "aliases": ["tirumandiram", "thirumandhiram", "tirumular", "திருமந்திரம்"],
+      "type": "text_source",
+      "script_aliases": true
+    },
+    {
+      "name": "purananuru",
+      "aliases": ["puranaanooru", "puram", "புறநானூறு"],
+      "type": "text_source",
+      "script_aliases": true
+    },
+    {
+      "name": "avvaiyar",
+      "aliases": ["aathichudi", "atticuti", "ஔவையார்"],
+      "type": "text_source",
+      "type_hint": "text_source"
+    },
+    {"name": "water", "aliases": ["rain", "neer", "நீர்", "மழை"], "type": "theme"},
+    {"name": "nature", "aliases": ["environment", "landscapes", "இயற்கை"], "type": "theme"},
+    {"name": "knowledge", "aliases": ["learning", "education", "கல்வி"], "type": "theme"},
+    {"name": "body", "aliases": ["human body", "உடம்பு"], "type": "theme"},
+    {"name": "impermanence", "aliases": ["impermanence theme", "transience"], "type": "theme"},
+    {"name": "ethics", "aliases": ["moral", "morality", "virtue", "அறம்"], "type": "theme"}
+  ],
+  "ambiguous_terms": {
+    "kural": {"tamil": "thirukkural"},
+    "puram": {"tamil": "purananuru"},
+    "nature": {"tamil": "nature"}
+  }
+}

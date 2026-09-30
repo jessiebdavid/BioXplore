@@ -1,0 +1,32 @@
+{
+  "domain": "biology",
+  "terms": [
+    {"name": "dna", "aliases": ["deoxyribonucleic acid", "double helix", "dna sequence"], "type": "concept"},
+    {"name": "rna", "aliases": ["ribonucleic acid", "mrna", "messenger rna", "trna", "rrna"], "type": "concept"},
+    {"name": "gene", "aliases": ["genes", "genetic", "genome", "locus", "allele"], "type": "concept"},
+    {"name": "mutation", "aliases": ["mutations", "genetic variant", "point mutation", "frameshift"], "type": "process"},
+    {"name": "protein", "aliases": ["proteins", "amino acid", "amino acids", "polypeptide"], "type": "concept"},
+    {"name": "protein folding", "aliases": ["folding", "tertiary structure", "misfolding", "chaperone"], "type": "process"},
+    {"name": "gene expression", "aliases": ["expression", "expression levels", "transcription", "translation", "rna-seq"], "type": "process"},
+    {"name": "cell", "aliases": ["cells", "cellular", "cellular function", "organelle"], "type": "concept"},
+    {"name": "biological pathway", "aliases": ["pathway", "pathways", "signal transduction", "metabolic pathway"], "type": "concept"},
+    {"name": "network", "aliases": ["networks", "biological network", "network biology", "gene network"], "type": "concept"},
+    {"name": "biomarker", "aliases": ["biomarkers"], "type": "concept"},
+    {"name": "circadian rhythm", "aliases": ["biological rhythms", "biological rhythm", "circadian clock", "molecular clock", "24 hour rhythm"], "type": "process"},
+    {"name": "development", "aliases": ["developmental", "embryogenesis", "differentiation", "hox genes"], "type": "process"},
+    {"name": "disease progression", "aliases": ["disease", "progression", "cancer progression", "tumor progression", "tumour progression", "clinical progression"], "type": "process"},
+    {"name": "cancer", "aliases": ["tumor", "tumour", "clonal evolution", "metastasis"], "type": "process"},
+    {"name": "cystic fibrosis", "aliases": ["cftr"], "type": "process"},
+    {"name": "cell cycle", "aliases": ["mitosis", "cell division"], "type": "process"}
+  ],
+  "ambiguous_terms": {
+    "expression": {"biology": "gene expression"},
+    "folding": {"biology": "protein folding"},
+    "progression": {"biology": "disease progression"},
+    "rhythm": {"biology": "circadian rhythm"},
+    "period": {"biology": "circadian rhythm"},
+    "cycle": {"biology": "cell cycle|circadian rhythm"},
+    "network": {"biology": "network"},
+    "development": {"biology": "development"}
+  }
+}

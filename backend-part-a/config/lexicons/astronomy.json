@@ -1,0 +1,35 @@
+{
+  "domain": "astronomy",
+  "terms": [
+    {"name": "black hole", "aliases": ["black holes", "blackhole", "black hole vs white hole", "event horizon", "singularity"], "type": "object"},
+    {"name": "white hole", "aliases": ["white holes"], "type": "object"},
+    {"name": "wormhole", "aliases": ["wormholes", "einstein rosen bridge", "einstein-rosen bridge"], "type": "object"},
+    {"name": "plasma", "aliases": ["plasmas", "ionized gas", "fourth state of matter"], "type": "concept"},
+    {"name": "plasma oscillation", "aliases": ["plasma oscillations", "langmuir oscillation", "langmuir waves", "plasma frequency"], "type": "process"},
+    {"name": "radio astronomy", "aliases": ["radio telescope", "radio telescopes", "radio window"], "type": "concept"},
+    {"name": "spectral imaging", "aliases": ["imaging spectroscopy", "data cube", "spectral image"], "type": "process"},
+    {"name": "photometry", "aliases": ["light curve", "magnitudes", "ccd photometry"], "type": "process"},
+    {"name": "black-body radiation", "aliases": ["blackbody", "black body", "black-body", "planck law", "planck's law", "stefan-boltzmann"], "type": "law"},
+    {"name": "wien's displacement law", "aliases": ["wien law", "wien", "displacement law"], "type": "law"},
+    {"name": "blazar", "aliases": ["blazars", "bl lac", "ovv quasar"], "type": "object"},
+    {"name": "blast wave", "aliases": ["blast waves", "sedov-taylor", "sedov solution", "supernova remnant"], "type": "process"},
+    {"name": "cosmological constant", "aliases": ["lambda term", "dark energy", "vacuum energy"], "type": "concept"},
+    {"name": "accelerating expansion", "aliases": ["expansion of the universe", "cosmic acceleration", "expanding universe"], "type": "process"},
+    {"name": "kepler's laws", "aliases": ["kepler", "kepler law", "keplerian", "laws of planetary motion", "harmonic law"], "type": "law"},
+    {"name": "orbital period", "aliases": ["orbital periods", "orbital motion", "calculate orbital periods", "period of an orbit"], "type": "concept"},
+    {"name": "spacetime", "aliases": ["space-time", "spacetime continuum", "general relativity", "geodesic"], "type": "concept"},
+    {"name": "cosmology", "aliases": ["cosmological", "universe", "big bang"], "type": "concept"},
+    {"name": "interstellar clouds", "aliases": ["interstellar medium", "molecular cloud", "molecular clouds"], "type": "object"},
+    {"name": "hawking radiation", "aliases": ["black hole evaporation"], "type": "process"}
+  ],
+  "ambiguous_terms": {
+    "period": {"astronomy": "orbital period|period of an orbit|orbital periods", "biology": "circadian rhythm"},
+    "cycle": {"astronomy": "orbit|expansion cycle", "biology": "cell cycle|circadian rhythm"},
+    "rhythm": {"biology": "circadian rhythm"},
+    "radiation": {"astronomy": "black-body radiation|hawking radiation"},
+    "field": {"astronomy": "gravitational field"},
+    "collapse": {"astronomy": "core collapse"},
+    "energy": {"astronomy": "dark energy"},
+    "expansion": {"astronomy": "accelerating expansion"}
+  }
+}
