@@ -1,79 +1,152 @@
-"""Internal knowledge-base entry schemas.
-
-These are Part B-internal (NOT part of the frozen contracts with Part A),
-so they may evolve. Every entry still carries full provenance.
-
-Provenance rules enforced by kb/loader.py at load time:
-  * every entry must have a non-empty source title;
-  * every astronomy/biology entry must carry a resolvable reference
-    (URL or explicit book/paper reference), otherwise it is rejected;
-  * every tamil entry must be verified=True with text_name + verse_number +
-    author, otherwise it is rejected from retrieval;
-  * cross-domain relationships may only be INTERPRETATION or ANALOGY.
-"""
-
 from __future__ import annotations
 
-from typing import Optional
+import inspect
+import re
+from collections.abc import Callable
+from typing import Any, NamedTuple
 
-from pydantic import BaseModel, ConfigDict, Field
+from starlette.requests import Request
+from starlette.responses import Response
+from starlette.routing import BaseRoute, Host, Mount, Route
 
-from partb.contracts.enums import (
-    Dimension,
-    Domain,
-    EntityType,
-    EvidenceLabel,
-)
-from partb.contracts.models import Source
-
-
-class KBSource(Source):
-    """Source + internal-only verification flags (never serialized to Part A)."""
-
-    model_config = ConfigDict(frozen=True, extra="forbid")
-
-    verified: bool = True
+try:
+    import yaml
+except ModuleNotFoundError:  # pragma: no cover
+    yaml = None  # type: ignore[assignment]
 
 
-class KBEntry(BaseModel):
-    model_config = ConfigDict(frozen=True, extra="forbid")
+class OpenAPIResponse(Response):
+    media_type = "application/vnd.oai.openapi"
 
-    id: str
-    dimension: Dimension
-    domain: Domain
-    title: str
-    content: str  # for tamil entries this is the original verse text
-    evidence_label: EvidenceLabel
-    verified: bool = True  # placeholders / unverified records must set False
-    source: KBSource
-    entities: list[str] = Field(default_factory=list)
-    keywords: list[str] = Field(default_factory=list)
-    aliases: list[str] = Field(default_factory=list)
-
-    # -- astronomy extras -------------------------------------------------
-    equations: list[str] = Field(default_factory=list)
-
-    # -- biology extras ----------------------------------------------------
-    processes: list[str] = Field(default_factory=list)
-
-    # -- tamil extras -------------------------------------------------------
-    words: list[str] = Field(default_factory=list)
-    literal_meaning: Optional[str] = None
-    translation: Optional[str] = None
-    context: Optional[str] = None
-    concepts: list[str] = Field(default_factory=list)
+    def render(self, content: Any) -> bytes:
+        assert yaml is not None, "`pyyaml` must be installed to use OpenAPIResponse."
+        assert isinstance(content, dict), "The schema passed to OpenAPIResponse should be a dictionary."
+        return yaml.dump(content, default_flow_style=False).encode("utf-8")
 
 
-class KBRelationship(BaseModel):
-    model_config = ConfigDict(frozen=True, extra="forbid")
+class EndpointInfo(NamedTuple):
+    path: str
+    http_method: str
+    func: Callable[..., Any]
 
-    id: str
-    from_entity: str
-    to_entity: str
-    relation: str
-    dimension: Dimension = Dimension.THREE_D
-    evidence_label: EvidenceLabel
-    qualifier: str = ""
-    source: KBSource
-    cross_domain: bool = False
-    domain: Domain = Domain.ASTRONOMY  # home KB file for cross-domain bridges
+
+_remove_converter_pattern = re.compile(r":\w+}")
+
+
+class BaseSchemaGenerator:
+    def get_schema(self, routes: list[BaseRoute]) -> dict[str, Any]:
+        raise NotImplementedError()  # pragma: no cover
+
+    def get_endpoints(self, routes: list[BaseRoute]) -> list[EndpointInfo]:
+        """
+        Given the routes, yields the following information:
+
+        - path
+            eg: /users/
+        - http_method
+            one of 'get', 'post', 'put', 'patch', 'delete', 'options', 'query'
+        - func
+            method ready to extract the docstring
+        """
+        endpoints_info: list[EndpointInfo] = []
+
+        for route in routes:
+            if isinstance(route, Mount | Host):
+                routes = route.routes or []
+                if isinstance(route, Mount):
+                    path = self._remove_converter(route.path)
+                else:
+                    path = ""
+                sub_endpoints = [
+                    EndpointInfo(
+                        path="".join((path, sub_endpoint.path)),
+                        http_method=sub_endpoint.http_method,
+                        func=sub_endpoint.func,
+                    )
+                    for sub_endpoint in self.get_endpoints(routes)
+                ]
+                endpoints_info.extend(sub_endpoints)
+
+            elif not isinstance(route, Route) or not route.include_in_schema:
+                continue
+
+            elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):
+                path = self._remove_converter(route.path)
+                for method in route.methods or ["GET"]:
+                    if method == "HEAD":
+                        continue
+                    endpoints_info.append(EndpointInfo(path, method.lower(), route.endpoint))
+            else:
+                path = self._remove_converter(route.path)
+                for method in ["get", "post", "put", "patch", "delete", "options", "query"]:
+                    if not hasattr(route.endpoint, method):
+                        continue
+                    func = getattr(route.endpoint, method)
+                    endpoints_info.append(EndpointInfo(path, method.lower(), func))
+
+        return endpoints_info
+
+    def _remove_converter(self, path: str) -> str:
+        """
+        Remove the converter from the path.
+        For example, a route like this:
+            Route("/users/{id:int}", endpoint=get_user, methods=["GET"])
+        Should be represented as `/users/{id}` in the OpenAPI schema.
+        """
+        return _remove_converter_pattern.sub("}", path)
+
+    def parse_docstring(self, func_or_method: Callable[..., Any]) -> dict[str, Any]:
+        """
+        Given a function, parse the docstring as YAML and return a dictionary of info.
+        """
+        docstring = func_or_method.__doc__
+        if not docstring:
+            return {}
+
+        assert yaml is not None, "`pyyaml` must be installed to use parse_docstring."
+
+        # We support having regular docstrings before the schema
+        # definition. Here we return just the schema part from
+        # the docstring.
+        docstring = docstring.split("---")[-1]
+
+        parsed = yaml.safe_load(docstring)
+
+        if not isinstance(parsed, dict):
+            # A regular docstring (not yaml formatted) can return
+            # a simple string here, which wouldn't follow the schema.
+            return {}
+
+        return parsed
+
+    def OpenAPIResponse(self, request: Request) -> Response:
+        routes = request.app.routes
+        schema = self.get_schema(routes=routes)
+        return OpenAPIResponse(schema)
+
+
+class SchemaGenerator(BaseSchemaGenerator):
+    def __init__(self, base_schema: dict[str, Any]) -> None:
+        self.base_schema = base_schema
+
+    def get_schema(self, routes: list[BaseRoute]) -> dict[str, Any]:
+        schema = dict(self.base_schema)
+        schema.setdefault("paths", {})
+        openapi_version_match = re.match(r"^(\d+)\.(\d+)", str(schema.get("openapi", "")))
+        supports_query = openapi_version_match is not None and tuple(map(int, openapi_version_match.groups())) >= (3, 2)
+        endpoints_info = self.get_endpoints(routes)
+
+        for endpoint in endpoints_info:
+            if endpoint.http_method == "query" and not supports_query:
+                continue
+            parsed = self.parse_docstring(endpoint.func)
+
+            if not parsed:
+                continue
+
+            if endpoint.path not in schema["paths"]:
+                schema["paths"][endpoint.path] = {}
+
+            schema["paths"][endpoint.path][endpoint.http_method] = parsed
+
+        return schema
