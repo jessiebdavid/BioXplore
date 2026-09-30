@@ -1,0 +1,52 @@
+# Biology lexicon.
+# terms: canonical biological terms (exact + fuzzy matching).
+# disambiguators: context words that boost the biology score when nearby.
+terms:
+  - DNA
+  - RNA
+  - mRNA
+  - protein
+  - enzyme
+  - amino acid
+  - nucleotide
+  - codon
+  - genome
+  - gene
+  - gene expression
+  - transcription
+  - translation
+  - protein folding
+  - mutation
+  - replication
+  - cell division
+  - mitosis
+  - meiosis
+  - apoptosis
+  - signaling pathway
+  - metabolic pathway
+  - cell
+  - nucleus
+  - ribosome
+  - membrane
+  - tissue
+  - organ
+  - organism
+  - phenotype
+  - genotype
+  - biomarker
+  - disease progression
+  - development
+  - evolution
+  - rhythm
+  - circadian rhythm
+  - cycle
+disambiguators:
+  - cell
+  - gene
+  - protein
+  - organism
+  - biological
+  - enzyme
+  - molecular
+  - cellular
+  - evolutionary

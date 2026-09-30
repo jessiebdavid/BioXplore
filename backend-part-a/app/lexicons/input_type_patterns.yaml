@@ -1,0 +1,102 @@
+# Input-type classification rules. Score = raw(kind) * weight, normalized by
+# the max weight (100). Terms are word-boundary regex fragments (trusted
+# config), e.g. "laws?'s?" matches law/laws/law's. strong_terms count double.
+# Top-two scores within ambiguity_margin flag ambiguity -> (null) LLM fallback.
+ambiguity_margin: 0.15
+
+rules:
+  - id: multidim_explicit
+    input_type: multidimensional
+    weight: 100
+    kind: multi_domain_signal
+    params:
+      multi_domain_terms_required: 3
+      conjunctions: [and, with, plus]
+      enumeration_signals: [", "]
+
+  - id: cross_domain_compare
+    input_type: cross_domain
+    weight: 95
+    kind: contains_any
+    params:
+      terms: ["compared conceptually", "compared with", "compared to",
+              "link between", "connection between"]
+      strong_terms: ["compared conceptually"]
+
+  - id: comparison
+    input_type: comparison
+    weight: 90
+    kind: contains_any
+    params:
+      strong_terms: ["vs", "versus", "difference between"]
+      terms: ["compares?", "comparing", "differs?", "differences"]
+
+  - id: relationship
+    input_type: relationship
+    weight: 85
+    kind: contains_any
+    params:
+      strong_terms: ["related to", "relationship between", "link between",
+                     "connection between"]
+      terms: ["how does", "affects?", "influences?"]
+
+  - id: temporal
+    input_type: temporal
+    weight: 80
+    kind: contains_any
+    params:
+      strong_terms: ["over time", "change over time"]
+      terms: ["change over", "evolves?", "evolution", "progression", "period",
+              "future", "long-term", "short-term"]
+
+  - id: question
+    input_type: question
+    weight: 70
+    kind: question
+    params:
+      starts_with: ["what", "why", "how", "when", "where", "which", "who",
+                    "explain", "define"]
+      ends_with: ["?"]
+
+  - id: concept
+    input_type: concept
+    weight: 60
+    kind: contains_any
+    params:
+      strong_terms: ["laws?'?s?", "constants?"]
+      terms: ["principles?", "theorems?", "effects?", "models?"]
+
+  - id: theme_in_source
+    input_type: concept
+    weight: 60
+    kind: contains_any
+    params:
+      # '<tamil theme> in <text source>' reads as a concept/context query.
+      strong_terms: ["(nature|water|knowledge|body|love|virtue|duty|wealth|time|friendship|learning|discipline) in"]
+
+  - id: sentence
+    input_type: sentence
+    weight: 50
+    kind: sentence_intent
+    params:
+      starts_with: ["i want", "i need", "help me", "show me", "tell me",
+                    "i'd like", "i would like"]
+
+  - id: keyword
+    input_type: keyword
+    weight: 40
+    kind: contains_any
+    params:
+      # Index-term style technical keywords, kept distinct from topic-style
+      # subject nouns like 'black hole' or 'Thirukkural'.
+      terms: ["plasma oscillation", "plasma", "blast wave", "accretion",
+              "nucleosynthesis", "photometry", "spectral imaging",
+              "redshift", "blueshift", "cosmic microwave background"]
+
+  - id: topic
+    input_type: topic
+    weight: 30
+    kind: token_count
+    params:
+      min_tokens: 1
+      max_tokens: 4

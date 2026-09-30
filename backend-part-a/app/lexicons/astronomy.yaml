@@ -1,0 +1,50 @@
+# Astronomy/astrophysics lexicon.
+# terms: canonical multiword/singeword scientific terms (exact + fuzzy matching).
+# disambiguators: context words that boost the astronomy score when nearby.
+terms:
+  - black hole
+  - white hole
+  - wormhole
+  - blazar
+  - quasar
+  - pulsar
+  - neutron star
+  - interstellar cloud
+  - interstellar medium
+  - galaxy
+  - nebula
+  - cosmic microwave background
+  - plasma
+  - plasma oscillation
+  - blast wave
+  - accretion
+  - gravitational collapse
+  - nucleosynthesis
+  - photometry
+  - spectral imaging
+  - radio astronomy
+  - redshift
+  - blueshift
+  - Kepler's laws
+  - Kepler's first law
+  - Kepler's second law
+  - Kepler's third law
+  - orbital period
+  - black-body radiation
+  - radiation law
+  - cosmological constant
+  - spacetime
+  - cosmology
+  - general relativity
+  - special relativity
+disambiguators:
+  - orbit
+  - orbital
+  - celestial
+  - telescope
+  - light-year
+  - parsec
+  - stellar
+  - galactic
+  - gravitational
+  - redshift

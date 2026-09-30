@@ -1,0 +1,36 @@
+# Classical Tamil literature lexicon.
+# text_sources: canonical work names (exact + fuzzy matching).
+# themes: theme words matched as whole tokens.
+# disambiguators: literary context words that boost the tamil score.
+text_sources:
+  - Thirukkural
+  - Tholkappiyam
+  - Thirumandiram
+  - Purananuru
+  - Akananuru
+  - Natrinai
+  - Kuruntokai
+  - Silappathikaram
+  - Manimekalai
+themes:
+  - water
+  - nature
+  - knowledge
+  - body
+  - love
+  - virtue
+  - duty
+  - wealth
+  - time
+  - friendship
+  - learning
+  - discipline
+disambiguators:
+  - verse
+  - kural
+  - chapter
+  - poem
+  - poet
+  - literature
+  - Tamil
+  - Sangam
