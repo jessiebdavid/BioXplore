@@ -1,0 +1,215 @@
+{
+  "domain": "cross_domain",
+  "relationships": [
+    {
+      "id": "r_astro_kepler3_orbital_period",
+      "from_entity": "kepler's laws",
+      "to_entity": "orbital period",
+      "relation": "determines",
+      "dimension": "3D",
+      "evidence_label": "FACT",
+      "qualifier": "Kepler's third law: T^2 = (4 pi^2 / GM) a^3 — the orbital period is fixed by the semi-major axis and the central mass.",
+      "source": {
+        "title": "Encyclopaedia Britannica, 'Kepler's laws of planetary motion'",
+        "reference": "britannica.com/science/Keplers-laws-of-planetary-motion"
+      },
+      "cross_domain": false,
+      "domain": "astronomy"
+    },
+    {
+      "id": "r_astro_kepler_newton",
+      "from_entity": "kepler's laws",
+      "to_entity": "general relativity",
+      "relation": "superseded_by_limited_regime_of",
+      "dimension": "3D",
+      "evidence_label": "FACT",
+      "qualifier": "Newton derived Kepler's empirical laws from gravitation; Newtonian orbits are the weak-field limit of geodesic motion in curved spacetime.",
+      "source": {
+        "title": "Einstein, A. 1916, Annalen der Physik 49, 769; Britannica, 'Kepler's laws'",
+        "reference": "doi:10.1002/andp.19163540702"
+      },
+      "cross_domain": false,
+      "domain": "astronomy"
+    },
+    {
+      "id": "r_astro_plasma_freq_density",
+      "from_entity": "plasma frequency",
+      "to_entity": "radio emission",
+      "relation": "sets_cutoff_of",
+      "dimension": "3D",
+      "evidence_label": "EVIDENCE",
+      "qualifier": "Emission/propagation below the local plasma frequency is suppressed, so observed plasma-emission frequencies diagnose electron density (ionosondes, solar type III bursts).",
+      "source": {
+        "title": "Dulk, G. A. 1985, ARA&A 23, 169",
+        "reference": "doi:10.1146/annurev.aa.23.090185.002445"
+      },
+      "cross_domain": false,
+      "domain": "astronomy"
+    },
+    {
+      "id": "r_astro_mass_curves_spacetime",
+      "from_entity": "spacetime",
+      "to_entity": "black hole",
+      "relation": "curved_into_extreme_form_by",
+      "dimension": "3D",
+      "evidence_label": "FACT",
+      "qualifier": "In general relativity mass-energy curves spacetime; a black hole is the extreme case where the event horizon encloses a region no path leads out of.",
+      "source": {
+        "title": "Einstein, A. 1916, Annalen der Physik 49, 769; NASA Science — Black Holes",
+        "reference": "doi:10.1002/andp.19163540702"
+      },
+      "cross_domain": false,
+      "domain": "astronomy"
+    },
+    {
+      "id": "r_bio_mutation_protein_structure",
+      "from_entity": "mutation",
+      "to_entity": "protein folding",
+      "relation": "alters",
+      "dimension": "3D",
+      "evidence_label": "FACT",
+      "qualifier": "Sequence changes propagate to the amino-acid chain and can destabilize or redirect the folded 3D structure (sequence -> structure).",
+      "source": {
+        "title": "Anfinsen, C. B. 1973, Science 181, 223",
+        "reference": "doi:10.1126/science.181.4096.223"
+      },
+      "cross_domain": false,
+      "domain": "biology"
+    },
+    {
+      "id": "r_bio_structure_function",
+      "from_entity": "protein folding",
+      "to_entity": "gene expression",
+      "relation": "function_of_follows",
+      "dimension": "3D",
+      "evidence_label": "FACT",
+      "qualifier": "Cellular function depends on protein structure; expression level sets how much functional protein is available.",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., ch. 3",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "cross_domain": false,
+      "domain": "biology"
+    },
+    {
+      "id": "r_bio_mutation_disease_progression",
+      "from_entity": "mutation",
+      "to_entity": "disease progression",
+      "relation": "initiates_trajectory_toward",
+      "dimension": "3D",
+      "evidence_label": "EVIDENCE",
+      "qualifier": "Disease-relevant mutations start a chain: altered protein -> altered cell function -> tissue dysfunction -> clinical progression (e.g. colorectal adenoma-carcinoma sequence).",
+      "source": {
+        "title": "Fearon, E. R. & Vogelstein, B. 1990, Cell 61, 759",
+        "reference": "doi:10.1016/0092-8674(90)90186-U"
+      },
+      "cross_domain": false,
+      "domain": "biology"
+    },
+    {
+      "id": "r_astro_period_beats",
+      "from_entity": "orbital period",
+      "to_entity": "circadian rhythm",
+      "relation": "conceptually_parallels",
+      "dimension": "3D",
+      "evidence_label": "ANALOGY",
+      "qualifier": "Both are periodic phenomena described by a characteristic period: Keplerian orbits by T^2 = (4 pi^2 / GM) a^3, circadian rhythms by an endogenous ~24 h molecular clock. The shared abstraction is a robust oscillator; the physics differs completely (gravitational two-body dynamics versus gene-regulatory feedback), so any cross-mapping is a conceptual analogy, not evidence.",
+      "source": {
+        "title": "CROSS-DOMAIN ESSAY: Britannica, 'Kepler's laws of planetary motion'; Dunlap, J. C. 1999, Cell 96, 271 (circadian clocks)",
+        "reference": "doi:10.1016/S0092-8674(00)80466-8"
+      },
+      "cross_domain": true,
+      "domain": "astronomy"
+    },
+    {
+      "id": "r_bio_clock_generates_rhythm",
+      "from_entity": "gene expression",
+      "to_entity": "circadian rhythm",
+      "relation": "generates",
+      "dimension": "3D",
+      "evidence_label": "FACT",
+      "qualifier": "The delayed TTFL feedback loop of clock genes produces the ~24 h physiological rhythm.",
+      "source": {
+        "title": "Dunlap, J. C. 1999, Cell 96, 271",
+        "reference": "doi:10.1016/S0092-8674(00)80466-8"
+      },
+      "cross_domain": false,
+      "domain": "biology"
+    },
+    {
+      "id": "r_bio_tf_regulates_expression",
+      "from_entity": "transcription factor",
+      "to_entity": "gene expression",
+      "relation": "regulates",
+      "dimension": "3D",
+      "evidence_label": "FACT",
+      "qualifier": "Transcription factors binding promoters/enhancers set transcription rates — the primary control point of expression.",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., ch. 7",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "cross_domain": false,
+      "domain": "biology"
+    },
+    {
+      "id": "r_x_astro_rhythm_tamil_timesense",
+      "from_entity": "circadian rhythm",
+      "to_entity": "cyclic time (tamil akam poetics)",
+      "relation": "conceptually_parallels",
+      "dimension": "3D",
+      "evidence_label": "ANALOGY",
+      "qualifier": "Both map recurring cycles onto lived time: the ~24 h molecular clock in organisms versus the classical Tamil division of the day/night and seasons into akam landscape-times. A structural parallel for comparative study — it is NOT scientific evidence for either system.",
+      "source": {
+        "title": "CROSS-DOMAIN ESSAY: Dunlap 1999, Cell 96, 271 (clock mechanism); Kailasapathy, K. 1968, Tamil Heroic Poetry, ch. on akam conventions (Clarendon Press)",
+        "reference": "doi:10.1016/S0092-8674(00)80466-8"
+      },
+      "cross_domain": true,
+      "domain": "astronomy"
+    },
+    {
+      "id": "r_x_astro_cycles_impermanence",
+      "from_entity": "accelerating expansion",
+      "to_entity": "impermanence (tamil puram theme)",
+      "relation": "conceptually_parallels",
+      "dimension": "3D",
+      "evidence_label": "ANALOGY",
+      "qualifier": "Cosmology describes stars, structures and the universe itself as changing irreversibly over time; classical puram poetry meditates on the impermanence of human life and monuments. Both treat change over time, but the poem is a human reflection, not a physical model — labelled ANALOGY, not evidence.",
+      "source": {
+        "title": "CROSS-DOMAIN ESSAY: Riess et al. 1998, AJ 116, 1009 (cosmic change); Kailasapathy, K. 1968, Tamil Heroic Poetry (puram themes)",
+        "reference": "doi:10.1086/300499"
+      },
+      "cross_domain": true,
+      "domain": "astronomy"
+    },
+    {
+      "id": "r_x_bio_water_dependence",
+      "from_entity": "cell",
+      "to_entity": "water value (thirukkural theme)",
+      "relation": "conceptually_resonates_with",
+      "dimension": "3D",
+      "evidence_label": "INTERPRETATION",
+      "qualifier": "Biology: water is the solvent and prerequisite of cellular life. Thirukkural's rain chapter (to be cited from a verified edition) ranks rain as the foundation of worldly order. Reading them together is an interpretive bridge about the centrality of water — it does not make the poem a scientific claim.",
+      "source": {
+        "title": "CROSS-DOMAIN ESSAY: Alberts et al., MBoCell 6th ed. ch. 2 (water and life); Thirukkural rain chapter — verse citation pending verified edition",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "cross_domain": true,
+      "domain": "biology"
+    },
+    {
+      "id": "r_x_bio_rhythm_microcosm",
+      "from_entity": "circadian rhythm",
+      "to_entity": "body as microcosm (thirumandiram theme)",
+      "relation": "conceptually_parallels",
+      "dimension": "3D",
+      "evidence_label": "INTERPRETATION",
+      "qualifier": "Thirumandiram's interpretive tradition treats the human body as a container of cosmic order; molecular chronobiology finds endogenous rhythms within the body. Both locate order inside the living body, but they are different kinds of claim — one interpretive-religious, one empirical — and must stay labelled INTERPRETATION.",
+      "source": {
+        "title": "CROSS-DOMAIN ESSAY: Dunlap 1999, Cell 96, 271; Thirumandiram interpretive literature — verse citation pending verified edition",
+        "reference": "doi:10.1016/S0092-8674(00)80466-8"
+      },
+      "cross_domain": true,
+      "domain": "biology"
+    }
+  ]
+}

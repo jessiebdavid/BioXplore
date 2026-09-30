@@ -1,0 +1,260 @@
+{
+  "domain": "biology",
+  "entries": [
+    {
+      "id": "bio_dna_def",
+      "dimension": "1D",
+      "domain": "biology",
+      "title": "DNA (definition)",
+      "content": "DNA (deoxyribonucleic acid) is the hereditary molecule of all known life: a double helix of two antiparallel strands whose nucleotide units (A, T, G, C) pair specifically (A with T, G with C). The sequence of bases encodes genetic information; the structure was determined by Watson, Crick, Franklin and Wilkins in 1953.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Watson, J. D. & Crick, F. H. C. 1953, Nature 171, 737 (Molecular Structure of Nucleic Acids)",
+        "reference": "doi:10.1038/171737a0"
+      },
+      "entities": ["dna", "double helix", "base pairing"],
+      "keywords": ["deoxyribonucleic acid", "nucleotide", "genetic material"],
+      "aliases": ["dna molecule", "deoxyribonucleic acid"]
+    },
+    {
+      "id": "bio_rna_def",
+      "dimension": "1D",
+      "domain": "biology",
+      "title": "RNA (definition)",
+      "content": "RNA (ribonucleic acid) is usually single-stranded, uses the sugar ribose and the base uracil in place of thymine. Classes include messenger RNA (mRNA, protein-coding transcripts), transfer RNA and ribosomal RNA; RNA can both store information and catalyse reactions (ribozymes), which is why RNA-first ideas exist for life's origin.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Cech, T. R. 2000, Science 289, 878 (The Ribosome is a Ribozyme)",
+        "reference": "doi:10.1126/science.289.5481.878"
+      },
+      "entities": ["rna", "mrna", "ribozyme"],
+      "keywords": ["ribonucleic acid", "transcript", "uracil"],
+      "aliases": ["ribonucleic acid"]
+    },
+    {
+      "id": "bio_gene_def",
+      "dimension": "1D",
+      "domain": "biology",
+      "title": "Gene (definition)",
+      "content": "A gene is a DNA segment that is transcribed into a functional product (protein or regulatory RNA); through the genetic code, protein-coding genes specify amino-acid sequences. Genes include regulatory elements (promoters, enhancers) that control when, where and how strongly they are expressed.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., Norton, 2015, ch. 1 & 4",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "entities": ["gene", "promoter", "genetic code"],
+      "keywords": ["transcription unit", "locus", "allele"],
+      "aliases": ["genes"]
+    },
+    {
+      "id": "bio_mutation_def",
+      "dimension": "1D",
+      "domain": "biology",
+      "title": "Mutation (definition and types)",
+      "content": "A mutation is a change in the DNA sequence: point mutations (missense, nonsense, silent), insertions/deletions (indels), duplications, inversions and chromosomal rearrangements. Mutations arise from replication errors, radiation or chemicals, and only heritable variants (in germ line or the relevant cell lineage) matter for disease and evolution.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., Norton, 2015, ch. 5",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "entities": ["mutation", "point mutation", "indel"],
+      "keywords": ["variant", "deletion", "substitution", "frameshift"],
+      "aliases": ["mutations", "genetic variant"]
+    },
+    {
+      "id": "bio_mutation_effect_mechanism",
+      "dimension": "2D",
+      "domain": "biology",
+      "title": "How mutations alter proteins and cellular function (mechanism)",
+      "content": "A coding mutation changes the mRNA and hence the amino-acid sequence of the encoded protein; because protein function depends on a precise folded 3D structure, substitutions or frameshifts can destabilize folding, abolish active sites, or remove stop codons. Misfolded proteins are degraded or aggregate, and loss of a channel, enzyme or repair protein changes cellular behaviour — for example CFTR mutations cause thick airway-surface mucus in cystic fibrosis; a single Glu6->Val in beta-globin polymerizes haemoglobin in sickle-cell disease.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., ch. 3 (protein function); Riordan, J. R. et al. 1989, Science 245, 1066 (CFTR)",
+        "reference": "doi:10.1126/science.2475911"
+      },
+      "entities": ["mutation", "protein folding", "cftr", "sickle cell"],
+      "keywords": ["missense", "misfolding", "loss of function"],
+      "aliases": ["mutation mechanism", "mutation effects"]
+    },
+    {
+      "id": "bio_protein_folding",
+      "dimension": "2D",
+      "domain": "biology",
+      "title": "Protein folding (mechanism)",
+      "content": "The amino-acid sequence drives the protein to fold into a specific low-energy 3D structure (Anfinsen); folding is assisted in vivo by chaperones, and misfolding is prevented by quality-control degradation. Sequence determines structure, structure determines function — the causal chain that connects DNA changes to cellular phenotypes.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Anfinsen, C. B. 1973, Science 181, 223 (Principles that Govern the Folding of Protein Chains)",
+        "reference": "doi:10.1126/science.181.4096.223"
+      },
+      "entities": ["protein folding", "chaperone", "anfinsen"],
+      "keywords": ["tertiary structure", "misfolding", "aggregation"],
+      "aliases": ["protein folding"]
+    },
+    {
+      "id": "bio_gene_expression_def",
+      "dimension": "1D",
+      "domain": "biology",
+      "title": "Gene expression (definition)",
+      "content": "Gene expression is the process by which information in a gene becomes a functional product: transcription of DNA to mRNA followed (for proteins) by translation on ribosomes. 'Expression level' is the amount of product, measured for example by RNA-seq or qPCR.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., Norton, 2015, ch. 6",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "entities": ["gene expression", "transcription", "translation"],
+      "keywords": ["expression level", "transcript", "rna-seq"],
+      "aliases": ["gene expression levels"]
+    },
+    {
+      "id": "bio_gene_expression_regulation",
+      "dimension": "2D",
+      "domain": "biology",
+      "title": "Regulation of gene expression (mechanism)",
+      "content": "Expression is controlled at multiple levels: transcription factors and enhancers/promoters set transcription rates; RNA processing, stability and localization adjust mRNA availability; translation and protein degradation tune final protein amounts. Feedback loops, epigenetic marks (DNA methylation, histone modification) and signalling pathways (e.g. hormone receptors) integrate external and internal signals into per-gene expression patterns.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., ch. 7 (control of gene expression)",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "entities": ["transcription factor", "enhancer", "epigenetics"],
+      "keywords": ["regulation", "feedback", "methylation"],
+      "aliases": ["gene regulation", "expression regulation"]
+    },
+    {
+      "id": "bio_gene_expression_time",
+      "dimension": "4D",
+      "domain": "biology",
+      "title": "Gene expression changes over time (temporal dynamics)",
+      "content": "Expression is dynamic, not static. Documented examples: circadian clock genes in the liver and suprachiasmatic nucleus oscillate with a ~24 h period (Panda et al. 2002; Zhang et al. 2014, Science, cycling transcriptomes in mouse); development proceeds as ordered waves of gene expression (time-series atlases); response to stimulation shows pulse-and-recovery transcription kinetics. Measuring expression as a time series, not a snapshot, is standard in modern biology.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Panda, S. et al. 2002, Cell 109, 307 (Circadian transcriptional output in the SCN and liver); Zhang, R. et al. 2014, Science 342",
+        "reference": "doi:10.1126/science.1245030"
+      },
+      "entities": ["gene expression", "circadian rhythm", "development"],
+      "keywords": ["time series", "oscillation", "kinetics"],
+      "aliases": ["temporal gene expression", "expression over time"]
+    },
+    {
+      "id": "bio_circadian_def",
+      "dimension": "1D",
+      "domain": "biology",
+      "title": "Biological (circadian) rhythm (definition)",
+      "content": "A circadian rhythm is a biological process with a free-running period of about 24 hours, generated by an internal molecular clock (in mammals, interlocked TTFL loops of Clock/Bmal1 driving Per/Cry transcription-translation), synchronized daily by light via the retina-SCN pathway. Hallmarks: persists without external cues, is temperature-compensated, and can be reset (entrained) by zeitgebers.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Dunlap, J. C. 1999, Cell 96, 271 (Molecular Bases for Circadian Clocks)",
+        "reference": "doi:10.1016/S0092-8674(00)80466-8"
+      },
+      "entities": ["circadian rhythm", "biological clock", "suprachiasmatic nucleus"],
+      "keywords": ["24 hour", "clock genes", "entrainment"],
+      "aliases": ["biological rhythms", "circadian clock", "biological rhythm"]
+    },
+    {
+      "id": "bio_circadian_mechanism",
+      "dimension": "2D",
+      "domain": "biology",
+      "title": "Circadian clock mechanism (TTFL feedback)",
+      "content": "The core mechanism is a transcription-translation feedback loop (TTFL): CLOCK/BMAL1 activate Per and Cry transcription; PER/CRY proteins accumulate, dimerize, enter the nucleus and repress their own transcription; slow degradation delays the cycle, setting a ~24 h period. Post-translational modifications (phosphorylation by CK1, ubiquitination) tune the delay. The same design principle — delayed negative feedback — can generate robust oscillations in other contexts.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Dunlap, J. C. 1999, Cell 96, 271; Bell-Pedersen, D. et al. 2005, Nature Reviews Genetics 6, 544",
+        "reference": "doi:10.1038/nrg1633"
+      },
+      "entities": ["ttfl", "per", "cry", "clock", "bmal1"],
+      "keywords": ["feedback loop", "delay", "oscillator"],
+      "aliases": ["molecular clock", "clock mechanism"]
+    },
+    {
+      "id": "bio_pathway_def",
+      "dimension": "1D",
+      "domain": "biology",
+      "title": "Biological pathway (definition)",
+      "content": "A biological pathway is a defined series of molecular interactions that converts a signal or substrate into an output — e.g. signal-transduction cascades, metabolic routes (glycolysis) and gene-regulatory circuits. Pathway databases (Reactome, KEGG) catalogue these interaction maps with literature citations.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Fabregat, A. et al. 2018, Nucleic Acids Research 46, D649 (The Reactome Pathway Knowledgebase)",
+        "reference": "doi:10.1093/nar/gkx1132"
+      },
+      "entities": ["biological pathway", "signal transduction", "reactome"],
+      "keywords": ["cascade", "network", "metabolism"],
+      "aliases": ["cell pathways", "signalling pathway"]
+    },
+    {
+      "id": "bio_networks_biomarkers",
+      "dimension": "2D",
+      "domain": "biology",
+      "title": "Networks and biomarkers (context)",
+      "content": "Cellular behaviour emerges from networks of interacting genes, proteins and metabolites rather than isolated parts; perturbations propagate along edges, producing modules of co-regulated components. Biomarkers are measurable indicators of a biological state (a protein level, a mutation, an expression signature); biomarker discovery typically mines such networks for nodes whose perturbation discriminates disease from health.",
+      "evidence_label": "INTERPRETATION",
+      "source": {
+        "title": "Barabasi, A.-L. & Oltvai, Z. N. 2004, Nature Reviews Genetics 5, 101 (Network biology)",
+        "reference": "doi:10.1038/nrg1272"
+      },
+      "entities": ["biological network", "biomarker", "network medicine"],
+      "keywords": ["hub", "module", "perturbation"],
+      "aliases": ["network biology", "biomarkers"]
+    },
+    {
+      "id": "bio_cell_def",
+      "dimension": "1D",
+      "domain": "biology",
+      "title": "Cell (definition)",
+      "content": "The cell is the basic structural and functional unit of all living organisms; cells arise only from pre-existing cells. Prokaryotic cells lack a nucleus; eukaryotic cells compartmentalize functions into organelles (nucleus, mitochondria, ER), enabling specialization of chemical environments.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., Norton, 2015, ch. 1",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "entities": ["cell", "organelle", "prokaryote", "eukaryote"],
+      "keywords": ["unit of life", "membrane", "compartment"],
+      "aliases": ["cells", "cell theory"]
+    },
+    {
+      "id": "bio_disease_progression_cancer",
+      "dimension": "4D",
+      "domain": "biology",
+      "title": "Disease progression as stepwise clonal evolution (cancer example)",
+      "content": "Many diseases progress through ordered stages, and in cancer this progression is literally an evolutionary process: sequential mutations accumulate in a cell lineage, each successive clone carrying changes for growth advantage (e.g. APC then KRAS then TP53 along the adenoma-carcinoma sequence in colorectal cancer). Multi-region sequencing confirms spatial and temporal heterogeneity within one tumour. Progression is therefore change over time at the cellular-population level.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Fearon, E. R. & Vogelstein, B. 1990, Cell 61, 759 (A genetic model for colorectal tumorigenesis); Yates, L. R. et al. 2015, Nature Genetics",
+        "reference": "doi:10.1016/0092-8674(90)90186-U"
+      },
+      "entities": ["disease progression", "cancer", "clonal evolution", "colorectal cancer"],
+      "keywords": ["stages", "tumour evolution", "adenoma carcinoma"],
+      "aliases": ["cancer progression", "tumor progression"]
+    },
+    {
+      "id": "bio_mutation_disease_temporal",
+      "dimension": "4D",
+      "domain": "biology",
+      "title": "Mutation to disease trajectory over time (worked chain)",
+      "content": "A disease-relevant mutation initiates a temporal chain: DNA change -> altered mRNA -> altered protein structure/stability -> changed cellular function (e.g. impaired chloride transport) -> tissue-level dysfunction -> clinical progression over years (as in cystic fibrosis or Huntington's, where CAG repeat length sets age of onset). The chain is causal but rates vary by gene and environment; the mechanism is established, the timeline is individual.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Riordan, J. R. et al. 1989, Science 245, 1066 (CFTR); Tabrizi, S. J. et al. 2020, Lancet Neurology (TRACK-HD Huntington's progression)",
+        "reference": "doi:10.1126/science.2475911"
+      },
+      "entities": ["mutation", "disease progression", "cystic fibrosis", "huntington's"],
+      "keywords": ["trajectory", "age of onset", "progression"],
+      "aliases": ["mutation disease chain", "genotype to phenotype over time"]
+    },
+    {
+      "id": "bio_development_stages",
+      "dimension": "4D",
+      "domain": "biology",
+      "title": "Development as temporal gene-expression programme",
+      "content": "Development unfolds as a temporal programme: cascades of transcription factors turn gene networks on and off in sequence (e.g. Hox gene colinearity, Drosophila segmentation cascade), so the set of expressed genes at each stage is stage-specific. Developmental time is therefore read out directly in changing expression profiles.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Alberts, B. et al., Molecular Biology of the Cell, 6th ed., ch. 21 (development); Duboule, D. 1994, Annual Review of Cell Biology (Hox colinearity)",
+        "reference": "ISBN 978-0-8153-4432-2"
+      },
+      "entities": ["development", "hox genes", "gene expression"],
+      "keywords": ["differentiation", "embryogenesis", "stage-specific"],
+      "aliases": ["developmental biology", "gene expression development"]
+    }
+  ]
+}

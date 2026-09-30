@@ -1,0 +1,326 @@
+{
+  "domain": "astronomy",
+  "entries": [
+    {
+      "id": "astro_black_hole_def",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Black hole (definition)",
+      "content": "A black hole is a region of spacetime where gravity is so strong that nothing — not even light — can escape once it crosses the boundary called the event horizon. Stellar-mass and supermassive black holes are observationally established; their defining property is the event horizon, not a literal 'surface'.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "NASA Science — Black Holes",
+        "reference": "science.nasa.gov/universe/black-holes (overview); EHT Collaboration 2019, ApJL 875, L1, doi:10.3847/2041-8213/ab0ec7 (first image of the M87* shadow)"
+      },
+      "entities": ["black hole", "event horizon", "spacetime"],
+      "keywords": ["gravity", "singularity", "event horizon"],
+      "aliases": ["blackhole", "black holes", "bh"]
+    },
+    {
+      "id": "astro_black_hole_formation",
+      "dimension": "2D",
+      "domain": "astronomy",
+      "title": "Black hole formation mechanism (stellar collapse)",
+      "content": "Stellar-mass black holes form when the iron core of a massive star (roughly above ~20 solar masses initial mass) collapses under its own weight at the end of nuclear burning; the infalling material can either rebound as a supernova or continue collapsing directly. Dynamical mass measurements of X-ray binaries such as Cygnus X-1 confirm compact objects far denser than neutron stars.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "NASA Science — Black Holes (stellar-mass); Casares & Jonker 2014, Space Sci. Rev. 183, 223 (dynamical mass measurements)",
+        "reference": "doi:10.1007/s11214-014-0068-9"
+      },
+      "entities": ["black hole", "massive star", "core collapse", "supernova"],
+      "keywords": ["formation", "collapse", "supernova", "neutron star"],
+      "aliases": ["black hole formation", "stellar collapse"]
+    },
+    {
+      "id": "astro_hawking_evaporation",
+      "dimension": "4D",
+      "domain": "astronomy",
+      "title": "Black hole evaporation over time (Hawking radiation)",
+      "content": "Quantum field theory in curved spacetime predicts that black holes emit thermal radiation and slowly lose mass, evaporating over enormous timescales; the prediction is theoretical and has not been observed. Speculative endpoint scenarios (remnant vs complete evaporation vs information release) remain open research questions.",
+      "evidence_label": "HYPOTHESIS",
+      "source": {
+        "title": "Hawking, S. W. 1974, Nature 248, 30 (Black hole explosions?)",
+        "reference": "doi:10.1038/248030a0"
+      },
+      "entities": ["black hole", "hawking radiation", "evaporation"],
+      "keywords": ["quantum", "temperature", "lifetime"],
+      "aliases": ["hawking radiation", "black hole evaporation"]
+    },
+    {
+      "id": "astro_plasma_def",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Plasma (definition)",
+      "content": "A plasma is an ionized gas: a quasi-neutral collection of free ions and electrons whose collective electromagnetic behaviour dominates over short-range collisions. Often called the fourth state of matter, plasma makes up over 99% of the visible universe (stars, the solar wind, the ionized interstellar medium).",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Chen, F. F., Introduction to Plasma Physics and Controlled Fusion, 3rd ed., Springer, 2016, ch. 1",
+        "reference": "ISBN 978-3-319-22309-4"
+      },
+      "entities": ["plasma", "ionized gas"],
+      "keywords": ["fourth state of matter", "ions", "electrons"],
+      "aliases": ["plasma state", "ionized gas"]
+    },
+    {
+      "id": "astro_plasma_oscillation_def",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Plasma oscillation (definition)",
+      "content": "A plasma oscillation (Langmuir oscillation) is a collective, nearly sinusoidal oscillation of the electron population against the comparatively immobile ion background. It occurs at the electron plasma frequency omega_p = sqrt(n_e e^2 / (eps_0 m_e)), which depends only on electron density n_e and constants.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Chen, F. F., Introduction to Plasma Physics and Controlled Fusion, 3rd ed., Springer, 2016, ch. 4",
+        "reference": "ISBN 978-3-319-22309-4"
+      },
+      "equations": ["omega_p = sqrt(n_e e^2 / (eps_0 m_e))"],
+      "entities": ["plasma oscillation", "plasma frequency", "electrons"],
+      "keywords": ["langmuir oscillation", "plasma frequency"],
+      "aliases": ["plasma oscillations", "langmuir oscillation", "langmuir waves"]
+    },
+    {
+      "id": "astro_plasma_oscillation_mechanism",
+      "dimension": "2D",
+      "domain": "astronomy",
+      "title": "Plasma oscillation mechanism (charge-separation restoring force)",
+      "content": "If a slab of electrons is displaced relative to the ions, charge separation builds an electric field that pulls the electrons back; their inertia carries them past equilibrium, and the displacement repeats — an electrostatic oscillator. Ions, being much heavier, are effectively stationary. The oscillation is collective: it is the medium, not individual particles, that oscillates. Discovered by Langmuir in the 1920s in ionized gases.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Chen, F. F., Introduction to Plasma Physics and Controlled Fusion, 3rd ed., Springer, 2016, ch. 4",
+        "reference": "ISBN 978-3-319-22309-4"
+      },
+      "entities": ["plasma oscillation", "charge separation", "electric field"],
+      "keywords": ["restoring force", "collective behaviour", "debye shielding"],
+      "aliases": ["langmuir mechanism", "plasma oscillation mechanism"]
+    },
+    {
+      "id": "astro_plasma_frequency_radio",
+      "dimension": "2D",
+      "domain": "astronomy",
+      "title": "Plasma frequency and radio emission (diagnostic use)",
+      "content": "Radio waves can only propagate where the wave frequency exceeds the local plasma frequency, so the plasma frequency acts as a cutoff that is used diagnostically: ionosondes infer ionospheric electron densities from reflected radio, and solar type III radio bursts (plasma emission near the fundamental or harmonic of omega_p) trace electron beams through the corona. Measuring the emission frequency therefore measures the density of the emitting plasma.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Dulk, G. A. 1985, Annual Review of Astronomy & Astrophysics 23, 169 (Radio emission from the sun and stars)",
+        "reference": "doi:10.1146/annurev.aa.23.090185.002445"
+      },
+      "entities": ["plasma frequency", "radio emission", "type iii burst", "ionosphere"],
+      "keywords": ["cutoff", "density diagnostic", "solar radio bursts"],
+      "aliases": ["plasma emission", "radio cutoff"]
+    },
+    {
+      "id": "astro_spectral_imaging",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Spectral imaging (definition)",
+      "content": "Spectral imaging combines imaging and spectroscopy: at every resolved position on the sky a spectrum is recorded, producing a three-dimensional data cube (two spatial axes plus wavelength/velocity). In astrophysics this is realized by imaging spectrographs such as IFUs and slot/fabry-perot instruments; NASA's IRIS observatory obtains UV spectra and slit-jaw images of the solar atmosphere this way.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "De Pontieu et al. 2014, Solar Physics 289, 2733 (The Interface Region Imaging Spectrograph, IRIS)",
+        "reference": "doi:10.1007/s11207-014-0485-y"
+      },
+      "entities": ["spectral imaging", "data cube", "spectroscopy"],
+      "keywords": ["imaging spectroscopy", "integral field", "datacube"],
+      "aliases": ["spectral image", "imaging spectroscopy", "hyperspectral imaging"]
+    },
+    {
+      "id": "astro_photometry",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Photometry (definition)",
+      "content": "Photometry is the measurement of the intensity of light from an astronomical source, usually through well-defined filter bands; results are expressed as magnitudes on a logarithmic scale (m = -2.5 log10 F + ZP). Time-series photometry (light curves) reveals variability such as exoplanet transits, eclipsing binaries and stellar pulsation.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Henden, A. A. & Kaitchuck, R. H., Astronomical Photometry, Van Nostrand Reinhold, 1982",
+        "reference": "ISBN 978-0-442-27039-8 (also reissued by Willmann-Bell)"
+      },
+      "entities": ["photometry", "magnitude", "light curve"],
+      "keywords": ["filters", "brightness", "flux measurement"],
+      "aliases": ["photoelectric photometry", "ccd photometry"]
+    },
+    {
+      "id": "astro_wien_law",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Wien's displacement law (radiation law)",
+      "content": "Wien's displacement law states that the wavelength of peak emission of a black-body spectrum is inversely proportional to its absolute temperature: lambda_max * T = 2.898e-3 m*K. Hotter bodies peak at shorter (bluer) wavelengths, which is why colour is a temperature diagnostic for stars.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Encyclopaedia Britannica, 'Wien law'",
+        "reference": "britannica.com/science/Wien-law"
+      },
+      "equations": ["lambda_max * T = 2.898e-3 m K"],
+      "entities": ["wien's displacement law", "black-body radiation", "temperature"],
+      "keywords": ["peak wavelength", "colour", "black body"],
+      "aliases": ["wien law", "wiens displacement law"]
+    },
+    {
+      "id": "astro_blackbody_planck",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Black-body radiation and Planck's law",
+      "content": "A black body absorbs all incident radiation and emits a universal spectrum described by Planck's law, B_nu(T) = (2 h nu^3 / c^2) / (exp(h nu / k T) - 1). Integrating gives the Stefan-Boltzmann law, F = sigma T^4: total emitted power grows with the fourth power of temperature. The 2.725 K cosmic microwave background is the most precise natural black-body spectrum known.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Planck, M. 1901, Annalen der Physik 4, 553 (Ueber das Gesetz der Energieverteilung im Normalspectrum)",
+        "reference": "doi:10.1002/andp.19013090310"
+      },
+      "equations": ["B_nu(T) = 2h nu^3 / c^2 / (exp(h nu / kT) - 1)", "F = sigma T^4"],
+      "entities": ["black-body radiation", "planck's law", "stefan-boltzmann law"],
+      "keywords": ["thermal radiation", "spectrum", "cmb"],
+      "aliases": ["blackbody radiation", "planck law", "black body"]
+    },
+    {
+      "id": "astro_blazar",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Blazar (definition)",
+      "content": "A blazar is an active galactic nucleus whose relativistic jet happens to point close to our line of sight. Doppler boosting of the jet emission makes blazars the brightest and most variable gamma-ray sources in the sky, with non-thermal continua and rapid flares across the electromagnetic spectrum.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Urry, C. M. & Padovani, P. 1995, Publications of the ASP 107, 803 (Unified Schemes for Radio-Loud Active Galactic Nuclei)",
+        "reference": "doi:10.1086/133630"
+      },
+      "entities": ["blazar", "relativistic jet", "active galactic nucleus"],
+      "keywords": ["gamma-ray", "variability", "doppler boosting", "agn"],
+      "aliases": ["blazars", "bl lac object", "ovv quasar"]
+    },
+    {
+      "id": "astro_blast_wave_sedov_taylor",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Blast waves and the Sedov-Taylor solution",
+      "content": "A blast wave is a strong shock driven by a sudden release of energy into a medium. For a point explosion in uniform cold gas, dimensional analysis gives the shock radius R(t) = xi (E t^2 / rho_0)^(1/5): energy-conserving expansion slows as t^(2/5). Young supernova remnants such as Tycho and SN 1006 are the classic astronomical blast waves and are observed to expand close to this law.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Taylor, G. I. 1950, Proceedings of the Royal Society A 201, 159 (The formation of a blast wave by a very intense explosion)",
+        "reference": "doi:10.1098/rspa.1950.0043"
+      },
+      "equations": ["R(t) = xi (E t^2 / rho_0)^(1/5)"],
+      "entities": ["blast wave", "supernova remnant", "shock wave"],
+      "keywords": ["explosion", "shock", "expansion"],
+      "aliases": ["sedov-taylor", "blast waves", "sedov solution"]
+    },
+    {
+      "id": "astro_cosmological_constant_def",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Cosmological constant Lambda (definition)",
+      "content": "The cosmological constant Lambda is a constant energy density of the vacuum added to Einstein's field equations (originally by Einstein in 1917 to allow a static universe, later discarded and revived). Positive Lambda acts as a repulsive component whose density stays constant as the universe expands; it is the simplest candidate for dark energy.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Einstein, A. 1917, Sitzungsber. Preuss. Akad. Wiss. (Kosmologische Betrachtungen zur allgemeinen Relativitaetstheorie)",
+        "reference": "reprinted in The Collected Papers of Albert Einstein, Vol. 6, Princeton UP"
+      },
+      "equations": ["G_mu_nu + Lambda g_mu_nu = (8 pi G / c^4) T_mu_nu"],
+      "entities": ["cosmological constant", "dark energy", "einstein field equations"],
+      "keywords": ["lambda", "vacuum energy", "dark energy"],
+      "aliases": ["lambda term", "cosmological constant"]
+    },
+    {
+      "id": "astro_accelerating_expansion",
+      "dimension": "4D",
+      "domain": "astronomy",
+      "title": "Expansion history of the universe (change over time)",
+      "content": "Observations of type Ia supernovae show that the expansion of the universe, which decelerated for roughly the first half of cosmic history under gravity, has been accelerating for the last several billion years — the signature of dark energy. The expansion rate (Hubble parameter) itself changes with time, so distances to a given redshift evolve over cosmic history.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Riess, A. G. et al. 1998, Astronomical Journal 116, 1009 (Observational Evidence from Supernovae for an Accelerating Universe)",
+        "reference": "doi:10.1086/300499"
+      },
+      "entities": ["accelerating expansion", "dark energy", "type ia supernova"],
+      "keywords": ["hubble parameter", "expansion history", "distance-redshift"],
+      "aliases": ["accelerating universe", "cosmic acceleration"]
+    },
+    {
+      "id": "astro_white_hole_def",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "White hole (definition; hypothetical)",
+      "content": "A white hole is the time-reverse of a black hole: a region nothing can enter, from which matter and light can only emerge. It appears as a mathematical solution of general relativity (e.g. the maximally extended Schwarzschild/Kruskal solution) but there is no observational evidence that white holes exist, and no known formation mechanism in our universe. Any physical claim involving white holes is speculative.",
+      "evidence_label": "HYPOTHESIS",
+      "source": {
+        "title": "Hawking, S. W. & Ellis, G. F. R. 1973, The Large Scale Structure of Space-Time, Cambridge University Press, sec. 5.6",
+        "reference": "ISBN 978-0-521-09906-6"
+      },
+      "entities": ["white hole", "event horizon", "general relativity"],
+      "keywords": ["time reversal", "kruskal", "schwarzschild"],
+      "aliases": ["white holes"]
+    },
+    {
+      "id": "astro_wormhole_def",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Wormhole (definition; hypothetical)",
+      "content": "A wormhole (Einstein-Rosen bridge) is a hypothetical tunnel connecting two regions of spacetime. The Morris-Thorne analysis showed that a wormhole traversable by humans would require 'exotic' matter violating the usual energy conditions; no wormhole has ever been observed and their existence is speculative.",
+      "evidence_label": "HYPOTHESIS",
+      "source": {
+        "title": "Morris, M. S. & Thorne, K. S. 1988, American Journal of Physics 56, 395 (Wormholes in spacetime and their use for interstellar travel)",
+        "reference": "doi:10.1119/1.15620"
+      },
+      "entities": ["wormhole", "einstein-rosen bridge", "exotic matter"],
+      "keywords": ["traversable", "spacetime topology", "throat"],
+      "aliases": ["wormholes", "einstein rosen bridge"]
+    },
+    {
+      "id": "astro_kepler_laws",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Kepler's laws of planetary motion",
+      "content": "Kepler's three laws, from empirical analysis of Tycho Brahe's observations: (1) planets move on ellipses with the Sun at one focus; (2) the radius vector sweeps equal areas in equal times; (3) the square of the orbital period is proportional to the cube of the semi-major axis, T^2 = (4 pi^2 / GM) a^3 for a central mass M. Newton later derived all three from his law of gravitation.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Encyclopaedia Britannica, 'Kepler's laws of planetary motion'; Kepler, Harmonices Mundi (1619), Book V",
+        "reference": "britannica.com/science/Keplers-laws-of-planetary-motion"
+      },
+      "equations": ["T^2 = (4 pi^2 / G M) a^3"],
+      "entities": ["kepler's laws", "orbital period", "semi-major axis"],
+      "keywords": ["ellipse", "planetary motion", "harmonic law"],
+      "aliases": ["keplers laws", "kepler law", "laws of planetary motion"]
+    },
+    {
+      "id": "astro_orbital_evolution_moon",
+      "dimension": "4D",
+      "domain": "astronomy",
+      "title": "Orbits change over time (lunar recession)",
+      "content": "Orbital periods and distances are not frozen: tides raised by the Earth on the Moon transfer angular momentum, pushing the Moon away from Earth by about 3.8 cm per year (measured by laser ranging to Apollo reflectors) and lengthening Earth's day. Over millions of years such tidal evolution measurably changes orbital periods across planetary and satellite systems.",
+      "evidence_label": "EVIDENCE",
+      "source": {
+        "title": "Dickey, J. O. et al. 1994, Science 265, 482 (Lunar Laser Ranging: A Continuing Legacy of the Apollo Program)",
+        "reference": "doi:10.1126/science.265.5171.482"
+      },
+      "entities": ["orbital period", "tides", "moon"],
+      "keywords": ["tidal evolution", "angular momentum", "laser ranging"],
+      "aliases": ["lunar recession", "orbital evolution"]
+    },
+    {
+      "id": "astro_spacetime_def",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Spacetime (definition)",
+      "content": "Spacetime is the unified four-dimensional continuum of space and time of special and general relativity. In general relativity (Einstein 1916) mass-energy curves spacetime, and free bodies follow geodesics of that curved geometry; gravity is this geometry, not a force in the Newtonian sense.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Einstein, A. 1916, Annalen der Physik 49, 769 (Die Grundlage der allgemeinen Relativitaetstheorie)",
+        "reference": "doi:10.1002/andp.19163540702"
+      },
+      "entities": ["spacetime", "general relativity", "geodesic"],
+      "keywords": ["curvature", "continuum", "relativity"],
+      "aliases": ["space-time", "spacetime continuum"]
+    },
+    {
+      "id": "astro_radio_astronomy",
+      "dimension": "1D",
+      "domain": "astronomy",
+      "title": "Radio astronomy (definition and discovery)",
+      "content": "Radio astronomy observes celestial objects at radio wavelengths (about 1 mm to 30 m). Karl Jansky's 1932/33 detection of radio waves from the Milky Way founded the field; the Earth's atmosphere is transparent in the radio window, enabling ground-based arrays and interferometry with angular resolution set by baseline length.",
+      "evidence_label": "FACT",
+      "source": {
+        "title": "Jansky, K. G. 1933, Nature 132, 66 (Electrical disturbances apparently of extraterrestrial origin)",
+        "reference": "doi:10.1038/132066a0"
+      },
+      "entities": ["radio astronomy", "interferometry", "jansky"],
+      "keywords": ["radio telescope", "array", "radio window"],
+      "aliases": ["radio astronomy"]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+Initial import: Backend Part B — knowledge bases, retrieval, relationship analysis
+
+Frozen Part A/B contracts (Pydantic v2), validated JSON knowledge bases for
+astronomy, biology and classical Tamil (placeholders only until verses are
+verified against a cited edition), dimension-scoped retrieval, 3D +
+cross-domain relationship analysis with evidence labels, FastAPI service
+(POST /retrieve, GET /health), and 31 tests covering the 8 benchmark queries.
+
+🤖 Generated with Codebuff
+Co-Authored-By: Codebuff <noreply@codebuff.com>

@@ -1,0 +1,97 @@
+{
+  "domain": "tamil",
+  "entries": [
+    {
+      "id": "ta_placeholder_kural_water",
+      "dimension": "1D",
+      "domain": "tamil",
+      "title": "PLACEHOLDER — Thirukkural, water theme (to be filled)",
+      "content": "<<TO BE FILLED FROM VERIFIED EDITION>>",
+      "evidence_label": "FACT",
+      "verified": false,
+      "source": {
+        "title": "PLACEHOLDER — Thirukkural (edition to be recorded)",
+        "text_name": "Thirukkural",
+        "chapter": "to be recorded",
+        "author": "Thiruvalluvar"
+      },
+      "words": [],
+      "concepts": ["water", "rain"],
+      "keywords": ["water"],
+      "aliases": ["thirukkural water"]
+    },
+    {
+      "id": "ta_placeholder_kural_rain",
+      "dimension": "1D",
+      "domain": "tamil",
+      "title": "PLACEHOLDER — Thirukkural, rain chapter (to be filled)",
+      "content": "<<TO BE FILLED FROM VERIFIED EDITION>>",
+      "evidence_label": "FACT",
+      "verified": false,
+      "source": {
+        "title": "PLACEHOLDER — Thirukkural (edition to be recorded)",
+        "text_name": "Thirukkural",
+        "chapter": "to be recorded",
+        "author": "Thiruvalluvar"
+      },
+      "words": [],
+      "concepts": ["rain", "cosmic order"],
+      "keywords": ["rain"],
+      "aliases": ["thirukkural rain"]
+    },
+    {
+      "id": "ta_placeholder_purananuru",
+      "dimension": "1D",
+      "domain": "tamil",
+      "title": "PLACEHOLDER — Purananuru (to be filled)",
+      "content": "<<TO BE FILLED FROM VERIFIED EDITION>>",
+      "evidence_label": "FACT",
+      "verified": false,
+      "source": {
+        "title": "PLACEHOLDER — Purananuru (edition to be recorded)",
+        "text_name": "Purananuru",
+        "author": "to be recorded"
+      },
+      "words": [],
+      "concepts": ["impermanence"],
+      "keywords": ["purananuru"],
+      "aliases": ["purananuru"]
+    },
+    {
+      "id": "ta_placeholder_thirumandiram",
+      "dimension": "1D",
+      "domain": "tamil",
+      "title": "PLACEHOLDER — Thirumandiram (to be filled)",
+      "content": "<<TO BE FILLED FROM VERIFIED EDITION>>",
+      "evidence_label": "FACT",
+      "verified": false,
+      "source": {
+        "title": "PLACEHOLDER — Thirumandiram (edition to be recorded)",
+        "text_name": "Thirumandiram",
+        "author": "Tirumular"
+      },
+      "words": [],
+      "concepts": ["body", "spirit"],
+      "keywords": ["thirumandiram"],
+      "aliases": ["thirumandiram"]
+    },
+    {
+      "id": "ta_placeholder_avvaiyar",
+      "dimension": "1D",
+      "domain": "tamil",
+      "title": "PLACEHOLDER — Avvaiyar work (to be filled)",
+      "content": "<<TO BE FILLED FROM VERIFIED EDITION>>",
+      "evidence_label": "FACT",
+      "verified": false,
+      "source": {
+        "title": "PLACEHOLDER — Avvaiyar (edition to be recorded)",
+        "text_name": "Aathichudi",
+        "author": "Avvaiyar"
+      },
+      "words": [],
+      "concepts": ["ethics", "learning"],
+      "keywords": ["avvaiyar"],
+      "aliases": ["avvaiyar"]
+    }
+  ]
+}
