@@ -1,43 +1,73 @@
 from __future__ import annotations
 
-import http.client
 from collections.abc import Mapping
+from typing import Any
+
+from starlette._exception_handler import (
+    ExceptionHandlers,
+    StatusHandlers,
+    wrap_app_handling_exceptions,
+)
+from starlette.exceptions import HTTPException, WebSocketException
+from starlette.requests import Request
+from starlette.responses import PlainTextResponse, Response
+from starlette.types import ASGIApp, ExceptionHandler, Receive, Scope, Send
+from starlette.websockets import WebSocket
 
 
-class HTTPException(Exception):
-    def __init__(self, status_code: int, detail: str | None = None, headers: Mapping[str, str] | None = None) -> None:
-        if detail is None:
-            detail = http.client.responses.get(status_code, "")
-        self.status_code = status_code
-        self.detail = detail
-        self.headers = headers
+class ExceptionMiddleware:
+    def __init__(
+        self,
+        app: ASGIApp,
+        handlers: Mapping[Any, ExceptionHandler] | None = None,
+        debug: bool = False,
+    ) -> None:
+        self.app = app
+        self.debug = debug  # TODO: We ought to handle 404 cases if debug is set.
+        self._status_handlers: StatusHandlers = {}
+        self._exception_handlers: ExceptionHandlers = {
+            HTTPException: self.http_exception,
+            WebSocketException: self.websocket_exception,
+        }
+        if handlers is not None:  # pragma: no branch
+            for key, value in handlers.items():
+                self.add_exception_handler(key, value)
 
-    def __str__(self) -> str:
-        return f"{self.status_code}: {self.detail}"
+    def add_exception_handler(
+        self,
+        exc_class_or_status_code: int | type[Exception],
+        handler: ExceptionHandler,
+    ) -> None:
+        if isinstance(exc_class_or_status_code, int):
+            self._status_handlers[exc_class_or_status_code] = handler
+        else:
+            assert issubclass(exc_class_or_status_code, Exception)
+            self._exception_handlers[exc_class_or_status_code] = handler
 
-    def __repr__(self) -> str:
-        class_name = self.__class__.__name__
-        return f"{class_name}(status_code={self.status_code!r}, detail={self.detail!r})"
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+        if scope["type"] not in ("http", "websocket"):
+            await self.app(scope, receive, send)
+            return
 
+        scope["starlette.exception_handlers"] = (
+            self._exception_handlers,
+            self._status_handlers,
+        )
 
-class WebSocketException(Exception):
-    def __init__(self, code: int, reason: str | None = None) -> None:
-        self.code = code
-        self.reason = reason or ""
+        conn: Request | WebSocket
+        if scope["type"] == "http":
+            conn = Request(scope, receive, send)
+        else:
+            conn = WebSocket(scope, receive, send)
 
-    def __str__(self) -> str:
-        return f"{self.code}: {self.reason}"
+        await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
 
-    def __repr__(self) -> str:
-        class_name = self.__class__.__name__
-        return f"{class_name}(code={self.code!r}, reason={self.reason!r})"
+    async def http_exception(self, request: Request, exc: Exception) -> Response:
+        assert isinstance(exc, HTTPException)
+        if exc.status_code in {204, 304}:
+            return Response(status_code=exc.status_code, headers=exc.headers)
+        return PlainTextResponse(exc.detail, status_code=exc.status_code, headers=exc.headers)
 
-
-class StarletteDeprecationWarning(UserWarning):
-    """A custom deprecation warning for Starlette.
-
-    Unlike the built-in DeprecationWarning, this inherits from UserWarning to ensure it is visible by default, helping
-    users discover deprecated features without needing to enable warnings explicitly.
-
-    Reference: https://sethmlarson.dev/deprecations-via-warnings-dont-work-for-python-libraries
-    """
+    async def websocket_exception(self, websocket: WebSocket, exc: Exception) -> None:
+        assert isinstance(exc, WebSocketException)
+        await websocket.close(code=exc.code, reason=exc.reason)  # pragma: no cover

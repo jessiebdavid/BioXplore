@@ -1,18 +1,26 @@
-Metadata-Version: 2.4
-Name: typing_extensions
-Version: 4.16.0
-Summary: Backported and Experimental Type Hints for Python 3.9+
-Keywords: annotations,backport,checker,checking,function,hinting,hints,type,typechecking,typehinting,typehints,typing
-Author-email: "Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee" <levkivskyi@gmail.com>
-Requires-Python: >=3.9
-Description-Content-Type: text/markdown
-License-Expression: PSF-2.0
-Classifier: Development Status :: 5 - Production/Stable
-Classifier: Environment :: Console
+Metadata-Version: 2.5
+Name: Pygments
+Version: 2.21.0
+Summary: Pygments is a syntax highlighting package written in Python.
+Project-URL: Homepage, https://pygments.org
+Project-URL: Documentation, https://pygments.org/docs
+Project-URL: Source, https://github.com/pygments/pygments
+Project-URL: Bug Tracker, https://github.com/pygments/pygments/issues
+Project-URL: Changelog, https://github.com/pygments/pygments/blob/master/CHANGES
+Author-email: Georg Brandl <georg@python.org>
+Maintainer: Matthäus G. Chajdas
+Maintainer-email: Georg Brandl <georg@python.org>, Jean Abou Samra <jean@abou-samra.fr>
+License-Expression: BSD-2-Clause
+License-File: AUTHORS
+License-File: LICENSE
+Keywords: syntax highlighting
+Classifier: Development Status :: 6 - Mature
 Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
 Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
@@ -20,54 +28,31 @@ Classifier: Programming Language :: Python :: 3.12
 Classifier: Programming Language :: Python :: 3.13
 Classifier: Programming Language :: Python :: 3.14
 Classifier: Programming Language :: Python :: 3.15
-Classifier: Topic :: Software Development
-License-File: LICENSE
-Project-URL: Bug Tracker, https://github.com/python/typing_extensions/issues
-Project-URL: Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md
-Project-URL: Documentation, https://typing-extensions.readthedocs.io/
-Project-URL: Home, https://github.com/python/typing_extensions
-Project-URL: Q & A, https://github.com/python/typing/discussions
-Project-URL: Repository, https://github.com/python/typing_extensions
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Utilities
+Requires-Python: >=3.9
+Provides-Extra: plugins
+Provides-Extra: windows-terminal
+Requires-Dist: colorama>=0.4.6; extra == 'windows-terminal'
+Description-Content-Type: text/x-rst
 
-# Typing Extensions
+Pygments
+~~~~~~~~
 
-[![Chat at https://gitter.im/python/typing](https://badges.gitter.im/python/typing.svg)](https://gitter.im/python/typing)
+Pygments is a syntax highlighting package written in Python.
 
-[Documentation](https://typing-extensions.readthedocs.io/en/latest/#) –
-[PyPI](https://pypi.org/project/typing-extensions/)
+It is a generic syntax highlighter suitable for use in code hosting, forums,
+wikis or other applications that need to prettify source code.  Highlights
+are:
 
-## Overview
+* a wide range of over 500 languages and other text formats is supported
+* special attention is paid to details, increasing quality by a fair amount
+* support for new languages and formats are added easily
+* a number of output formats, presently HTML, LaTeX, RTF, SVG, all image
+  formats that PIL supports and ANSI sequences
+* it is usable as a command-line tool and as a library
 
-The `typing_extensions` module serves two related purposes:
-
-- Enable use of new type system features on older Python versions. For example,
-  `typing.TypeGuard` is new in Python 3.10, but `typing_extensions` allows
-  users on previous Python versions to use it too.
-- Enable experimentation with new type system PEPs before they are accepted and
-  added to the `typing` module.
-
-`typing_extensions` is treated specially by static type checkers such as
-mypy and pyright. Objects defined in `typing_extensions` are treated the same
-way as equivalent forms in `typing`.
-
-`typing_extensions` uses
-[Semantic Versioning](https://semver.org/). The
-major version will be incremented only for backwards-incompatible changes.
-Therefore, it's safe to depend
-on `typing_extensions` like this: `typing_extensions ~=x.y`,
-where `x.y` is the first version that includes all features you need.
-[This](https://packaging.python.org/en/latest/specifications/version-specifiers/#compatible-release)
-is equivalent to `typing_extensions >=x.y, <(x+1)`. Do not depend on `~= x.y.z`
-unless you really know what you're doing; that defeats the purpose of
-semantic versioning.
-
-## Included items
-
-See [the documentation](https://typing-extensions.readthedocs.io/en/latest/#) for a
-complete listing of module contents.
-
-## Contributing
-
-See [CONTRIBUTING.md](https://github.com/python/typing_extensions/blob/main/CONTRIBUTING.md)
-for how to contribute to `typing_extensions`.
-
+Copyright 2006-present by the Pygments team, see ``AUTHORS``.
+Licensed under the BSD, see ``LICENSE`` for details.

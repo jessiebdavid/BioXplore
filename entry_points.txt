@@ -1,2 +1,2 @@
 [console_scripts]
-uvicorn = uvicorn.main:main
+pygmentize = pygments.cmdline:main
