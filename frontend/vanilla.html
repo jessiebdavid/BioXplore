@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<!-- Fallback Canonical Vanilla Implementation of Multidimensional Knowledge System -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multidimensional Knowledge System — Epistemic Observatory (Vanilla Fallback)</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Continuous Living Scientific Coordinate Background -->
+  <div id="global-bg" class="global-bg-container" aria-hidden="true"></div>
+
+  <!-- Optical Aperture Shutter Transition -->
+  <div id="transition-overlay" class="transition-overlay" hidden></div>
+
+  <!-- Observatory Top Navigation Bar -->
+  <header id="main-nav" class="topbar">
+    <div class="nav-inner">
+      <a href="#/intro" class="brand-group" aria-label="Multidimensional Knowledge System Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" fill="none" stroke="var(--ink-secondary)" stroke-width="1.2" />
+            <circle cx="16" cy="16" r="4" fill="var(--color-cross)" />
+            <line x1="16" y1="2" x2="16" y2="30" stroke="var(--rule-hairline)" stroke-width="0.8" stroke-dasharray="2 2" />
+            <line x1="2" y1="16" x2="30" y2="16" stroke="var(--rule-hairline)" stroke-width="0.8" stroke-dasharray="2 2" />
+            <circle cx="16" cy="6" r="2" fill="var(--color-astro)" />
+            <circle cx="25" cy="21" r="2" fill="var(--color-bio)" />
+            <circle cx="7" cy="21" r="2" fill="var(--color-tamil)" />
+          </svg>
+        </div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">MKS // MULTIDIMENSIONAL KNOWLEDGE</span>
+          <span class="brand-subtitle">Astronomy • Biology • Classical Tamil</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links-wrap" aria-label="Main Navigation">
+        <a href="#/explore" class="nav-link" id="nav-link-explore">Explorer</a>
+        <a href="#/domains" class="nav-link" id="nav-link-domains">Domains</a>
+        <a href="#/methodology" class="nav-link" id="nav-link-methodology">Methodology</a>
+        <a href="#/about" class="nav-link" id="nav-link-about">Codex</a>
+      </nav>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <span class="chip-dimension-indicator" title="Active Epistemic Dimensions">[1D • 2D • 3D • 4D]</span>
+        <span id="backend-badge" class="chip-backend">Backend: mock</span>
+        <button id="logout-btn" class="btn-logout" title="Sign out of research session">Logout</button>
+        <button id="mobile-menu-toggle" class="btn-mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Down Menu -->
+    <div id="mobile-menu" class="mobile-menu-drawer" hidden>
+      <a href="#/explore" class="nav-link">Explorer</a>
+      <a href="#/domains" class="nav-link">Domains</a>
+      <a href="#/methodology" class="nav-link">Methodology</a>
+      <a href="#/about" class="nav-link">Codex</a>
+      <button id="mobile-logout-btn" class="btn-logout" style="margin-top: 0.5rem; text-align: left;">Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Application Content Stage -->
+  <main class="main-wrapper">
+
+    <!-- VIEW 1: #/login (Observatory Calibration Threshold) -->
+    <div id="view-login" class="view-pane" hidden>
+      <div class="gateway-container">
+        <header class="gateway-header">
+          <span class="section-eyebrow">ACADEMIC OBSERVATORY &amp; EPISTEMIC PLATFORM</span>
+          <h1 class="gateway-main-title">MULTIDIMENSIONAL KNOWLEDGE SYSTEM</h1>
+          <p class="gateway-tagline">
+            An interdisciplinary research framework synthesizing observational astrophysics, molecular biology,
+            and Classical Tamil literary heritage through multi-tiered conceptual dimensions.
+          </p>
+          <div class="gateway-formula-row" aria-label="Convergence Formula">
+            <span class="chip chip-domain chip-astro">[ASTRONOMY / ASTROPHYSICS]</span>
+            <span class="formula-operator">+</span>
+            <span class="chip chip-domain chip-bio">[BIOLOGY / BIOLOGICAL SYSTEMS]</span>
+            <span class="formula-operator">+</span>
+            <span class="chip chip-domain chip-tamil">[CLASSICAL TAMIL LITERATURE]</span>
+            <span class="formula-operator">→</span>
+            <span class="chip chip-domain chip-cross">[1D → 2D → 3D → 4D SYNTHESIS]</span>
+          </div>
+        </header>
+
+        <section class="gateway-visual-card" aria-label="Tri-Domain Optical Interferometer">
+          <div id="login-convergence-visual"></div>
+        </section>
+
+        <section class="gateway-auth-wrapper" aria-label="Scholar Authentication Console">
+          <div class="gateway-auth-card">
+            <div class="gateway-auth-header">
+              <div>
+                <span class="section-eyebrow">SCHOLAR ACCESS CONSOLE</span>
+                <h2 class="auth-title">Initialize Research Session</h2>
+              </div>
+              <span class="auth-badge-demo">[PEER REVIEW ACCESS]</span>
+            </div>
+
+            <div id="login-error-alert" class="form-error-alert" hidden></div>
+
+            <form id="login-form" novalidate class="gateway-form-layout">
+              <div class="form-group">
+                <label for="login-email" class="form-label">Research / Institutional ID</label>
+                <input
+                  type="email"
+                  id="login-email"
+                  class="input-text"
+                  placeholder="scholar@research.edu"
+                  value="scholar@research.edu"
+                  autocomplete="username"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="login-password" class="form-label">Access Passkey</label>
+                <div class="password-input-wrap">
+                  <input
+                    type="password"
+                    id="login-password"
+                    class="input-text"
+                    placeholder="Enter access password"
+                    value="knowledge2026"
+                    autocomplete="current-password"
+                    required
+                  />
+                  <button type="button" id="toggle-password-btn" class="btn-toggle-pass" aria-label="Show password">Show</button>
+                </div>
+              </div>
+
+              <button type="submit" id="login-submit-btn" class="gateway-btn-submit">
+                INITIALIZE INSTRUMENT ────►
+              </button>
+            </form>
+
+            <div class="gateway-auth-footer">
+              <span>Standard evaluation credentials pre-calibrated.</span>
+              <span>Coordinates: 13.0827° N, 80.2707° E</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- VIEW 2: #/intro (Epistemic Cartography & Three Domains) -->
+    <div id="view-intro" class="view-pane" hidden>
+      <div class="intro-hero">
+        <span class="section-eyebrow">RESEARCH KNOWLEDGE ENGINE</span>
+        <h1 class="hero-title">Understand Knowledge Across Domains &amp; Dimensions</h1>
+        <p class="hero-description">
+          A rigorous epistemological platform interconnecting empirical astrophysics, molecular biology,
+          and Classical Tamil literary heritage into a unified 4-dimensional conceptual model.
+        </p>
+        <a href="#/explore" id="intro-cta-btn" class="hero-cta-btn">ENTER THE KNOWLEDGE SYSTEM ────►</a>
+      </div>
+
+      <section class="intro-convergence-section">
+        <div class="section-intro-header">
+          <span class="section-eyebrow">CONVERGENCE ARCHITECTURE</span>
+          <h2 class="section-main-title">Three Domains → One System</h2>
+          <p class="section-main-sub">
+            Bridging disparate epistemic horizons through shared structural dimensions without conflating analogy with empirical proof.
+          </p>
+        </div>
+        <div class="intro-visual-card">
+          <div id="intro-convergence-visual"></div>
+        </div>
+      </section>
+
+      <div class="three-domains-grid">
+        <div class="domain-card domain-card-astro">
+          <div class="domain-schematic-mark">[PILLAR I // PHYSICAL SCIENCES]</div>
+          <h3 class="domain-card-title">Astronomy / Astrophysics</h3>
+          <p class="domain-card-body">
+            Macroscopic physical laws, relativistic spacetime geometries, Keplerian orbital mechanics, plasma oscillations, and thermodynamic radiation.
+          </p>
+          <div class="domain-topics-list">
+            <span class="chip chip-domain chip-astro">General Relativity</span>
+            <span class="chip chip-domain chip-astro">Orbital Dynamics</span>
+            <span class="chip chip-domain chip-astro">Radiation Laws</span>
+          </div>
+        </div>
+
+        <div class="domain-card domain-card-bio">
+          <div class="domain-schematic-mark">[PILLAR II // LIFE SCIENCES]</div>
+          <h3 class="domain-card-title">Biology / Biological Systems</h3>
+          <p class="domain-card-body">
+            Cell-autonomous circadian oscillators, molecular transcriptional-translational feedback loops (TTFL), genetic mutations, and metabolic cascades.
+          </p>
+          <div class="domain-topics-list">
+            <span class="chip chip-domain chip-bio">Gene Expression</span>
+            <span class="chip chip-domain chip-bio">Circadian Pacemakers</span>
+            <span class="chip chip-domain chip-bio">Cellular Pathways</span>
+          </div>
+        </div>
+
+        <div class="domain-card domain-card-tamil">
+          <div class="domain-schematic-mark">[PILLAR III // CLASSICAL HUMANITIES]</div>
+          <h3 class="domain-card-title">Classical Tamil Literature</h3>
+          <p class="domain-card-body">
+            Epistemic ethics, Sangam environmental bioregional poetics (Ainthinai), hydraulic civilization philosophy in Thirukkural, and ecological taxonomies in Tholkappiyam.
+          </p>
+          <div class="domain-topics-list">
+            <span class="chip chip-domain chip-tamil">Thirukkural</span>
+            <span class="chip chip-domain chip-tamil">Tholkappiyam</span>
+            <span class="chip chip-domain chip-tamil">Vaan Chirappu</span>
+          </div>
+        </div>
+      </div>
+
+      <section style="margin: 4rem 0;">
+        <div class="section-intro-header">
+          <span class="section-eyebrow">DIMENSIONAL TAXONOMY</span>
+          <h2 class="section-main-title">From Text to Possibility</h2>
+          <p class="section-main-sub">Knowledge expands through progressive layers of conceptual depth.</p>
+        </div>
+        <div class="dimension-flow-grid">
+          <div class="dim-flow-card dim-flow-1d">
+            <div class="dim-flow-badge">[1D]</div>
+            <h4 class="dim-flow-name">Text / Literal</h4>
+            <p class="dim-flow-desc">Direct empirical facts, explicit mathematical formulas, physical measurements, original Unicode Tamil script, and verified literal translations.</p>
+          </div>
+          <div class="dim-flow-card dim-flow-2d">
+            <div class="dim-flow-badge">[2D]</div>
+            <h4 class="dim-flow-name">Interpretation / Context</h4>
+            <p class="dim-flow-desc">Physical boundary conditions, cellular regulatory environments, feedback loops, and historical-literary cultural contexts.</p>
+          </div>
+          <div class="dim-flow-card dim-flow-3d">
+            <div class="dim-flow-badge">[3D]</div>
+            <h4 class="dim-flow-name">Symbol / Concept / Relationship</h4>
+            <p class="dim-flow-desc">Topological network of scientific entities, cause-and-effect pathways, cross-domain analogies, and textual attributions.</p>
+          </div>
+          <div class="dim-flow-card dim-flow-4d">
+            <div class="dim-flow-badge">[4D]</div>
+            <h4 class="dim-flow-name">Future / Hypothetical / Temporal</h4>
+            <p class="dim-flow-desc">Evolution over cosmological or biological epochs, chronological progression steps, and theoretical future horizons.</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin: 3.5rem 0;">
+        <div class="section-intro-header">
+          <span class="section-eyebrow">RESEARCH ARCHITECTURE</span>
+          <h2 class="section-main-title">How the System Thinks</h2>
+          <p class="section-main-sub">The 8-stage pipeline from natural language prompt to multidimensional synthesis.</p>
+        </div>
+        <div class="pipeline-steps-wrap">
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 01</div><div class="step-name">Query Parsing</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 02</div><div class="step-name">Query Understanding</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 03</div><div class="step-name">Domain Detection</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 04</div><div class="step-name">Concept Extraction</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 05</div><div class="step-name">Dimension Activation</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 06</div><div class="step-name">Lexical Retrieval</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 07</div><div class="step-name">Relationship Mapping</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 08</div><div class="step-name">4D Synthesis</div></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW 3: #/explore (Main Knowledge Explorer) -->
+    <div id="view-explore" class="view-pane" hidden>
+      <div class="explorer-search-card">
+        <span class="section-eyebrow">KNOWLEDGE WORKSPACE // OPTICAL APERTURE</span>
+        <h2 style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 400; color: var(--ink-primary); margin-bottom: 0.85rem;">
+          Explore Knowledge Across Domains &amp; Dimensions
+        </h2>
+
+        <div class="search-input-row">
+          <input
+            id="query-input"
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Enter a topic, keyword, concept, sentence, question, or cross-domain query..."
+            aria-label="Query input"
+          />
+          <button id="analyze-btn">ANALYZE ────►</button>
+        </div>
+
+        <div class="example-chips-container" aria-label="Example benchmark queries">
+          <span class="example-label">Benchmark Calibrations:</span>
+          <div id="example-chips" style="display: flex; flex-wrap: wrap; gap: 0.4rem;"></div>
+        </div>
+      </div>
+
+      <section id="state-idle" class="state-container idle-card">
+        <div class="idle-icon-wrap">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="var(--ink-secondary)" stroke-width="1.2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+            <path d="M2 12h20" />
+          </svg>
+        </div>
+        <h3>Begin Multidimensional Exploration</h3>
+        <p>
+          Select one of the benchmark queries above or enter a research concept across Astronomy, Biology,
+          or Classical Tamil literature to observe structured 1D–4D knowledge synthesis.
+        </p>
+      </section>
+
+      <section id="state-loading" class="state-container loading-card" hidden aria-live="polite">
+        <div class="loading-research-anim">
+          <div class="loading-ring"></div>
+        </div>
+        <h3 class="loading-text">CALIBRATING FOCAL PLANES &amp; DECONSTRUCTING QUERY...</h3>
+        <p class="loading-subtext">Evaluating lexical retrieval, contextual mechanisms, and topological relationship networks.</p>
+      </section>
+
+      <section id="state-error" class="state-container error-card" hidden aria-live="assertive">
+        <div class="error-badge-row">
+          <span id="error-code" class="error-code">ERROR</span>
+          <h3 class="error-title">Query Evaluation Notice</h3>
+        </div>
+        <p id="error-message" class="error-message">An unexpected evaluation error occurred.</p>
+        <button id="retry-query-btn" class="gateway-btn-submit" style="max-width: 200px; margin: 0 auto;">
+          Retry Query
+        </button>
+      </section>
+
+      <section id="state-result" hidden></section>
+    </div>
+
+    <!-- VIEW 4: #/domains (Domain Ledger) -->
+    <div id="view-domains" class="view-pane" hidden>
+      <div class="section-intro-header">
+        <span class="section-eyebrow">RESEARCH TAXONOMY</span>
+        <h2 class="section-main-title">Domain Exploration Ledger</h2>
+        <p class="section-main-sub">Three equally weighted fields investigated through systematic cross-dimensional analysis.</p>
+      </div>
+
+      <div class="domains-ledger" style="margin-top: 2rem;">
+        <article class="domain-ledger-entry astro">
+          <div class="ledger-header">
+            <div>
+              <span class="chip chip-domain chip-astro">[PILLAR I // PHYSICAL SCIENCES]</span>
+              <h3 class="ledger-title">Astronomy / Astrophysics</h3>
+            </div>
+            <button class="example-chip-btn domain-search-btn" data-query="Black hole vs white hole">Analyze in Explorer ────►</button>
+          </div>
+          <p class="ledger-prose">
+            Investigates matter, energy, curvature of spacetime, and cosmic evolution from stellar interiors to cosmological expansion.
+            Key conceptual pillars include Einsteinian general relativity, Schwarzschild geometries, Keplerian planetary kinematics,
+            plasma wave resonance, and blackbody thermodynamic radiation laws.
+          </p>
+          <div class="ledger-specs">
+            <div><strong>Primary Scope:</strong> Relativistic Spacetime &amp; Mechanics</div>
+            <div><strong>Scale:</strong> Stellar to Cosmological Horizons</div>
+            <div><strong>Epistemic Framework:</strong> Empirical Observation &amp; Mathematical Physics</div>
+          </div>
+        </article>
+
+        <article class="domain-ledger-entry bio">
+          <div class="ledger-header">
+            <div>
+              <span class="chip chip-domain chip-bio">[PILLAR II // LIFE SCIENCES]</span>
+              <h3 class="ledger-title">Biology / Biological Systems</h3>
+            </div>
+            <button class="example-chip-btn domain-search-btn" data-query="Circadian rhythm biological clock">Analyze in Explorer ────►</button>
+          </div>
+          <p class="ledger-prose">
+            Examines living systems across scales from DNA/RNA transcriptional feedback loops to organismal homeostasis and physiological adaptation.
+            Focus areas include molecular genetics, metabolic pacemakers in the suprachiasmatic nucleus (SCN), cellular enzyme kinetics,
+            and endogenous circadian oscillations synchronized with planetary rotation.
+          </p>
+          <div class="ledger-specs">
+            <div><strong>Primary Scope:</strong> Molecular Genetics &amp; Homeostasis</div>
+            <div><strong>Scale:</strong> Macromolecular to Organismal Systems</div>
+            <div><strong>Epistemic Framework:</strong> Molecular Biology &amp; Mechanistic Systems</div>
+          </div>
+        </article>
+
+        <article class="domain-ledger-entry tamil">
+          <div class="ledger-header">
+            <div>
+              <span class="chip chip-domain chip-tamil">[PILLAR III // CLASSICAL HUMANITIES]</span>
+              <h3 class="ledger-title">Classical Tamil Literature</h3>
+            </div>
+            <button class="example-chip-btn domain-search-btn" data-query="Water cycle in ancient literature">Analyze in Explorer ────►</button>
+          </div>
+          <p class="ledger-prose">
+            Preserves deep civilizational wisdom, ethical governance, and environmental categorization rooted in the Sangam era (300 BCE – 300 CE).
+            Encompasses the 1,330 couplets of Thiruvalluvar's Thirukkural—notably the hydraulic philosophy of Vaan Chirappu—and Tholkappiyam's
+            Ainthinai five-fold bioregional ecological landscape taxonomy.
+          </p>
+          <div class="ledger-specs">
+            <div><strong>Primary Scope:</strong> Sangam Ecology &amp; Epistemic Ethics</div>
+            <div><strong>Scale:</strong> Civilizational &amp; Bioregional Landscapes</div>
+            <div><strong>Epistemic Framework:</strong> Philological Hermeneutics &amp; Ecological Poetics</div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- VIEW 5: #/methodology (Epistemic Methodology) -->
+    <div id="view-methodology" class="view-pane" hidden>
+      <div class="section-intro-header">
+        <span class="section-eyebrow">SYSTEM ARCHITECTURE</span>
+        <h2 class="section-main-title">Methodology &amp; Verification Protocol</h2>
+        <p class="section-main-sub">The epistemological foundation governing how disparate knowledge fields are synthesized.</p>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <div class="methodology-spec-box">
+          <h3 class="methodology-spec-title">1. The Eight-Stage Multi-Dimensional Pipeline</h3>
+          <p class="methodology-prose">
+            The platform processes incoming inquiries through a deterministic eight-stage epistemological pipeline:
+          </p>
+          <ol style="margin-left: 1.5rem; line-height: 1.9; font-size: 0.95rem; color: var(--ink-secondary);">
+            <li><strong>Stage 01 (Query Parsing):</strong> Normalizes and tokenizes raw input terms.</li>
+            <li><strong>Stage 02 (Query Understanding):</strong> Identifies primary epistemic intent, entity boundaries, and query typology.</li>
+            <li><strong>Stage 03 (Domain Detection):</strong> Computes confidence allocations across Astronomy, Biology, and Classical Tamil.</li>
+            <li><strong>Stage 04 (Concept Extraction):</strong> Maps lexical tokens to structured domain ontology nodes.</li>
+            <li><strong>Stage 05 (Dimension Activation):</strong> Evaluates dimensional relevance across 1D, 2D, 3D, and 4D tiers.</li>
+            <li><strong>Stage 06 (Lexical Retrieval):</strong> Pulls empirical facts, canonical verses, and verified literature excerpts.</li>
+            <li><strong>Stage 07 (Relationship Mapping):</strong> Constructs topological graph edges with typed evidence labels.</li>
+            <li><strong>Stage 08 (4D Synthesis):</strong> Integrates temporal progressions, future projections, and cross-domain warnings.</li>
+          </ol>
+        </div>
+
+        <div class="methodology-spec-box">
+          <h3 class="methodology-spec-title">2. Epistemic Separation &amp; Anti-Conflation Principles</h3>
+          <p class="methodology-prose">
+            A core epistemic mandate is that analogical reasoning is never presented as empirical identity.
+            The system adheres strictly to three demarcation rules:
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+            <div class="fact-item">
+              <span class="fact-label">RULE 01 // CATEGORIAL DEMARCATION</span>
+              <div class="fact-value">
+                Astrophysical relativistic models and biological circadian cellular rhythms are categorized as distinct physical scales.
+                Shared mathematical patterns (e.g., oscillations) are treated as structural isomorphisms, not direct causal links.
+              </div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">RULE 02 // HISTORICAL INTEGRITY</span>
+              <div class="fact-value">
+                Classical Tamil verses from Thirukkural or Tholkappiyam are studied with philological integrity within their Sangam cultural context.
+                Ancient poetic intuition is respected as ethical and ecological wisdom without being retrofitted with modern physics claims.
+              </div>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">RULE 03 // EVIDENCE TYPING TRANSPARENCY</span>
+              <div class="fact-value">
+                Every relationship assertion in the 3D graph must carry an explicit evidence type:
+                ESTABLISHED FACT, OBSERVATIONAL EVIDENCE, RETRIEVED TEXTUAL EVIDENCE, SCIENTIFIC INTERPRETATION, CONCEPTUAL ANALOGY, or HYPOTHESIS/SPECULATION.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 6: #/about (Codex & Research Charter) -->
+    <div id="view-about" class="view-pane" hidden>
+      <div class="section-intro-header">
+        <span class="section-eyebrow">RESEARCH CHARTER</span>
+        <h2 class="section-main-title">System Codex &amp; Charter</h2>
+        <p class="section-main-sub">The multidisciplinary mission of the Multidimensional Knowledge System.</p>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <div class="methodology-spec-box">
+          <h3 class="methodology-spec-title">Multidisciplinary Epistemic Mission</h3>
+          <p class="methodology-prose">
+            Modern research suffers from severe epistemic siloing: physical cosmologists, molecular biologists,
+            and classical humanists rarely communicate across disciplinary vocabularies. The Multidimensional Knowledge System
+            demonstrates that rigorous cross-disciplinary knowledge exploration is possible without compromising domain-specific rigor.
+          </p>
+          <p class="methodology-prose">
+            By structuring knowledge along four standardized epistemic dimensions—1D (Literal/Text), 2D (Interpretation/Context),
+            3D (Symbol/Concept/Relationship), and 4D (Future/Hypothetical/Temporal)—scholars can observe how concepts migrate,
+            resonate, and diverge across disparate domains of human inquiry.
+          </p>
+          <div class="hairline-divider"></div>
+          <div class="ledger-specs">
+            <div><strong>Engine Architecture:</strong> Zero-Dependency Vanilla Web Platform</div>
+            <div><strong>Epistemic Framework:</strong> 1D–4D Dimensional Taxonomy</div>
+            <div><strong>Grounding Corpora:</strong> Classical Sangam Literature &amp; Verified Scientific Literature</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Application Scripts -->
+  <script src="js/mock-data.js"></script>
+  <script src="js/mock-engine.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

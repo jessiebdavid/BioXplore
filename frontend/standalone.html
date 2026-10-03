@@ -1,0 +1,4603 @@
+<!DOCTYPE html>
+<!-- NOTE: The canonical, live Epistemic Observatory entry point is index.html (served at http://127.0.0.1:8765/) -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multidimensional Knowledge System — Epistemic Observatory</title>
+  <style>
+/* ============================================================
+ * MULTIDIMENSIONAL KNOWLEDGE SYSTEM
+ * Research-Grade Scientific Design System (Vanilla CSS3)
+ *
+ * Palette:
+ * Backgrounds: #EEF4F5, #F2F5F3, #EAF1F4
+ * Primary text: #17324D
+ * Secondary text: #617589
+ * Astronomy: #4D7FE8
+ * Biology: #4DAF83
+ * Classical Tamil: #8D75C7
+ * Cross-Domain: #3D9FA1
+ * Hypothetical / Future: #D99B42
+ * ============================================================ */
+
+:root {
+  --bg-primary: #EEF4F5;
+  --bg-secondary: #F2F5F3;
+  --bg-tertiary: #EAF1F4;
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(23, 50, 77, 0.08);
+  --card-shadow: 0 4px 20px -2px rgba(23, 50, 77, 0.06), 0 2px 6px -1px rgba(23, 50, 77, 0.03);
+  --card-hover-shadow: 0 10px 28px -4px rgba(23, 50, 77, 0.1), 0 4px 10px -2px rgba(23, 50, 77, 0.05);
+
+  --text-primary: #17324D;
+  --text-secondary: #617589;
+  --text-muted: #8899A8;
+
+  --color-astro: #4D7FE8;
+  --color-astro-light: rgba(77, 127, 232, 0.12);
+  --color-bio: #4DAF83;
+  --color-bio-light: rgba(77, 175, 131, 0.12);
+  --color-tamil: #8D75C7;
+  --color-tamil-light: rgba(141, 117, 199, 0.12);
+  --color-cross: #3D9FA1;
+  --color-cross-light: rgba(61, 159, 161, 0.12);
+  --color-hypo: #D99B42;
+  --color-hypo-light: rgba(217, 155, 66, 0.14);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Georgia", "Cambria", "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Consolas", monospace;
+  --font-tamil: "Latha", "Vijaya", "Nirmala UI", "Mukta Malar", system-ui, sans-serif;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Accessible Focus States */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-cross);
+  outline-offset: 2px;
+}
+
+/* Continuous Living Scientific Background */
+.global-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-svg-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Pulse & Drift Animations */
+@keyframes pulseAstro {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+
+@keyframes driftGlyph {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0.25; }
+  50% { transform: translateY(-16px) rotate(4deg); opacity: 0.45; }
+  100% { transform: translateY(0px) rotate(0deg); opacity: 0.25; }
+}
+
+.pulse-astro-1 { animation: pulseAstro 5s infinite ease-in-out; }
+.pulse-astro-2 { animation: pulseAstro 7s infinite ease-in-out 1s; }
+
+.drift-glyph-1 { animation: driftGlyph 12s infinite ease-in-out; }
+.drift-glyph-2 { animation: driftGlyph 15s infinite ease-in-out 2s; }
+.drift-glyph-3 { animation: driftGlyph 14s infinite ease-in-out 4s; }
+.drift-glyph-4 { animation: driftGlyph 16s infinite ease-in-out 1s; }
+.drift-glyph-5 { animation: driftGlyph 13s infinite ease-in-out 3s; }
+
+/* Top Navigation Bar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(238, 244, 245, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+  padding: 0.75rem 2rem;
+  transition: all 0.25s ease;
+}
+
+.nav-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+}
+
+.brand-subtitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-cross);
+  text-transform: uppercase;
+}
+
+.nav-links-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(23, 50, 77, 0.04);
+}
+
+.nav-link.active {
+  color: var(--color-cross);
+  background: var(--color-cross-light);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chip-backend {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(97, 117, 137, 0.1);
+  color: var(--text-secondary);
+  border: 1px solid rgba(97, 117, 137, 0.2);
+}
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+  border-color: rgba(217, 75, 75, 0.4);
+  color: #C0392B;
+  background: rgba(217, 75, 75, 0.05);
+}
+
+.btn-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.mobile-menu-drawer {
+  display: none;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  padding: 1rem 1.5rem;
+}
+
+/* Main Container */
+.main-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.view-pane[hidden] {
+  display: none !important;
+}
+
+/* Card Foundations */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  padding: 1.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.card:hover {
+  box-shadow: var(--card-hover-shadow);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-cross);
+  margin-bottom: 0.35rem;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.subcard-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Chips & Badges */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--radius-pill);
+  line-height: 1.2;
+}
+
+.chip-domain.chip-astro {
+  background: var(--color-astro-light);
+  color: var(--color-astro);
+  border: 1px solid rgba(77, 127, 232, 0.3);
+}
+
+.chip-domain.chip-bio {
+  background: var(--color-bio-light);
+  color: var(--color-bio);
+  border: 1px solid rgba(77, 175, 131, 0.3);
+}
+
+.chip-domain.chip-tamil {
+  background: var(--color-tamil-light);
+  color: var(--color-tamil);
+  border: 1px solid rgba(141, 117, 199, 0.3);
+}
+
+.chip-domain.chip-cross {
+  background: var(--color-cross-light);
+  color: var(--color-cross);
+  border: 1px solid rgba(61, 159, 161, 0.3);
+}
+
+.chip-evidence.chip-fact {
+  background: rgba(77, 175, 131, 0.15);
+  color: #248154;
+  border: 1px solid rgba(77, 175, 131, 0.4);
+}
+
+.chip-evidence.chip-obs {
+  background: rgba(77, 127, 232, 0.15);
+  color: #2D5CBD;
+  border: 1px solid rgba(77, 127, 232, 0.4);
+}
+
+.chip-evidence.chip-textual {
+  background: rgba(141, 117, 199, 0.15);
+  color: #6C51AD;
+  border: 1px solid rgba(141, 117, 199, 0.4);
+}
+
+.chip-evidence.chip-interp {
+  background: rgba(61, 159, 161, 0.15);
+  color: #206E70;
+  border: 1px solid rgba(61, 159, 161, 0.4);
+}
+
+.chip-evidence.chip-analogy {
+  background: rgba(217, 155, 66, 0.15);
+  color: #B2751C;
+  border: 1px solid rgba(217, 155, 66, 0.4);
+}
+
+.chip-evidence.chip-hypo {
+  background: rgba(217, 155, 66, 0.15);
+  color: #B2751C;
+  border: 1px dashed rgba(217, 155, 66, 0.6);
+}
+
+.chip-entity {
+  background: rgba(23, 50, 77, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+}
+
+.chip-concept {
+  background: rgba(61, 159, 161, 0.08);
+  color: var(--color-cross);
+  border: 1px solid rgba(61, 159, 161, 0.2);
+}
+
+.chip-input-type {
+  background: rgba(23, 50, 77, 0.06);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+ * VIEW 1: IMMERSIVE RESEARCH GATEWAY (Login)
+ * ============================================================ */
+.gateway-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+
+.gateway-header {
+  text-align: center;
+  max-width: 860px;
+}
+
+.gateway-main-title {
+  font-size: 2.35rem;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin: 0.4rem 0 0.75rem;
+}
+
+.gateway-tagline {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.gateway-formula-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.formula-operator {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--color-cross);
+}
+
+/* Convergence Chamber Box */
+.gateway-visual-card {
+  width: 100%;
+  background: var(--card-bg-elevated);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+.convergence-chamber {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.convergence-svg {
+  width: 100%;
+  max-width: 800px;
+  max-height: 500px;
+  height: auto;
+  display: block;
+}
+
+/* Integrated Scholar Authentication Console */
+.gateway-auth-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.gateway-auth-card {
+  width: 100%;
+  max-width: 720px;
+  background: var(--card-bg-elevated);
+  border: 1px solid var(--card-border-highlight);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.gateway-auth-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.auth-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-cross-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.auth-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.gateway-form-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.input-text {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: #FFFFFF;
+  border: 1px solid rgba(23, 50, 77, 0.16);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.input-text:focus {
+  border-color: var(--color-cross);
+  box-shadow: 0 0 0 3px rgba(61, 159, 161, 0.18);
+}
+
+.password-input-wrap {
+  position: relative;
+}
+
+.btn-toggle-pass {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.gateway-btn-submit {
+  grid-column: 1 / -1;
+  padding: 0.95rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--color-cross) 0%, #1F6B6D 100%);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(61, 159, 161, 0.3);
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.gateway-btn-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(61, 159, 161, 0.4);
+}
+
+.gateway-auth-footer {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--card-border);
+  padding-top: 0.85rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.auth-badge-demo {
+  font-weight: 700;
+  color: var(--color-cross);
+  background: var(--color-cross-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+.form-error-alert {
+  padding: 0.65rem 0.9rem;
+  margin-bottom: 1rem;
+  background: rgba(217, 75, 75, 0.08);
+  border: 1px solid rgba(217, 75, 75, 0.3);
+  border-radius: var(--radius-sm);
+  color: #C0392B;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+ * VIEW 2: INTRO / LANDING
+ * ============================================================ */
+.intro-hero {
+  text-align: center;
+  max-width: 880px;
+  margin: 1.5rem auto 3.5rem;
+}
+
+.hero-title {
+  font-size: 2.85rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0.5rem 0 1rem;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--color-cross) 0%, #1F6B6D 100%);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 6px 22px rgba(61, 159, 161, 0.35);
+  transition: all 0.25s ease;
+}
+
+.hero-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(61, 159, 161, 0.45);
+}
+
+.intro-convergence-section {
+  margin: 3.5rem 0;
+}
+
+.section-intro-header {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 2.5rem;
+}
+
+.section-main-title {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.section-main-sub {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.intro-visual-card {
+  padding: 2rem 1.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Three Domains Grid */
+.three-domains-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin: 2.5rem 0;
+}
+
+.domain-card {
+  padding: 1.85rem;
+  border-top: 5px solid var(--card-border);
+  transition: all 0.25s ease;
+}
+
+.domain-card.domain-card-astro { border-top-color: var(--color-astro); }
+.domain-card.domain-card-bio { border-top-color: var(--color-bio); }
+.domain-card.domain-card-tamil { border-top-color: var(--color-tamil); }
+
+.domain-card:hover {
+  transform: translateY(-4px);
+}
+
+.domain-icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.domain-card-astro .domain-icon-circle { background: var(--color-astro-light); color: var(--color-astro); }
+.domain-card-bio .domain-icon-circle { background: var(--color-bio-light); color: var(--color-bio); }
+.domain-card-tamil .domain-icon-circle { background: var(--color-tamil-light); color: var(--color-tamil); }
+
+.domain-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.domain-card-body {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.domain-topics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* 1D -> 2D -> 3D -> 4D Progression Flow */
+.dimension-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.dim-flow-card {
+  padding: 1.5rem;
+  background: var(--card-bg-elevated);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dim-flow-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.dim-flow-badge {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.dim-flow-1d .dim-flow-badge { color: var(--color-cross); }
+.dim-flow-2d .dim-flow-badge { color: var(--color-bio); }
+.dim-flow-3d .dim-flow-badge { color: var(--color-astro); }
+.dim-flow-4d .dim-flow-badge { color: var(--color-hypo); }
+
+.dim-flow-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.dim-flow-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Pipeline Grid */
+.pipeline-steps-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pipeline-step-card {
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem;
+  text-align: center;
+}
+
+.step-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--color-cross);
+  margin-bottom: 0.35rem;
+}
+
+.step-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ============================================================
+ * VIEW 3: MAIN EXPLORER WORKSPACE
+ * ============================================================ */
+.explorer-search-card {
+  margin-bottom: 1.5rem;
+}
+
+.search-input-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+#query-input {
+  flex: 1;
+  padding: 0.95rem 1.25rem;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(23, 50, 77, 0.18);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 2px 4px rgba(23, 50, 77, 0.04);
+  transition: all 0.2s ease;
+}
+
+#query-input:focus {
+  border-color: var(--color-cross);
+  box-shadow: 0 0 0 3px rgba(61, 159, 161, 0.18);
+}
+
+#analyze-btn {
+  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--color-cross) 0%, #206E70 100%);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(61, 159, 161, 0.3);
+  transition: all 0.2s ease;
+}
+
+#analyze-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(61, 159, 161, 0.4);
+}
+
+.example-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.example-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-right: 0.25rem;
+}
+
+.example-chip-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.example-chip-btn:hover {
+  border-color: var(--color-cross);
+  color: var(--color-cross);
+  background: var(--color-cross-light);
+  transform: translateY(-1px);
+}
+
+/* Epistemic Warning Notice */
+.notice {
+  background: rgba(217, 155, 66, 0.12);
+  border: 1px solid rgba(217, 155, 66, 0.4);
+  border-left: 5px solid var(--color-hypo);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.notice-icon {
+  font-size: 1.35rem;
+  color: var(--color-hypo);
+  line-height: 1;
+}
+
+.notice-text {
+  font-size: 0.88rem;
+  color: #7D4E08;
+  line-height: 1.5;
+}
+
+.notice-text strong {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 0.15rem;
+}
+
+/* State Containers */
+.state-container {
+  margin-top: 1.5rem;
+}
+
+/* Idle State */
+.idle-card {
+  text-align: center;
+  padding: 3.5rem 2rem;
+}
+
+.idle-icon-wrap {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background: var(--color-cross-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idle-card h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.idle-card p {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Loading State */
+.loading-card {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.loading-research-anim {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+
+.loading-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid rgba(61, 159, 161, 0.2);
+  border-top-color: var(--color-cross);
+  animation: spinRing 1.1s linear infinite;
+}
+
+@keyframes spinRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--color-cross);
+  margin-bottom: 0.35rem;
+}
+
+.loading-subtext {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* Error State */
+.error-card {
+  border-left: 5px solid #C0392B;
+  padding: 2rem;
+}
+
+.error-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: rgba(217, 75, 75, 0.12);
+  color: #C0392B;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.error-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #C0392B;
+}
+
+.error-message {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+/* ============================================================
+ * RESULT COMPONENTS (Rendered into #state-result)
+ * ============================================================ */
+.query-understanding-card {
+  margin-bottom: 1.5rem;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.75rem;
+}
+
+.qu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.qu-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.qu-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.qu-value-highlight {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.chip-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Dimension Navigation Bar */
+.dimension-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.dim-nav-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--text-secondary);
+}
+
+.dim-nav-tabs {
+  display: flex;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.dim-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: transparent;
+  cursor: default;
+}
+
+.dim-tab.active-dim {
+  background: #FFFFFF;
+  border-color: var(--card-border);
+  box-shadow: 0 2px 6px rgba(23, 50, 77, 0.06);
+}
+
+.dim-tab.inactive-dim {
+  opacity: 0.4;
+}
+
+.dim-num {
+  font-weight: 900;
+}
+
+.active-dim[data-dim="1D"] .dim-num { color: var(--color-cross); }
+.active-dim[data-dim="2D"] .dim-num { color: var(--color-bio); }
+.active-dim[data-dim="3D"] .dim-num { color: var(--color-astro); }
+.active-dim[data-dim="4D"] .dim-num { color: var(--color-hypo); }
+
+/* Dimension Panels */
+.dimension-card {
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--card-border);
+}
+
+.dim-1d-card { border-left-color: var(--color-cross); }
+.dim-2d-card { border-left-color: var(--color-bio); }
+.dim-3d-card { border-left-color: var(--color-astro); }
+.dim-4d-card { border-left-color: var(--color-hypo); }
+
+.dim-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.9rem;
+}
+
+.dim-badge {
+  font-size: 1.25rem;
+  font-weight: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dim-badge-1d { background: var(--color-cross-light); color: var(--color-cross); }
+.dim-badge-2d { background: var(--color-bio-light); color: var(--color-bio); }
+.dim-badge-3d { background: var(--color-astro-light); color: var(--color-astro); }
+.dim-badge-4d { background: var(--color-hypo-light); color: var(--color-hypo); }
+
+.dim-heading {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.dim-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Tamil Verse Card */
+.verse-card {
+  background: rgba(141, 117, 199, 0.05);
+  border: 1px solid rgba(141, 117, 199, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.verse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(141, 117, 199, 0.15);
+  padding-bottom: 0.75rem;
+}
+
+.verse-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--color-tamil);
+  text-transform: uppercase;
+}
+
+.verse-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.verse-original {
+  font-family: var(--font-tamil);
+  font-size: 1.65rem;
+  line-height: 1.8;
+  font-weight: 700;
+  color: #38256E;
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.5rem;
+  background: #FFFFFF;
+  border-left: 4px solid var(--color-tamil);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.verse-field-row {
+  margin-bottom: 0.9rem;
+}
+
+.field-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--color-tamil);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.verse-translit {
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.verse-translation {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.verse-literal {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.verse-metadata-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem 1rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(141, 117, 199, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.25rem;
+  margin-top: 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.verse-metadata-box strong {
+  color: var(--text-primary);
+}
+
+/* Comparison Table */
+.comparison-container {
+  margin: 1.25rem 0;
+}
+
+.table-scroller {
+  overflow-x: auto;
+}
+
+.scientific-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.scientific-table th {
+  background: rgba(23, 50, 77, 0.05);
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--card-border);
+}
+
+.scientific-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--card-border);
+  color: var(--text-secondary);
+}
+
+.scientific-table tr:hover td {
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text-primary);
+}
+
+/* Definition Cards & Formulas */
+.definition-card, .context-card, .temporal-card {
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.def-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.def-text, .context-text, .temporal-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.math-formula-box {
+  background: rgba(23, 50, 77, 0.035);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1rem;
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* Timeline Progression (4D) */
+.timeline-container {
+  margin-top: 1.25rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 14px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: rgba(217, 155, 66, 0.3);
+}
+
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid var(--color-hypo);
+  color: var(--color-hypo);
+  font-size: 0.78rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.step-content {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  padding-top: 2px;
+}
+
+/* 3D Graph Styles */
+.graph-container-wrapper {
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin: 1.25rem 0;
+}
+
+.graph-viewport {
+  width: 100%;
+  min-height: 380px;
+}
+
+.mks-graph-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.graph-instructions {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.edge-line {
+  stroke: rgba(97, 117, 137, 0.38);
+  stroke-width: 1.8;
+  transition: stroke 0.2s ease, stroke-width 0.2s ease, opacity 0.2s ease;
+}
+
+.edge-line.edge-dashed {
+  stroke: rgba(217, 155, 66, 0.55);
+}
+
+.anim-edge-flow {
+  animation: flowDashes 2.4s linear infinite;
+}
+
+.anim-edge-pulse {
+  animation: flowDashes 3s linear infinite;
+}
+
+.edge-badge-bg {
+  fill: #FFFFFF;
+  stroke: rgba(23, 50, 77, 0.14);
+  stroke-width: 1;
+}
+
+.edge-badge-text {
+  font-size: 8.5px;
+  font-weight: 700;
+  fill: var(--text-secondary);
+}
+
+.graph-node {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.graph-node:hover .node-circle,
+.graph-node:focus .node-circle {
+  transform: scale(1.12);
+  transform-origin: 0 0;
+}
+
+.node-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  fill: var(--text-primary);
+}
+
+/* Interactive Graph Selection States */
+.mks-graph-svg.has-selection .graph-node.dimmed,
+.mks-graph-svg.has-selection .graph-edge-group.dimmed {
+  opacity: 0.14;
+}
+
+.mks-graph-svg.has-selection .graph-node.highlighted {
+  opacity: 1;
+}
+
+.mks-graph-svg.has-selection .graph-node.highlighted .node-halo {
+  transform: scale(1.25);
+  transform-origin: 0 0;
+  opacity: 0.45;
+}
+
+.mks-graph-svg.has-selection .graph-edge-group.highlighted .edge-line {
+  stroke: #17324D;
+  stroke-width: 3;
+  opacity: 1;
+}
+
+.relationship-list {
+  margin-top: 1.5rem;
+}
+
+.rel-row {
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 0.65rem;
+}
+
+.rel-entities {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.rel-arrow {
+  color: var(--color-cross);
+}
+
+.rel-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.chip-rel-type {
+  background: rgba(23, 50, 77, 0.05);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  border: 1px solid var(--card-border);
+}
+
+.rel-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Summary Card */
+.summary-card {
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(234, 241, 244, 0.8) 100%);
+}
+
+.summary-body {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+/* Sources Card */
+.sources-card {
+  margin-top: 1.5rem;
+}
+
+.sources-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.source-card {
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.source-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.source-authors {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.source-pub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.source-doi code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-cross);
+}
+
+/* ============================================================
+ * TRANSITION OVERLAY
+ * ============================================================ */
+.transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(238, 244, 245, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+
+.transition-overlay[hidden] {
+  display: none !important;
+}
+
+.transition-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.transition-stage {
+  text-align: center;
+  position: relative;
+}
+
+.transition-rings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.t-ring {
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  animation: ringExpand 1.2s ease forwards;
+}
+
+.t-ring-1 { background: var(--color-cross-light); color: var(--color-cross); animation-delay: 0.1s; }
+.t-ring-2 { background: var(--color-bio-light); color: var(--color-bio); animation-delay: 0.3s; }
+.t-ring-3 { background: var(--color-astro-light); color: var(--color-astro); animation-delay: 0.5s; }
+.t-ring-4 { background: var(--color-hypo-light); color: var(--color-hypo); animation-delay: 0.7s; }
+
+@keyframes ringExpand {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.transition-text {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--text-primary);
+}
+
+/* ============================================================
+ * RESPONSIVE RULES
+ * ============================================================ */
+@media (max-width: 1024px) {
+  .login-view-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .three-domains-grid {
+    grid-template-columns: 1fr;
+  }
+  .dimension-flow-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pipeline-steps-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0.75rem 1rem;
+  }
+  .nav-links-wrap {
+    display: none;
+  }
+  .btn-mobile-toggle {
+    display: block;
+  }
+  .mobile-menu-drawer[hidden] {
+    display: none;
+  }
+  .mobile-menu-drawer:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .search-input-row {
+    flex-direction: column;
+  }
+  #analyze-btn {
+    padding: 0.85rem;
+  }
+  .dimension-flow-grid {
+    grid-template-columns: 1fr;
+  }
+  .qu-grid {
+    grid-template-columns: 1fr;
+  }
+  .verse-metadata-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+ * REDUCED MOTION SUPPORT
+ * ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pulse-astro-1, .pulse-astro-2,
+  .drift-glyph-1, .drift-glyph-2, .drift-glyph-3, .drift-glyph-4, .drift-glyph-5 {
+    animation: none !important;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Continuous Living Scientific Background -->
+  <div id="global-bg" class="global-bg-container"></div>
+
+  <!-- Thematic Transition Overlay -->
+  <div id="transition-overlay" class="transition-overlay" hidden></div>
+
+  <!-- Top Research Navigation Bar -->
+  <header id="main-nav" class="topbar">
+    <div class="nav-inner">
+      <a href="#/intro" class="brand-group" aria-label="Multidimensional Knowledge System Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true">
+            <circle cx="18" cy="18" r="16" fill="none" stroke="#3D9FA1" stroke-width="1.8" />
+            <circle cx="18" cy="18" r="6" fill="#3D9FA1" />
+            <circle cx="18" cy="6" r="3" fill="#4D7FE8" />
+            <circle cx="28.4" cy="24" r="3" fill="#4DAF83" />
+            <circle cx="7.6" cy="24" r="3" fill="#8D75C7" />
+            <!-- Connection lines -->
+            <line x1="18" y1="9" x2="18" y2="12" stroke="rgba(61,159,161,0.5)" stroke-width="1" />
+            <line x1="26" y1="22.5" x2="23" y2="20.5" stroke="rgba(61,159,161,0.5)" stroke-width="1" />
+            <line x1="10" y1="22.5" x2="13" y2="20.5" stroke="rgba(61,159,161,0.5)" stroke-width="1" />
+          </svg>
+        </div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">MULTIDIMENSIONAL KNOWLEDGE</span>
+          <span class="brand-subtitle">Astronomy • Biology • Classical Tamil</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links-wrap" aria-label="Main Navigation">
+        <a href="#/explore" class="nav-link" id="nav-link-explore">Explore</a>
+        <a href="#/domains" class="nav-link" id="nav-link-domains">Domains</a>
+        <a href="#/methodology" class="nav-link" id="nav-link-methodology">Methodology</a>
+        <a href="#/about" class="nav-link" id="nav-link-about">About</a>
+      </nav>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <span class="chip-dimension-indicator" title="Active Epistemic Dimensions">1D • 2D • 3D • 4D</span>
+        <span id="backend-badge" class="chip-backend">Backend: mock</span>
+        <button id="logout-btn" class="btn-logout" title="Sign out of research session">Logout</button>
+        <button id="mobile-menu-toggle" class="btn-mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Down Menu -->
+    <div id="mobile-menu" class="mobile-menu-drawer" hidden>
+      <a href="#/explore" class="nav-link">Explore</a>
+      <a href="#/domains" class="nav-link">Domains</a>
+      <a href="#/methodology" class="nav-link">Methodology</a>
+      <a href="#/about" class="nav-link">About</a>
+      <button id="mobile-logout-btn" class="btn-logout" style="margin-top: 0.5rem; text-align: left;">Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Application Content Area -->
+  <main class="main-wrapper">
+
+    <!-- ========================================================
+         VIEW 1: #/login (Immersive Research Gateway)
+         ======================================================== -->
+    <div id="view-login" class="view-pane" hidden>
+      <div class="gateway-container">
+        <!-- Gateway Header Banner -->
+        <header class="gateway-header">
+          <span class="section-eyebrow">ACADEMIC OBSERVATORY &amp; EPISTEMIC PLATFORM</span>
+          <h1 class="gateway-main-title">MULTIDIMENSIONAL KNOWLEDGE SYSTEM</h1>
+          <p class="gateway-tagline">
+            An interdisciplinary research framework synthesizing observational astrophysics, molecular biology,
+            and Classical Tamil literary heritage through multi-tiered conceptual dimensions.
+          </p>
+
+          <!-- Domain Convergence Formula Equation Chips -->
+          <div class="gateway-formula-row" aria-label="Convergence Formula">
+            <span class="chip chip-domain chip-astro">🌌 Astronomy / Astrophysics</span>
+            <span class="formula-operator">+</span>
+            <span class="chip chip-domain chip-bio">🧬 Biology / Biological Systems</span>
+            <span class="formula-operator">+</span>
+            <span class="chip chip-domain chip-tamil">📜 Classical Tamil Literature</span>
+            <span class="formula-operator">→</span>
+            <span class="chip chip-domain chip-cross">⚛ 1D → 2D → 3D → 4D Synthesis</span>
+          </div>
+        </header>
+
+        <!-- Centerpiece: Living Convergence Chamber -->
+        <section class="gateway-visual-card" aria-label="Visual Convergence Chamber">
+          <div id="login-convergence-visual"></div>
+        </section>
+
+        <!-- Integrated Scholar Access Console -->
+        <section class="gateway-auth-wrapper" aria-label="Scholar Authentication Console">
+          <div class="card gateway-auth-card">
+            <div class="gateway-auth-header">
+              <div class="auth-icon-wrap">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3D9FA1" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div>
+                <span class="section-eyebrow">SCHOLAR ACCESS CONSOLE</span>
+                <h2 class="auth-title">Initialize Research Session</h2>
+              </div>
+            </div>
+
+            <div id="login-error-alert" class="form-error-alert" hidden></div>
+
+            <form id="login-form" novalidate class="gateway-form-layout">
+              <div class="form-group">
+                <label for="login-email" class="form-label">Research / Institutional Email</label>
+                <input
+                  type="email"
+                  id="login-email"
+                  class="input-text"
+                  placeholder="scholar@research.edu"
+                  value="scholar@research.edu"
+                  autocomplete="username"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="login-password" class="form-label">Access Key / Password</label>
+                <div class="password-input-wrap">
+                  <input
+                    type="password"
+                    id="login-password"
+                    class="input-text"
+                    placeholder="Enter access password"
+                    value="knowledge2026"
+                    autocomplete="current-password"
+                    required
+                  />
+                  <button type="button" id="toggle-password-btn" class="btn-toggle-pass" aria-label="Show password">Show</button>
+                </div>
+              </div>
+
+              <button type="submit" id="login-submit-btn" class="btn-primary gateway-btn-submit">
+                ACCESS KNOWLEDGE SYSTEM →
+              </button>
+            </form>
+
+            <div class="gateway-auth-footer">
+              <span class="auth-badge-demo">Faculty &amp; Peer Review Mode</span>
+              <span class="auth-demo-hint">Standard research credentials pre-configured for evaluation.</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         VIEW 2: #/intro (Landing & Three Domains -> One System)
+         ======================================================== -->
+    <div id="view-intro" class="view-pane" hidden>
+      <div class="intro-hero">
+        <span class="section-eyebrow">RESEARCH KNOWLEDGE ENGINE</span>
+        <h1 class="hero-title">Understand Knowledge Across Domains &amp; Dimensions</h1>
+        <p class="hero-description">
+          A rigorous epistemological platform interconnecting empirical astrophysics, molecular biology,
+          and Classical Tamil literary heritage into a unified 4-dimensional conceptual model.
+        </p>
+        <a href="#/explore" id="intro-cta-btn" class="hero-cta-btn">ENTER THE KNOWLEDGE SYSTEM →</a>
+      </div>
+
+      <!-- Three Domains -> One System Convergence Chamber -->
+      <section class="intro-convergence-section">
+        <div class="section-intro-header">
+          <span class="section-eyebrow">CONVERGENCE ARCHITECTURE</span>
+          <h2 class="section-main-title">Three Domains → One System</h2>
+          <p class="section-main-sub">
+            Bridging disparate epistemic horizons through shared structural dimensions without conflating analogy with empirical proof.
+          </p>
+        </div>
+        <div class="card intro-visual-card">
+          <div id="intro-convergence-visual"></div>
+        </div>
+      </section>
+
+      <!-- Three Domains Equal Cards Grid -->
+      <div class="three-domains-grid">
+        <div class="card domain-card domain-card-astro">
+          <div class="domain-icon-circle">🌌</div>
+          <span class="section-eyebrow" style="color: var(--color-astro);">PHYSICAL SCIENCES</span>
+          <h3 class="domain-card-title">Astronomy / Astrophysics</h3>
+          <p class="domain-card-body">
+            Macroscopic physical laws, relativistic spacetime geometries, Keplerian orbital mechanics, plasma oscillations, and thermodynamic radiation.
+          </p>
+          <div class="domain-topics-list">
+            <span class="chip chip-domain chip-astro">General Relativity</span>
+            <span class="chip chip-domain chip-astro">Orbital Dynamics</span>
+            <span class="chip chip-domain chip-astro">Radiation Laws</span>
+          </div>
+        </div>
+
+        <div class="card domain-card domain-card-bio">
+          <div class="domain-icon-circle">🧬</div>
+          <span class="section-eyebrow" style="color: var(--color-bio);">LIFE SCIENCES</span>
+          <h3 class="domain-card-title">Biology / Biological Systems</h3>
+          <p class="domain-card-body">
+            Cell-autonomous circadian oscillators, molecular transcriptional-translational feedback loops (TTFL), genetic mutations, and metabolic cascades.
+          </p>
+          <div class="domain-topics-list">
+            <span class="chip chip-domain chip-bio">Gene Expression</span>
+            <span class="chip chip-domain chip-bio">Circadian Pacemakers</span>
+            <span class="chip chip-domain chip-bio">Cellular Pathways</span>
+          </div>
+        </div>
+
+        <div class="card domain-card domain-card-tamil">
+          <div class="domain-icon-circle">📜</div>
+          <span class="section-eyebrow" style="color: var(--color-tamil);">CLASSICAL HUMANITIES</span>
+          <h3 class="domain-card-title">Classical Tamil Literature</h3>
+          <p class="domain-card-body">
+            Epistemic ethics, Sangam environmental bioregional poetics (Ainthinai), hydraulic civilization philosophy in Thirukkural, and ecological taxonomies in Tholkappiyam.
+          </p>
+          <div class="domain-topics-list">
+            <span class="chip chip-domain chip-tamil">Thirukkural</span>
+            <span class="chip chip-domain chip-tamil">Tholkappiyam</span>
+            <span class="chip chip-domain chip-tamil">Vaan Chirappu</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- From Text to Possibility (1D -> 2D -> 3D -> 4D) -->
+      <section style="margin: 4rem 0;">
+        <div class="section-intro-header">
+          <span class="section-eyebrow">DIMENSIONAL TAXONOMY</span>
+          <h2 class="section-main-title">From Text to Possibility</h2>
+          <p class="section-main-sub">Knowledge expands through progressive layers of conceptual depth.</p>
+        </div>
+        <div class="dimension-flow-grid">
+          <div class="dim-flow-card dim-flow-1d">
+            <div class="dim-flow-badge">1D</div>
+            <h4 class="dim-flow-name">Text / Literal</h4>
+            <p class="dim-flow-desc">Direct empirical facts, explicit mathematical formulas, physical measurements, original Unicode Tamil script, and verified literal translations.</p>
+          </div>
+          <div class="dim-flow-card dim-flow-2d">
+            <div class="dim-flow-badge">2D</div>
+            <h4 class="dim-flow-name">Context / Mechanism</h4>
+            <p class="dim-flow-desc">Physical boundary conditions, cellular regulatory environments, feedback loops, and historical-literary cultural contexts.</p>
+          </div>
+          <div class="dim-flow-card dim-flow-3d">
+            <div class="dim-flow-badge">3D</div>
+            <h4 class="dim-flow-name">Relationships</h4>
+            <p class="dim-flow-desc">Topological network of scientific entities, cause-and-effect pathways, cross-domain analogies, and textual attributions.</p>
+          </div>
+          <div class="dim-flow-card dim-flow-4d">
+            <div class="dim-flow-badge">4D</div>
+            <h4 class="dim-flow-name">Temporal Dynamics</h4>
+            <p class="dim-flow-desc">Evolution over cosmological or biological epochs, chronological progression steps, and theoretical future horizons.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How the System Thinks Pipeline Overview -->
+      <section style="margin: 3.5rem 0;">
+        <div class="section-intro-header">
+          <span class="section-eyebrow">RESEARCH ARCHITECTURE</span>
+          <h2 class="section-main-title">How the System Thinks</h2>
+          <p class="section-main-sub">The 8-stage pipeline from natural language prompt to multidimensional synthesis.</p>
+        </div>
+        <div class="pipeline-steps-wrap">
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 01</div><div class="step-name">Query Parsing</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 02</div><div class="step-name">Query Understanding</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 03</div><div class="step-name">Domain Detection</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 04</div><div class="step-name">Concept Extraction</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 05</div><div class="step-name">Dimension Activation</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 06</div><div class="step-name">Lexical Retrieval</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 07</div><div class="step-name">Relationship Mapping</div></div>
+          <div class="pipeline-step-card"><div class="step-badge">STAGE 08</div><div class="step-name">4D Synthesis</div></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW 3: #/explore -->
+    <div id="view-explore" class="view-pane" hidden>
+      <div class="card explorer-search-card">
+        <span class="section-eyebrow">KNOWLEDGE WORKSPACE</span>
+        <h2 style="font-size: 1.55rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem;">
+          Explore Knowledge Across Domains & Dimensions
+        </h2>
+
+        <div class="search-input-row">
+          <input
+            id="query-input"
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Enter a topic, keyword, concept, sentence, question, or cross-domain query..."
+            aria-label="Query input"
+          />
+          <button id="analyze-btn">Analyze →</button>
+        </div>
+
+        <div class="example-chips-container" aria-label="Example benchmark queries">
+          <span class="example-label">Benchmark Queries:</span>
+          <div id="example-chips" style="display: flex; flex-wrap: wrap; gap: 0.4rem;"></div>
+        </div>
+      </div>
+
+      <section id="state-idle" class="card idle-card state-container">
+        <div class="idle-icon-wrap">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#3D9FA1" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+            <path d="M2 12h20" />
+          </svg>
+        </div>
+        <h3>Begin Multidimensional Exploration</h3>
+        <p>
+          Select one of the benchmark queries above or enter a research concept across Astronomy, Biology,
+          or Classical Tamil literature to observe structured 1D–4D knowledge synthesis.
+        </p>
+      </section>
+
+      <section id="state-loading" class="card loading-card state-container" hidden aria-live="polite">
+        <div class="loading-research-anim">
+          <div class="loading-ring"></div>
+        </div>
+        <h3 class="loading-text">ANALYZING KNOWLEDGE ACROSS DIMENSIONS...</h3>
+        <p class="loading-subtext">Evaluating lexical retrieval, contextual boundaries, and structural entity relationships.</p>
+      </section>
+
+      <section id="state-error" class="card error-card state-container" hidden aria-live="assertive">
+        <div class="error-badge-row">
+          <span id="error-code" class="error-code">ERROR</span>
+          <h3 class="error-title">Query Evaluation Notice</h3>
+        </div>
+        <p id="error-message" class="error-message">An unexpected evaluation error occurred.</p>
+        <button id="retry-query-btn" class="btn-primary" style="max-width: 200px; padding: 0.6rem 1rem;">
+          Retry Query
+        </button>
+      </section>
+
+      <section id="state-result" class="state-container" hidden></section>
+    </div>
+
+    <!-- ========================================================
+         VIEW 4: #/domains (Domain Exploration)
+         ======================================================== -->
+    <div id="view-domains" class="view-pane" hidden>
+      <div class="section-intro-header">
+        <span class="section-eyebrow">RESEARCH TAXONOMY</span>
+        <h2 class="section-main-title">Domain Exploration</h2>
+        <p class="section-main-sub">Three equally weighted fields investigated through systematic cross-dimensional analysis.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <!-- Domain 1: Astronomy -->
+        <article class="card" style="border-left: 5px solid var(--color-astro);">
+          <div class="card-header-row">
+            <div>
+              <span class="chip chip-domain chip-astro">PHYSICAL SCIENCES</span>
+              <h3 class="card-title" style="margin-top: 0.4rem;">Astronomy / Astrophysics</h3>
+            </div>
+            <button class="example-chip-btn domain-search-btn" data-query="Black hole vs white hole">Analyze in Explorer →</button>
+          </div>
+          <p class="text-secondary" style="line-height: 1.6; margin-bottom: 1.25rem;">
+            Investigates matter, energy, curvature of spacetime, and cosmic evolution from stellar interiors to cosmological expansion.
+            Key conceptual pillars include Einsteinian general relativity, Schwarzschild geometries, Keplerian planetary kinematics,
+            plasma wave resonance, and blackbody thermodynamic radiation laws.
+          </p>
+          <div class="verse-metadata-box">
+            <div><strong>Primary Scope:</strong> Relativistic Spacetime &amp; Mechanics</div>
+            <div><strong>Scale:</strong> Stellar to Cosmological Horizons</div>
+            <div><strong>Epistemic Framework:</strong> Empirical Observation &amp; Mathematical Physics</div>
+          </div>
+        </article>
+
+        <!-- Domain 2: Biology -->
+        <article class="card" style="border-left: 5px solid var(--color-bio);">
+          <div class="card-header-row">
+            <div>
+              <span class="chip chip-domain chip-bio">LIFE SCIENCES</span>
+              <h3 class="card-title" style="margin-top: 0.4rem;">Biology / Biological Systems</h3>
+            </div>
+            <button class="example-chip-btn domain-search-btn" data-query="Circadian rhythm biological clock">Analyze in Explorer →</button>
+          </div>
+          <p class="text-secondary" style="line-height: 1.6; margin-bottom: 1.25rem;">
+            Examines living systems across scales from DNA/RNA transcriptional feedback loops to organismal homeostasis and physiological adaptation.
+            Focus areas include molecular genetics, metabolic pacemakers in the suprachiasmatic nucleus (SCN), cellular enzyme kinetics,
+            and endogenous circadian oscillations synchronized with planetary rotation.
+          </p>
+          <div class="verse-metadata-box">
+            <div><strong>Primary Scope:</strong> Cellular Pathways &amp; Homeostatic Loops</div>
+            <div><strong>Scale:</strong> Molecular to Organismal Levels</div>
+            <div><strong>Epistemic Framework:</strong> Biochemical Experimentation &amp; Molecular Genetics</div>
+          </div>
+        </article>
+
+        <!-- Domain 3: Classical Tamil Literature -->
+        <article class="card" style="border-left: 5px solid var(--color-tamil);">
+          <div class="card-header-row">
+            <div>
+              <span class="chip chip-domain chip-tamil">CLASSICAL HUMANITIES</span>
+              <h3 class="card-title" style="margin-top: 0.4rem;">Classical Tamil Literature</h3>
+            </div>
+            <button class="example-chip-btn domain-search-btn" data-query="Thirukkural rain agriculture water cycle">Analyze in Explorer →</button>
+          </div>
+          <p class="text-secondary" style="line-height: 1.6; margin-bottom: 1.25rem;">
+            Preserves profound pre-modern epistemological, ecological, and ethical taxonomies spanning Sangam anthologies (Tholkappiyam)
+            and didactic ethical treatises (Thirukkural). Explores ecological bioregions (Ainthinai), hydraulic stewardship in agriculture,
+            and cosmic harmony through unyielding scholarly provenance.
+          </p>
+          <div class="verse-metadata-box">
+            <div><strong>Primary Scope:</strong> Sangam Ecology, Hydraulic Stewardship &amp; Ethics</div>
+            <div><strong>Canonical Works:</strong> Thirukkural, Tholkappiyam, Sangam Anthologies</div>
+            <div><strong>Epistemic Framework:</strong> Textual Primary Sources &amp; Literary Taxonomies</div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         VIEW 5: #/methodology (Methodology & Pipeline)
+         ======================================================== -->
+    <div id="view-methodology" class="view-pane" hidden>
+      <div class="section-intro-header">
+        <span class="section-eyebrow">RESEARCH METHODOLOGY</span>
+        <h2 class="section-main-title">Methodology &amp; Epistemic Architecture</h2>
+        <p class="section-main-sub">The formal 8-stage synthesis pipeline ensuring scientific accuracy and literary integrity.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 class="card-title">The 8-Stage Research Pipeline</h3>
+        <p class="text-secondary" style="line-height: 1.6; margin-bottom: 1.5rem;">
+          Every query submitted to the Multidimensional Knowledge System undergoes deterministic parsing and dimension activation:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="pipeline-step-card" style="text-align: left; padding: 1.25rem;">
+            <div class="step-badge">STAGE 01 — QUERY PARSING</div>
+            <div class="step-name" style="margin-bottom: 0.35rem;">Natural Language Intent Extraction</div>
+            <p class="text-secondary" style="font-size: 0.88rem;">Normalizes punctuation, identifies research interrogatives, and classifies user input type.</p>
+          </div>
+          <div class="pipeline-step-card" style="text-align: left; padding: 1.25rem;">
+            <div class="step-badge">STAGE 02 — QUERY UNDERSTANDING</div>
+            <div class="step-name" style="margin-bottom: 0.35rem;">Entity &amp; Concept Extraction</div>
+            <p class="text-secondary" style="font-size: 0.88rem;">Extracts domain-specific entities (e.g., "Schwarzschild metric", "Per/Cry proteins", "Thirukkural 11").</p>
+          </div>
+          <div class="pipeline-step-card" style="text-align: left; padding: 1.25rem;">
+            <div class="step-badge">STAGE 03 — DOMAIN DETECTION</div>
+            <div class="step-name" style="margin-bottom: 0.35rem;">Multi-Domain Classification</div>
+            <p class="text-secondary" style="font-size: 0.88rem;">Assigns weighted affinity to Astronomy, Biology, and Classical Tamil.</p>
+          </div>
+          <div class="pipeline-step-card" style="text-align: left; padding: 1.25rem;">
+            <div class="step-badge">STAGE 04 — DIMENSION ACTIVATION</div>
+            <div class="step-name" style="margin-bottom: 0.35rem;">1D–4D Layer Routing</div>
+            <p class="text-secondary" style="font-size: 0.88rem;">Determines which layers of depth are required (Textual facts, Context, Network, Temporal dynamics).</p>
+          </div>
+          <div class="pipeline-step-card" style="text-align: left; padding: 1.25rem;">
+            <div class="step-badge">STAGE 05 — LEXICAL RETRIEVAL</div>
+            <div class="step-name" style="margin-bottom: 0.35rem;">Primary Source &amp; Empirical Fact Indexing</div>
+            <p class="text-secondary" style="font-size: 0.88rem;">Retrieves verified physical equations, biological mechanisms, or canonical manuscript verses.</p>
+          </div>
+          <div class="pipeline-step-card" style="text-align: left; padding: 1.25rem;">
+            <div class="step-badge">STAGE 06 — RELATIONSHIP MAPPING</div>
+            <div class="step-name" style="margin-bottom: 0.35rem;">Graph Topology Construction</div>
+            <p class="text-secondary" style="font-size: 0.88rem;">Builds directed edges with explicit evidence labels (Fact, Observational, Textual, Analogy, Hypothesis).</p>
+          </div>
+          <div class="pipeline-step-card" style="text-align: left; padding: 1.25rem;">
+            <div class="step-badge">STAGE 07 — CROSS-DOMAIN SYNTHESIS</div>
+            <div class="step-name" style="margin-bottom: 0.35rem;">Structural Analogies with Epistemic Warnings</div>
+            <p class="text-secondary" style="font-size: 0.88rem;">Enforces epistemic boundaries to prevent confusing poetic metaphor with physical law.</p>
+          </div>
+          <div class="pipeline-step-card" style="text-align: left; padding: 1.25rem;">
+            <div class="step-badge">STAGE 08 — MULTIDIMENSIONAL ASSEMBLY</div>
+            <div class="step-name" style="margin-bottom: 0.35rem;">Final Synthesized Model Delivery</div>
+            <p class="text-secondary" style="font-size: 0.88rem;">Delivers unified summary, rendered cards, SVG graph, and full academic citations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         VIEW 6: #/about (System Philosophy & Provenance)
+         ======================================================== -->
+    <div id="view-about" class="view-pane" hidden>
+      <div class="section-intro-header">
+        <span class="section-eyebrow">ABOUT THE PLATFORM</span>
+        <h2 class="section-main-title">System Philosophy &amp; Scholarly Provenance</h2>
+        <p class="section-main-sub">The multidisciplinary vision behind the Multidimensional Knowledge System.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 class="card-title">Interdisciplinary Horizon</h3>
+        <p class="text-secondary" style="line-height: 1.7; margin-bottom: 1rem;">
+          Specialized academic disciplines frequently develop deep, siloed vocabularies that obscure underlying conceptual patterns.
+          The <strong>Multidimensional Knowledge System</strong> integrates empirical astrophysics, molecular life sciences, and classical humanities
+          under a shared 4-dimensional epistemic framework: grounded facts (1D), contextual mechanisms (2D), topological relationships (3D),
+          and temporal dynamics (4D).
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 class="card-title">Equal Standing of Classical Tamil</h3>
+        <p class="text-secondary" style="line-height: 1.7; margin-bottom: 1rem;">
+          A key architectural guarantee of this project is that Classical Tamil literature is treated with full parity alongside modern physical sciences.
+          Works such as <em>Thirukkural</em> and <em>Tholkappiyam</em> are not decorative cultural curiosities; they represent rigorous pre-modern taxonomies
+          of ecology, environmental balance, hydraulic stewardship, and universal ethics.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Scholarly Provenance &amp; Non-Fabrication</h3>
+        <p class="text-secondary" style="line-height: 1.7;">
+          The system strictly forbids the fabrication of verses, citations, or synthetic claims. Every textual entity carries verified manuscript metadata,
+          and every scientific proposition references canonical peer-reviewed literature (e.g., Einstein, Schwarzschild, Penrose, Hawking, Dunlap, Alberts).
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Inlined Canonical Client Scripts -->
+  <script>
+/* ============================================================
+ * MULTIDIMENSIONAL KNOWLEDGE SYSTEM - INLINED SCRIPTS BUNDLE
+ * ============================================================ */
+
+/* --- mock-data.js --- */
+window.MKS_MOCK_CASES = {
+  black_hole_vs_white_hole: {
+    query: {
+      text: "Black hole vs white hole",
+      input_type: "comparison",
+      domains: ["Astronomy / Astrophysics"],
+      intent: "compare_astronomical_objects",
+      entities: ["Black Hole", "White Hole", "Event Horizon", "Spacetime Singularity", "General Relativity"],
+      concepts: ["Gravitational Collapse", "Time Reversal Symmetry", "Hawking Radiation", "Schwarzschild Geometry"]
+    },
+    answer: {
+      summary: "A rigorous general relativistic comparison between black holes—astrophysically observed regions of spacetime where gravity prevents all matter and light from escaping past an event horizon—and white holes—hypothetical mathematical time-reversals of black holes permitted by Einstein field equations where matter and light can only exit, never enter.",
+      sections: [
+        {
+          dimension: "1D",
+          title: "1D — Text / Literal Facts & Formulations",
+          items: [
+            {
+              type: "definition",
+              title: "Black Hole (Schwarzschild Metric)",
+              text: "A region of spacetime exhibiting gravitational acceleration so intense that no particles or electromagnetic radiation can escape. Characterized by the Schwarzschild radius: r_s = 2GM / c^2.",
+              formula: "r_s = \\frac{2GM}{c^2}",
+              evidence_label: "ESTABLISHED FACT"
+            },
+            {
+              type: "definition",
+              title: "White Hole (Maximally Extended Schwarzschild Metric)",
+              text: "The hypothetical time-reversed solution to the Einstein field equations without matter or rotation. An anti-gravitational boundary past which no external observer can cross inward.",
+              formula: "T \\to -T \\quad (\\text{Time-reversal symmetry})",
+              evidence_label: "HYPOTHESIS / SPECULATION"
+            },
+            {
+              type: "comparison_table",
+              title: "Direct Physical Comparison",
+              columns: ["Property", "Black Hole", "White Hole"],
+              rows: [
+                ["Geodesic Behavior", "Future-directed geodesics terminate at singularity", "Past-directed geodesics originate from singularity"],
+                ["Boundary Condition", "Infall permitted; out-travel prohibited", "Out-travel permitted; infall prohibited"],
+                ["Thermodynamic Entropy", "S_{BH} = \\frac{k_B c^3 A}{4 G \\hbar} \\quad (Maximally high)", "Negative thermodynamic arrow of time if isolated (Thermodynamically unstable)"],
+                ["Observational Status", "Confirmed (LIGO GW150914, EHT M87*, Sgr A*)", "Zero empirical observational confirmation (Purely theoretical)"]
+              ]
+            }
+          ]
+        },
+        {
+          dimension: "3D",
+          title: "3D — Symbol, Concept & Structural Relationships",
+          items: [
+            {
+              type: "concept_overview",
+              text: "In general relativity, white holes arise naturally as mathematical counterparts in the Kruskal-Szekeres coordinates of eternal black holes. However, physical stellar collapse breaks this symmetry, creating an asymmetric black hole without an accompanying past white hole region."
+            }
+          ]
+        },
+        {
+          dimension: "4D",
+          title: "4D — Future, Hypothetical & Temporal Evolution",
+          items: [
+            {
+              type: "temporal_progression",
+              title: "Quantum Evaporation & The Black Hole-White Hole Transition Hypothesis",
+              text: "Loop Quantum Gravity (LQG) models propose that quantum gravitational effects prevent a true physical singularity. As a black hole reaches Planckian density through Hawking evaporation, a quantum bounce could theoretically transition the remnant into a decaying white hole.",
+              progression_steps: [
+                "Stellar Core Collapse (Forming Event Horizon)",
+                "Hawking Radiation Phase (Mass loss across cosmological timescales)",
+                "Planck Density Core Compression (Quantum gravitational resistance)",
+                "Hypothesized Quantum Bounce (Transition to short-lived white hole burst)"
+              ],
+              evidence_label: "HYPOTHESIS / SPECULATION"
+            }
+          ]
+        }
+      ],
+      relationships: [
+        {
+          from_entity: "Black Hole",
+          to_entity: "Spacetime Singularity",
+          relationship_type: "DIRECT SCIENTIFIC RELATIONSHIP",
+          evidence_label: "ESTABLISHED FACT",
+          domains: ["Astronomy / Astrophysics"],
+          description: "Black holes in classical general relativity inevitably contain a central gravitational singularity."
+        },
+        {
+          from_entity: "Black Hole",
+          to_entity: "White Hole",
+          relationship_type: "ASTRONOMICAL RELATIONSHIP",
+          evidence_label: "HYPOTHESIS / SPECULATION",
+          domains: ["Astronomy / Astrophysics"],
+          description: "White holes represent the exact time-reversed geometric dual of black holes in vacuum Einstein equations."
+        },
+        {
+          from_entity: "Black Hole",
+          to_entity: "Hawking Radiation",
+          relationship_type: "DIRECT SCIENTIFIC RELATIONSHIP",
+          evidence_label: "SCIENTIFIC INTERPRETATION",
+          domains: ["Astronomy / Astrophysics"],
+          description: "Quantum vacuum fluctuations near the horizon yield thermal radiation, driving slow mass loss."
+        },
+        {
+          from_entity: "White Hole",
+          to_entity: "Hawking Radiation",
+          relationship_type: "CONCEPTUAL RELATIONSHIP",
+          evidence_label: "HYPOTHESIS / SPECULATION",
+          domains: ["Astronomy / Astrophysics"],
+          description: "Quantum bounce hypotheses link white hole formation to the terminal phase of black hole evaporation."
+        }
+      ],
+      warnings: [],
+      sources: [
+        {
+          title: "On the Gravitational Field of a Mass Point according to Einstein's Theory",
+          authors: "Karl Schwarzschild",
+          year: "1916",
+          publication: "Sitzungsberichte der Königlich Preussischen Akademie der Wissenschaften",
+          doi: "10.1002/andp.19163540702"
+        },
+        {
+          title: "Particle Creation by Black Holes",
+          authors: "S. W. Hawking",
+          year: "1975",
+          publication: "Communications in Mathematical Physics",
+          doi: "10.1007/BF02345020"
+        },
+        {
+          title: "Gravitational Collapse and Space-Time Singularities",
+          authors: "Roger Penrose",
+          year: "1965",
+          publication: "Physical Review Letters",
+          doi: "10.1103/PhysRevLett.14.57"
+        }
+      ]
+    }
+  },
+
+  thirukkural_water: {
+    query: {
+      text: "What does Thirukkural say about water?",
+      input_type: "verse_query",
+      domains: ["Classical Tamil Literature"],
+      intent: "retrieve_literary_verse",
+      entities: ["Neer (Water)", "Vaan (Rain / Cloud)", "Thiruvalluvar", "Vaan Chirappu", "Ulagam (Cosmos / Earth)"],
+      concepts: ["Ecological Interdependence", "Universal Sustenance", "Moral Duty of Preservation", "Sangam Environmental Axiology"]
+    },
+    answer: {
+      summary: "In Classical Tamil literature, Thirukkural accords foundational epistemic status to water and rainfall. Thiruvalluvar places Chapter 2 (Vaan Chirappu — The Excellence of Rain) immediately after the invocation of the Divine, demonstrating that atmospheric precipitation is the foundational prerequisite for earthly existence, social ethics, and civilization.",
+      sections: [
+        {
+          dimension: "1D",
+          title: "1D — Text / Literal Verse & Linguistic Meaning",
+          items: [
+            {
+              type: "tamil_verse",
+              verse_title: "Thirukkural — Chapter 2: Vaan Chirappu (Kural 11)",
+              tamil_script: "துப்பார்க்குத் துப்பாய துப்பாக்கித் துப்பார்க்குத்\nதுப்பாய தூஉம் மழை.",
+              transliteration: "Thuppaarkkuth thuppaaya thuppaakkith thuppaarkkuth\nthuppaaya thooum mazhai.",
+              translation: "Rain produces pleasant food for all who eat, and is itself their life-sustaining food.",
+              literal_meaning: "Water not only enables the growth of all nourishing food that mortals consume, but clean water itself constitutes essential life-sustaining nourishment.",
+              source_metadata: {
+                work: "Thirukkural (திருக்குறள்)",
+                section: "Arathuppaal (அறத்துப்பால் — Book of Virtue)",
+                chapter: "Chapter 2: Vaan Chirappu (வான்சிறப்பு — The Excellence of Rain)",
+                verse_number: 11,
+                author: "Thiruvalluvar (திருவள்ளுவர்)",
+                historical_era: "Classical Tamil (c. 3rd - 5th Century CE)",
+                meter: "Kural Venba (குறள் வெண்பா)"
+              },
+              evidence_label: "RETRIEVED TEXTUAL EVIDENCE"
+            },
+            {
+              type: "tamil_verse",
+              verse_title: "Thirukkural — Chapter 2: Vaan Chirappu (Kural 20)",
+              tamil_script: "நீரின் றமையா துலகெனின் யார்யார்க்கும்\nவானின் றொழுகா தொழுக்கு.",
+              transliteration: "Neerin ramaiyaa thulakenin yaaryaarkkum\nvaanin rozhukaa thozhukku.",
+              translation: "If the earth cannot sustain life without water, without rain there can be no righteous conduct.",
+              literal_meaning: "Even as the physical world cannot survive without water, moral and virtuous order in society collapses if heaven does not bestow rainfall.",
+              source_metadata: {
+                work: "Thirukkural (திருக்குறள்)",
+                section: "Arathuppaal (Book of Virtue)",
+                chapter: "Chapter 2: Vaan Chirappu",
+                verse_number: 20,
+                author: "Thiruvalluvar",
+                historical_era: "Classical Tamil",
+                meter: "Kural Venba"
+              },
+              evidence_label: "RETRIEVED TEXTUAL EVIDENCE"
+            }
+          ]
+        },
+        {
+          dimension: "2D",
+          title: "2D — Interpretation / Cultural & Environmental Context",
+          items: [
+            {
+              type: "contextual_analysis",
+              title: "Ainthinai and Hydraulic Civilization",
+              text: "In ancient Tamil geographic philosophy (Ainthinai), water systems governed societal survival across landscapes (Marutham agrarians and Neithal coastal zones). Thiruvalluvar's verse links physical hydrology with social morality: an environmental catastrophe directly produces moral degradation.",
+              evidence_label: "SCIENTIFIC INTERPRETATION"
+            }
+          ]
+        },
+        {
+          dimension: "3D",
+          title: "3D — Symbol, Concept & Textual Relationships",
+          items: [
+            {
+              type: "concept_overview",
+              text: "The text models water as both physical substance (parupporul) and cosmic regulator. The relationships below map the textual claims of Thirukkural."
+            }
+          ]
+        }
+      ],
+      relationships: [
+        {
+          from_entity: "Vaan (Rain / Cloud)",
+          to_entity: "Neer (Water)",
+          relationship_type: "TEXTUAL RELATIONSHIP",
+          evidence_label: "RETRIEVED TEXTUAL EVIDENCE",
+          domains: ["Classical Tamil Literature"],
+          description: "Thirukkural identifies atmospheric precipitation as the singular origin of earthly fresh water."
+        },
+        {
+          from_entity: "Neer (Water)",
+          to_entity: "Ulagam (Cosmos / Life)",
+          relationship_type: "TEXTUAL RELATIONSHIP",
+          evidence_label: "RETRIEVED TEXTUAL EVIDENCE",
+          domains: ["Classical Tamil Literature"],
+          description: "'Neerinramaiyathu Ulagu' (Water is the non-negotiable prerequisite for earthly life)."
+        },
+        {
+          from_entity: "Neer (Water)",
+          to_entity: "Ethical Order (Aram)",
+          relationship_type: "INTERPRETATION",
+          evidence_label: "SCIENTIFIC INTERPRETATION",
+          domains: ["Classical Tamil Literature"],
+          description: "Drought and hydrological scarcity disrupt human social ethics and civilizational virtue."
+        }
+      ],
+      warnings: [],
+      sources: [
+        {
+          title: "Tirukkural: With English Translation and Commentary",
+          authors: "G. U. Pope, W. H. Drew, John Lazarus",
+          year: "1886",
+          publication: "W. H. Allen & Co., London",
+          citation: "Chapter 2: Vaan Chirappu, Verses 11 & 20"
+        },
+        {
+          title: "The Smile of Murugan on Tamil Literature of South India",
+          authors: "Kamil V. Zvelebil",
+          year: "1973",
+          publication: "E. J. Brill, Leiden",
+          doi: "10.1163/9789004492752"
+        }
+      ]
+    }
+  },
+
+  circadian_vs_orbital: {
+    query: {
+      text: "Can biological rhythms be compared conceptually with orbital periods?",
+      input_type: "cross_domain",
+      domains: ["Astronomy / Astrophysics", "Biology / Biological Systems"],
+      intent: "conceptual_comparison",
+      entities: [
+        "Earth Planetary Rotation (24h)",
+        "Solar Insolation Cycle",
+        "Suprachiasmatic Nucleus (SCN)",
+        "Circadian Molecular Oscillator",
+        "Keplerian Orbital Period"
+      ],
+      concepts: [
+        "Periodic Harmonic Motion",
+        "Evolutionary Entrainment",
+        "Zeitgeber (Time-giver)",
+        "Transcription-Translation Feedback Loop (TTFL)"
+      ]
+    },
+    answer: {
+      summary: "A multi-domain analysis exploring the conceptual and evolutionary relationship between astronomical periodicities (planetary rotation and orbital cycles) and biological periodicities (cellular circadian rhythms). While celestial mechanics is governed by gravitational physics and biological clocks are driven by biochemical autoregulatory feedback loops, biological clocks evolved specifically as an adaptive resonance mechanism to the planetary diurnal cycle.",
+      sections: [
+        {
+          dimension: "1D",
+          title: "1D — Text / Literal Formulations",
+          items: [
+            {
+              type: "definition",
+              title: "Astronomical Diurnal Period (Earth)",
+              text: "The sidereal day represents the period required for Earth to complete one rotation relative to inertial space (~86,164.1 seconds; mean solar day: 86,400 seconds).",
+              formula: "T = \\frac{2\\pi}{\\omega}",
+              evidence_label: "ESTABLISHED FACT"
+            },
+            {
+              type: "definition",
+              title: "Biological Circadian Clock (Molecular TTFL)",
+              text: "An endogenous, cell-autonomous biochemical timing system with a free-running period of approximately 24 hours, maintained through interlocking transcriptional-translational feedback loops involving CLOCK, BMAL1, PER, and CRY genes.",
+              evidence_label: "ESTABLISHED FACT"
+            }
+          ]
+        },
+        {
+          dimension: "2D",
+          title: "2D — Interpretation / Evolutionary & Physical Context",
+          items: [
+            {
+              type: "contextual_analysis",
+              title: "Entrainment Mechanisms: Photic Zeitgebers",
+              text: "Astronomical orbital motion establishes predictable solar irradiance swings. Biological organisms do not passively react to sunlight; they anticipate daylight cycles via retinal ganglion cells stimulating the suprachiasmatic nucleus (SCN), resetting the molecular phase daily.",
+              evidence_label: "OBSERVATIONAL EVIDENCE"
+            }
+          ]
+        },
+        {
+          dimension: "3D",
+          title: "3D — Symbol, Concept & Cross-Domain Bridges",
+          items: [
+            {
+              type: "bridge_description",
+              text: "A structural bridge links the celestial rotation of the planet with molecular gene expression. The connection is evolutionary and entrainment-based, rather than an identical physical law."
+            }
+          ]
+        },
+        {
+          dimension: "4D",
+          title: "4D — Future Scenarios & Hypothetical Temporal Dynamics",
+          items: [
+            {
+              type: "temporal_progression",
+              title: "Extraterrestrial Chronobiology (Hypothetical Martian Sol Adaptation)",
+              text: "Human circadian clocks free-run at ~24.2 hours. In proposed space colonization environments (e.g., Mars with a 24.65-hour sol), chronic circadian misalignment represents an active space medicine investigation area.",
+              progression_steps: [
+                "Terrestrial 24.0h Baseline (Optimum SCN Phase Locking)",
+                "Martian 24.65h Desynchronization Phase",
+                "Photic Countermeasure Application (Targeted blue-wavelength pulses)",
+                "Genetic or Epigenetic Chronobiological Adaptation"
+              ],
+              evidence_label: "HYPOTHESIS / SPECULATION"
+            }
+          ]
+        }
+      ],
+      relationships: [
+        {
+          from_entity: "Earth Planetary Rotation (24h)",
+          to_entity: "Solar Insolation Cycle",
+          relationship_type: "ASTRONOMICAL RELATIONSHIP",
+          evidence_label: "ESTABLISHED FACT",
+          domains: ["Astronomy / Astrophysics"],
+          description: "Axial rotation under solar irradiation creates the diurnal photic cycle."
+        },
+        {
+          from_entity: "Solar Insolation Cycle",
+          to_entity: "Suprachiasmatic Nucleus (SCN)",
+          relationship_type: "BIOLOGICAL RELATIONSHIP",
+          evidence_label: "OBSERVATIONAL EVIDENCE",
+          domains: ["Biology / Biological Systems"],
+          description: "Light input entrains the neural master clock in mammals."
+        },
+        {
+          from_entity: "Suprachiasmatic Nucleus (SCN)",
+          to_entity: "Circadian Molecular Oscillator",
+          relationship_type: "BIOLOGICAL RELATIONSHIP",
+          evidence_label: "ESTABLISHED FACT",
+          domains: ["Biology / Biological Systems"],
+          description: "The SCN synchronizes peripheral cellular clocks across organismal tissues."
+        },
+        {
+          from_entity: "Earth Planetary Rotation (24h)",
+          to_entity: "Circadian Molecular Oscillator",
+          relationship_type: "CROSS-DOMAIN ANALOGY",
+          evidence_label: "CONCEPTUAL ANALOGY",
+          domains: ["Astronomy / Astrophysics", "Biology / Biological Systems"],
+          description: "Conceptual analogy linking cosmic rotational periods with evolutionary cellular oscillator dynamics."
+        }
+      ],
+      warnings: [
+        "CONCEPTUAL RELATIONSHIPS ARE NOT SCIENTIFIC EVIDENCE. The analogy between orbital mechanics and molecular rhythms does not imply identical physical laws or shared equations."
+      ],
+      sources: [
+        {
+          title: "Molecular Bases of Circadian Rhythms",
+          authors: "Jay C. Dunlap",
+          year: "1999",
+          publication: "Cell",
+          doi: "10.1016/S0092-8674(00)80566-8"
+        },
+        {
+          title: "Circadian Rhythms in Man: A self-sustained oscillator with an inherent frequency",
+          authors: "Jürgen Aschoff",
+          year: "1965",
+          publication: "Science",
+          doi: "10.1126/science.148.3676.1427"
+        },
+        {
+          title: "Kepler's Physical Astronomy",
+          authors: "Bruce Stephenson",
+          year: "1987",
+          publication: "Springer-Verlag",
+          doi: "10.1007/978-1-4613-8737-4"
+        }
+      ]
+    }
+  },
+
+  mutation_to_disease: {
+    query: {
+      text: "Gene expression",
+      input_type: "causal_chain",
+      domains: ["Biology / Biological Systems"],
+      intent: "analyze_biological_system",
+      entities: ["Genomic DNA", "mRNA Transcript", "Polypeptide Chain", "Enzymatic Protein", "Cellular Phenotype"],
+      concepts: ["Transcription Regulation", "Post-Transcriptional Splicing", "Ribosomal Translation", "Tertiary Folding Kinetics", "Metabolic Feedback"]
+    },
+    answer: {
+      summary: "A multidimensional molecular biological analysis of gene expression, tracing the flow of genetic information from nucleotide encoding through transcriptional dynamics, post-transcriptional processing, and ribosomal translation to cellular phenotypic manifestation.",
+      sections: [
+        {
+          dimension: "1D",
+          title: "1D — Text / Literal Formulations & Dogma",
+          items: [
+            {
+              type: "definition",
+              title: "The Central Dogma of Molecular Biology",
+              text: "Sequential residue-by-residue transfer of genetic information: DNA is transcribed into messenger RNA (mRNA), which is then translated by ribosomes into catalytic and structural proteins.",
+              formula: "\\text{DNA} \\xrightarrow{\\text{RNA Pol II}} \\text{mRNA} \\xrightarrow{\\text{Ribosome}} \\text{Polypeptide}",
+              evidence_label: "ESTABLISHED FACT"
+            }
+          ]
+        },
+        {
+          dimension: "2D",
+          title: "2D — Interpretation / Regulatory Context & Kinetics",
+          items: [
+            {
+              type: "contextual_analysis",
+              title: "Epigenetic & Environmental Context",
+              text: "Gene expression is non-linear and context-dependent. Chromatin remodeling (histone acetylation, DNA methylation) and transcription factor availability dictate transcription rates in response to metabolic and external signals.",
+              evidence_label: "ESTABLISHED FACT"
+            }
+          ]
+        },
+        {
+          dimension: "3D",
+          title: "3D — Symbol, Concept & Molecular Pathways",
+          items: [
+            {
+              type: "concept_overview",
+              text: "The molecular interactions form a directed biochemical signaling cascade as mapped in the relationship network below."
+            }
+          ]
+        },
+        {
+          dimension: "4D",
+          title: "4D — Temporal Dynamics & Phenotypic Evolution",
+          items: [
+            {
+              type: "temporal_progression",
+              title: "Temporal Stages of Gene Activation",
+              text: "The temporal kinetic cascade following signal induction proceeds through distinct phases across minutes to hours.",
+              progression_steps: [
+                "Signal Transduction (0 - 5 min): Kinase cascade activates nuclear transcription factors",
+                "Transcriptional Induction (5 - 30 min): RNA Polymerase II clears promoter; primary pre-mRNA synthesized",
+                "Splicing & Nuclear Export (20 - 60 min): Intron excision and 5' capping; export via nuclear pore complexes",
+                "Translation & Maturation (45 - 120 min): Ribosomal elongation, chaperone-mediated folding, and functional state"
+              ],
+              evidence_label: "ESTABLISHED FACT"
+            }
+          ]
+        }
+      ],
+      relationships: [
+        {
+          from_entity: "Genomic DNA",
+          to_entity: "mRNA Transcript",
+          relationship_type: "BIOLOGICAL RELATIONSHIP",
+          evidence_label: "ESTABLISHED FACT",
+          domains: ["Biology / Biological Systems"],
+          description: "Transcription by RNA Polymerase creates complementary messenger RNA."
+        },
+        {
+          from_entity: "mRNA Transcript",
+          to_entity: "Polypeptide Chain",
+          relationship_type: "BIOLOGICAL RELATIONSHIP",
+          evidence_label: "ESTABLISHED FACT",
+          domains: ["Biology / Biological Systems"],
+          description: "Ribosomal complexes translate nucleotide codons into amino acid chains."
+        },
+        {
+          from_entity: "Polypeptide Chain",
+          to_entity: "Enzymatic Protein",
+          relationship_type: "BIOLOGICAL RELATIONSHIP",
+          evidence_label: "ESTABLISHED FACT",
+          domains: ["Biology / Biological Systems"],
+          description: "Chaperone-assisted conformational folding yields active tertiary enzymes."
+        },
+        {
+          from_entity: "Enzymatic Protein",
+          to_entity: "Cellular Phenotype",
+          relationship_type: "DIRECT SCIENTIFIC RELATIONSHIP",
+          evidence_label: "OBSERVATIONAL EVIDENCE",
+          domains: ["Biology / Biological Systems"],
+          description: "Catalytic biochemical output directly regulates cellular metabolic state."
+        }
+      ],
+      warnings: [],
+      sources: [
+        {
+          title: "Molecular Biology of the Cell (6th ed.)",
+          authors: "Bruce Alberts, Alexander Johnson, Julian Lewis, David Morgan, Martin Raff, Keith Roberts, Peter Walter",
+          year: "2014",
+          publication: "Garland Science, New York",
+          doi: "10.1201/9781315735368"
+        },
+        {
+          title: "Central Dogma of Molecular Biology",
+          authors: "Francis Crick",
+          year: "1970",
+          publication: "Nature",
+          doi: "10.1038/227561a0"
+        }
+      ]
+    }
+  }
+};
+
+/* --- mock-engine.js --- */
+(function () {
+  const CASES = window.MKS_MOCK_CASES || {};
+
+  function normalizeText(str) {
+    return (str || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").trim();
+  }
+
+  const DERIVED_CASES = {
+    keplers_laws: {
+      query: {
+        text: "Kepler's laws",
+        input_type: "topic_query",
+        domains: ["Astronomy / Astrophysics"],
+        intent: "retrieve_astronomical_principles",
+        entities: ["Johannes Kepler", "Elliptical Orbit", "Semi-major Axis", "Orbital Period"],
+        concepts: ["Areal Velocity Conservation", "Gravitational Central Force", "Harmonic Law", "Celestial Mechanics"]
+      },
+      answer: {
+        summary: "Kepler's three empirical laws describe planetary kinematics: 1. Planetary orbits are ellipses with the Sun at one focus; 2. A line joining planet and Sun sweeps out equal areas in equal times; 3. The square of the orbital period is proportional to the cube of the semi-major axis.",
+        sections: [
+          {
+            dimension: "1D",
+            title: "1D — Text / Literal Formulations",
+            items: [
+              {
+                type: "definition",
+                title: "Third Law (Harmonic Law)",
+                text: "The ratio of the square of an orbital period to the cube of its semi-major axis is constant for all bodies orbiting a central mass.",
+                formula: "\\frac{T^2}{a^3} = \\frac{4\\pi^2}{G(M + m)}",
+                evidence_label: "ESTABLISHED FACT"
+              }
+            ]
+          },
+          {
+            dimension: "2D",
+            title: "2D — Physical & Historical Context",
+            items: [
+              {
+                type: "contextual_analysis",
+                title: "Newtonian Synthesis",
+                text: "Kepler's phenomenological laws formed the empirical foundation from which Isaac Newton derived universal gravitation.",
+                evidence_label: "ESTABLISHED FACT"
+              }
+            ]
+          },
+          {
+            dimension: "3D",
+            title: "3D — Relationships",
+            items: [{ type: "concept_overview", text: "Kinematic relationships connecting orbital geometry to gravitational attraction." }]
+          }
+        ],
+        relationships: [
+          {
+            from_entity: "Elliptical Orbit",
+            to_entity: "Areal Velocity Conservation",
+            relationship_type: "ASTRONOMICAL RELATIONSHIP",
+            evidence_label: "ESTABLISHED FACT",
+            domains: ["Astronomy / Astrophysics"],
+            description: "Conservation of angular momentum dictates variable speed along the orbital ellipse."
+          },
+          {
+            from_entity: "Orbital Period",
+            to_entity: "Semi-major Axis",
+            relationship_type: "DIRECT SCIENTIFIC RELATIONSHIP",
+            evidence_label: "ESTABLISHED FACT",
+            domains: ["Astronomy / Astrophysics"],
+            description: "Direct power-law coupling governed by central gravitational mass."
+          }
+        ],
+        warnings: [],
+        sources: [
+          { title: "Astronomia Nova", authors: "Johannes Kepler", year: "1609", publication: "Prague", citation: "Laws 1 and 2" },
+          { title: "Harmonices Mundi", authors: "Johannes Kepler", year: "1619", publication: "Linz", citation: "Law 3" }
+        ]
+      }
+    },
+    nature_tholkappiyam: {
+      query: {
+        text: "Nature in Tholkappiyam",
+        input_type: "literary_query",
+        domains: ["Classical Tamil Literature"],
+        intent: "analyze_environmental_poetics",
+        entities: ["Tholkappiyar", "Ainthinai (Five Landscapes)", "Muthatporul", "Karupporul", "Uripporul"],
+        concepts: ["Ecological Determinism", "Landscape Humanism", "Bioregional Poetics", "Sangam Geography"]
+      },
+      answer: {
+        summary: "Tholkappiyam articulates an advanced bioregional philosophy in Porulathikaaram. Human emotions, social duty, and literature are organized into five distinct physiographic zones (Ainthinai), where physical space and flora/fauna dynamically shape human consciousness.",
+        sections: [
+          {
+            dimension: "1D",
+            title: "1D — Text / Literal Formulations",
+            items: [
+              {
+                type: "definition",
+                title: "Tholkappiyam: Porulathikaaram (Akathinaiyiyal)",
+                text: "Poetic reality is constructed through threefold ecological layers: Muthatporul (time and space), Karupporul (native flora, fauna, and elements), and Uripporul (human emotional conduct).",
+                evidence_label: "RETRIEVED TEXTUAL EVIDENCE"
+              }
+            ]
+          },
+          {
+            dimension: "2D",
+            title: "2D — Interpretation / Bioregional Context",
+            items: [
+              {
+                type: "contextual_analysis",
+                title: "Symbiosis of Geography and Culture",
+                text: "Classical Tamil treats the natural world not as a passive backdrop, but as an active constituent of psychology and culture.",
+                evidence_label: "SCIENTIFIC INTERPRETATION"
+              }
+            ]
+          },
+          {
+            dimension: "3D",
+            title: "3D — Relationships",
+            items: [{ type: "concept_overview", text: "Structural taxonomy linking landscape geography with cultural expression." }]
+          }
+        ],
+        relationships: [
+          {
+            from_entity: "Muthatporul (Space-Time)",
+            to_entity: "Karupporul (Ecology)",
+            relationship_type: "TEXTUAL RELATIONSHIP",
+            evidence_label: "RETRIEVED TEXTUAL EVIDENCE",
+            domains: ["Classical Tamil Literature"],
+            description: "Landscape and season dictate specific biological species and social activities."
+          },
+          {
+            from_entity: "Karupporul (Ecology)",
+            to_entity: "Uripporul (Human Conduct)",
+            relationship_type: "INTERPRETATION",
+            evidence_label: "SCIENTIFIC INTERPRETATION",
+            domains: ["Classical Tamil Literature"],
+            description: "Psychological interiority reflects exterior ecological surroundings."
+          }
+        ],
+        warnings: [],
+        sources: [
+          { title: "Tholkappiyam: Porulathikaaram", authors: "Tholkappiyar", year: "c. 3rd Century BCE - 1st Century CE", publication: "Classical Tamil Anthology", citation: "Akathinaiyiyal" }
+        ]
+      }
+    },
+    plasma_oscillation: {
+      query: {
+        text: "Plasma oscillation",
+        input_type: "physics_query",
+        domains: ["Astronomy / Astrophysics"],
+        intent: "explain_plasma_phenomenon",
+        entities: ["Electron Plasma", "Langmuir Wave", "Debye Length", "Dielectric Permittivity"],
+        concepts: ["Collective Electrostatic Oscillation", "Plasma Frequency", "Astrophysical Jets", "Interstellar Medium"]
+      },
+      answer: {
+        summary: "Plasma oscillations (Langmuir waves) are rapid collective oscillations of the electron density relative to background ions. In astrophysics, plasma oscillations govern radio wave propagation in stellar coronas and the interstellar medium.",
+        sections: [
+          {
+            dimension: "1D",
+            title: "1D — Text / Literal Formulations",
+            items: [
+              {
+                type: "definition",
+                title: "Plasma Frequency (Langmuir Frequency)",
+                text: "Natural resonance frequency at which electron displacement produces a restoring electrostatic field.",
+                formula: "\\omega_{pe} = \\sqrt{\\frac{n_e e^2}{m_e \\varepsilon_0}}",
+                evidence_label: "ESTABLISHED FACT"
+              }
+            ]
+          },
+          {
+            dimension: "2D",
+            title: "2D — Astrophysical Context",
+            items: [
+              {
+                type: "contextual_analysis",
+                title: "Astrophysical Radio Cutoff",
+                text: "Electromagnetic radiation below plasma frequency cannot propagate through interstellar plasma, creating observational cutoff horizons.",
+                evidence_label: "OBSERVATIONAL EVIDENCE"
+              }
+            ]
+          },
+          {
+            dimension: "3D",
+            title: "3D — Relationships",
+            items: [{ type: "concept_overview", text: "Electrostatic and electromagnetic coupling in ionized astrophysical environments." }]
+          }
+        ],
+        relationships: [
+          {
+            from_entity: "Electron Plasma",
+            to_entity: "Langmuir Wave",
+            relationship_type: "DIRECT SCIENTIFIC RELATIONSHIP",
+            evidence_label: "ESTABLISHED FACT",
+            domains: ["Astronomy / Astrophysics"],
+            description: "Charge displacement induces coherent macroscopic electrostatic wavepackets."
+          }
+        ],
+        warnings: [],
+        sources: [
+          { title: "Oscillations in Ionized Gases", authors: "Tonks, L., & Langmuir, I.", year: "1929", publication: "Physical Review", doi: "10.1103/PhysRev.33.195" }
+        ]
+      }
+    },
+    radiation_laws: {
+      query: {
+        text: "Radiation laws",
+        input_type: "physics_query",
+        domains: ["Astronomy / Astrophysics"],
+        intent: "explain_thermodynamic_radiation",
+        entities: ["Blackbody", "Planck Function", "Stefan-Boltzmann Law", "Wien Displacement Law"],
+        concepts: ["Electromagnetic Radiation", "Thermal Equilibrium", "Stellar Luminosity", "Spectral Energy Distribution"]
+      },
+      answer: {
+        summary: "Fundamental physical laws governing the emission of electromagnetic radiation from matter in thermodynamic equilibrium. Crucial for determining stellar surface temperatures and effective radiating areas.",
+        sections: [
+          {
+            dimension: "1D",
+            title: "1D — Text / Literal Formulations",
+            items: [
+              {
+                type: "definition",
+                title: "Stefan-Boltzmann Law",
+                text: "Total energy radiated per unit surface area of a blackbody across all wavelengths is proportional to T^4.",
+                formula: "j^* = \\sigma T^4",
+                evidence_label: "ESTABLISHED FACT"
+              }
+            ]
+          },
+          {
+            dimension: "2D",
+            title: "2D — Astrophysical Application",
+            items: [
+              {
+                type: "contextual_analysis",
+                title: "Stellar Spectral Classification",
+                text: "Enables determination of stellar radii and temperatures through photometric analyses.",
+                evidence_label: "OBSERVATIONAL EVIDENCE"
+              }
+            ]
+          },
+          {
+            dimension: "3D",
+            title: "3D — Relationships",
+            items: [{ type: "concept_overview", text: "Thermodynamic and quantum electrodynamic radiation relationships." }]
+          }
+        ],
+        relationships: [
+          {
+            from_entity: "Planck Function",
+            to_entity: "Stefan-Boltzmann Law",
+            relationship_type: "DIRECT SCIENTIFIC RELATIONSHIP",
+            evidence_label: "ESTABLISHED FACT",
+            domains: ["Astronomy / Astrophysics"],
+            description: "Integrating Planck radiance over frequencies produces the Stefan-Boltzmann law."
+          }
+        ],
+        warnings: [],
+        sources: [
+          { title: "On the Law of Distribution of Energy in the Normal Spectrum", authors: "Max Planck", year: "1901", publication: "Annalen der Physik", doi: "10.1002/andp.19013090310" }
+        ]
+      }
+    }
+  };
+
+  async function evaluate(query) {
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    const norm = normalizeText(query);
+
+    if ((norm.includes("biological") || norm.includes("rhythm") || norm.includes("circadian")) &&
+        (norm.includes("orbital") || norm.includes("period") || norm.includes("rotation"))) {
+      return CASES.circadian_vs_orbital;
+    }
+    if (norm.includes("white hole") || (norm.includes("black hole") && (norm.includes("vs") || norm.includes("compare") || norm.includes("white")))) {
+      return CASES.black_hole_vs_white_hole;
+    }
+    if (norm.includes("black hole")) {
+      return CASES.black_hole_vs_white_hole;
+    }
+    if (norm.includes("thirukkural") || norm.includes("kural") || (norm.includes("tamil") && norm.includes("water"))) {
+      return CASES.thirukkural_water;
+    }
+    if (norm.includes("tholkappiyam") || norm.includes("tolkappiyam")) {
+      return DERIVED_CASES.nature_tholkappiyam;
+    }
+    if (norm.includes("kepler")) {
+      return DERIVED_CASES.keplers_laws;
+    }
+    if (norm.includes("plasma")) {
+      return DERIVED_CASES.plasma_oscillation;
+    }
+    if (norm.includes("radiation") || norm.includes("stefan") || norm.includes("planck")) {
+      return DERIVED_CASES.radiation_laws;
+    }
+    if (norm.includes("gene") || norm.includes("expression") || norm.includes("mutation") || norm.includes("dna") || norm.includes("protein")) {
+      return CASES.mutation_to_disease;
+    }
+
+    throw {
+      code: "NO_DOMAIN_MATCH",
+      message: `No matching knowledge entities were retrieved for "${query}". The research system indexes Astronomy/Astrophysics, Biology/Biological Systems, and Classical Tamil Literature.`,
+      details: {
+        searchedQuery: query,
+        suggestedQueries: window.MKS_API ? window.MKS_API.EXAMPLE_QUERIES : []
+      }
+    };
+  }
+
+  window.MKS_MOCK_ENGINE = { evaluate };
+})();
+
+/* --- api.js --- */
+const DEFAULT_CONFIG = {
+  backend: "mock",
+  endpoint: "http://127.0.0.1:8001/query",
+  timeoutMs: 15000,
+};
+
+const CONFIG = Object.assign({}, DEFAULT_CONFIG, window.MKS_CONFIG || {});
+
+const EXAMPLE_QUERIES = [
+  "Black holes",
+  "Plasma oscillation",
+  "Radiation laws",
+  "Kepler's laws",
+  "Gene expression",
+  "Thirukkural",
+  "Nature in Tholkappiyam",
+  "Black hole vs white hole",
+  "Can biological rhythms be compared conceptually with orbital periods?",
+];
+
+function normalizeError(raw) {
+  if (raw && raw.error && raw.error.code) {
+    return { code: raw.error.code, message: raw.error.message || "Request failed.", details: raw.error.details || null };
+  }
+  if (raw && raw.code) {
+    return { code: raw.code, message: raw.message || "An error occurred.", details: raw.details || null };
+  }
+  return { code: "NETWORK_ERROR", message: (raw && raw.message) || "Could not reach the knowledge service.", details: null };
+}
+
+async function fetchAnswer(query, options) {
+  const trimmed = (query || "").trim();
+  if (!trimmed) {
+    throw { code: "EMPTY_QUERY", message: "Please enter a concept, topic, question, or cross-domain query." };
+  }
+  if (CONFIG.backend === "live") {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), CONFIG.timeoutMs);
+    try {
+      const res = await fetch(CONFIG.endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: trimmed, options: options || {} }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      const data = await res.json();
+      if (!res.ok || data.error) throw normalizeError(data);
+      return data;
+    } catch (err) {
+      clearTimeout(timeout);
+      if (err.name === "AbortError") {
+        throw { code: "TIMEOUT", message: `Query evaluation timed out after ${CONFIG.timeoutMs / 1000}s.` };
+      }
+      throw normalizeError(err);
+    }
+  }
+  if (window.MKS_MOCK_ENGINE && typeof window.MKS_MOCK_ENGINE.evaluate === "function") {
+    return await window.MKS_MOCK_ENGINE.evaluate(trimmed, options);
+  }
+  throw { code: "MOCK_ENGINE_MISSING", message: "Client mock engine is not initialized." };
+}
+
+window.MKS_API = { CONFIG, EXAMPLE_QUERIES, fetchAnswer, normalizeError };
+
+/* --- auth.js --- */
+(function () {
+  const STORAGE_KEY = "mks_auth_session";
+  function getSession() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : null;
+    } catch { return null; }
+  }
+  function isAuthenticated() {
+    const session = getSession();
+    return !!(session && session.email);
+  }
+  function login(email, password) {
+    const trimmedEmail = (email || "").trim();
+    const trimmedPass = (password || "").trim();
+    if (!trimmedEmail || !trimmedEmail.includes("@")) {
+      return { success: false, error: "Please enter a valid academic or research email address." };
+    }
+    if (!trimmedPass || trimmedPass.length < 6) {
+      return { success: false, error: "Password must be at least 6 characters in length." };
+    }
+    const session = { email: trimmedEmail, role: "Research Scholar", timestamp: Date.now() };
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(session)); } catch (e) {}
+    return { success: true, session };
+  }
+  function logout() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    window.location.hash = "#/login";
+  }
+  window.MKS_AUTH = { getSession, isAuthenticated, login, logout };
+})();
+
+/* --- navigation.js --- */
+(function () {
+  const VALID_ROUTES = ["#/login", "#/intro", "#/explore", "#/domains", "#/methodology", "#/about"];
+  function normalizeRoute(hash) {
+    const raw = (hash || window.location.hash || "").trim().toLowerCase();
+    if (!raw || raw === "#" || raw === "#/") {
+      return window.MKS_AUTH.isAuthenticated() ? "#/explore" : "#/login";
+    }
+    const match = VALID_ROUTES.find((r) => raw === r || raw.startsWith(r + "?") || raw.startsWith(r + "/"));
+    return match || (window.MKS_AUTH.isAuthenticated() ? "#/explore" : "#/login");
+  }
+  function handleRoute() {
+    let route = normalizeRoute(window.location.hash);
+    const auth = window.MKS_AUTH.isAuthenticated();
+    if (route !== "#/login" && !auth) {
+      window.location.hash = "#/login";
+      return;
+    }
+    if (route === "#/login" && auth) {
+      window.location.hash = "#/explore";
+      return;
+    }
+    const viewName = route.replace("#/", "");
+    const allViews = document.querySelectorAll(".view-pane");
+    allViews.forEach((v) => {
+      if (v.id === `view-${viewName}`) {
+        v.hidden = false;
+        v.classList.add("active-view");
+      } else {
+        v.hidden = true;
+        v.classList.remove("active-view");
+      }
+    });
+    const navBar = document.getElementById("main-nav");
+    if (navBar) navBar.hidden = route === "#/login";
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href === route) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
+      }
+    });
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (mobileMenu && !mobileMenu.hidden) {
+      mobileMenu.hidden = true;
+      const toggleBtn = document.getElementById("mobile-menu-toggle");
+      if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "false");
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.dispatchEvent(new CustomEvent("mks:route-change", { detail: { route, view: viewName } }));
+  }
+  function navigateTo(route) {
+    if (window.location.hash === route) handleRoute();
+    else window.location.hash = route;
+  }
+  function initRouter() {
+    window.addEventListener("hashchange", handleRoute);
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (toggleBtn && mobileMenu) {
+      toggleBtn.addEventListener("click", () => {
+        const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+        toggleBtn.setAttribute("aria-expanded", String(!isExpanded));
+        mobileMenu.hidden = isExpanded;
+      });
+    }
+    handleRoute();
+  }
+  window.MKS_ROUTER = { initRouter, navigateTo, handleRoute };
+})();
+
+/* --- animations.js --- */
+(function () {
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function isReducedMotion() {
+    return reducedMotionQuery.matches;
+  }
+
+  function renderGlobalBackground(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = `
+      <svg class="bg-svg-canvas" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="archival-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(67, 78, 86, 0.045)" stroke-width="0.75" />
+            <circle cx="60" cy="60" r="1" fill="rgba(67, 78, 86, 0.12)" />
+          </pattern>
+        </defs>
+
+        <rect width="1600" height="1000" fill="url(#archival-grid)" />
+
+        <line x1="0" y1="500" x2="1600" y2="500" stroke="rgba(67, 78, 86, 0.08)" stroke-width="0.75" stroke-dasharray="8 6" />
+        <line x1="800" y1="0" x2="800" y2="1000" stroke="rgba(67, 78, 86, 0.08)" stroke-width="0.75" stroke-dasharray="8 6" />
+
+        <g stroke="rgba(67, 78, 86, 0.18)" stroke-width="0.75">
+          <path d="M 195 125 L 205 125 M 200 120 L 200 130" />
+          <path d="M 1395 125 L 1405 125 M 1400 120 L 1400 130" />
+          <path d="M 195 875 L 205 875 M 200 870 L 200 880" />
+          <path d="M 1395 875 L 1405 875 M 1400 870 L 1400 880" />
+          <path d="M 795 495 L 805 495 M 800 490 L 800 500" />
+        </g>
+
+        <g class="${isReducedMotion() ? "" : "anim-celestial-slow"}" opacity="0.6">
+          <ellipse cx="320" cy="280" rx="260" ry="130" transform="rotate(-15 320 280)" fill="none" stroke="rgba(32, 74, 120, 0.22)" stroke-width="0.8" stroke-dasharray="6 4" />
+          <ellipse cx="320" cy="280" rx="180" ry="80" transform="rotate(30 320 280)" fill="none" stroke="rgba(32, 74, 120, 0.16)" stroke-width="0.8" />
+          <circle cx="320" cy="280" r="3" fill="none" stroke="#204A78" stroke-width="0.8" />
+          <circle cx="320" cy="280" r="0.8" fill="#204A78" />
+        </g>
+
+        <g opacity="0.55" transform="translate(1180, 160)">
+          <polygon points="80,0 120,23 120,69 80,92 40,69 40,23" fill="none" stroke="rgba(28, 94, 67, 0.28)" stroke-width="0.85" />
+          <polygon points="80,10 112,28 112,64 80,82 48,64 48,28" fill="none" stroke="rgba(28, 94, 67, 0.12)" stroke-width="0.6" stroke-dasharray="3 3" />
+          <line x1="120" y1="46" x2="170" y2="46" stroke="rgba(28, 94, 67, 0.25)" stroke-width="0.85" />
+          <polygon points="210,0 250,23 250,69 210,92 170,69 170,23" fill="none" stroke="rgba(28, 94, 67, 0.22)" stroke-width="0.85" />
+          <circle cx="80" cy="0" r="2" fill="#1C5E43" />
+          <circle cx="120" cy="69" r="2" fill="#1C5E43" />
+          <circle cx="210" cy="92" r="2" fill="#1C5E43" />
+        </g>
+
+        <g fill="rgba(130, 51, 41, 0.10)" font-family="'Latha', 'Nirmala UI', serif" font-weight="600">
+          <text x="260" y="780" font-size="34">அ</text>
+          <text x="560" y="860" font-size="28">ஞ</text>
+          <text x="920" y="740" font-size="30">ய</text>
+          <text x="1220" y="820" font-size="32">ழ</text>
+          <text x="740" y="660" font-size="26">வ</text>
+          <text x="400" y="870" font-size="22">அறம்</text>
+          <text x="1060" y="700" font-size="22">நீர்</text>
+        </g>
+      </svg>
+    `;
+  }
+
+  function renderConvergenceVisualization(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = `
+      <div class="convergence-chamber">
+        <svg class="convergence-svg" viewBox="0 0 800 540" preserveAspectRatio="xMidYMid meet" aria-label="Tri-Domain Optical Interferometer Architecture">
+          <defs>
+            <marker id="marker-astro-arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 4 L 0 7 z" fill="#204A78" />
+            </marker>
+            <marker id="marker-bio-arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 4 L 0 7 z" fill="#1C5E43" />
+            </marker>
+            <marker id="marker-tamil-arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 4 L 0 7 z" fill="#823329" />
+            </marker>
+          </defs>
+
+          <rect x="10" y="10" width="780" height="520" fill="none" stroke="rgba(67, 78, 86, 0.15)" stroke-width="0.8" />
+          <line x1="400" y1="10" x2="400" y2="530" stroke="rgba(67, 78, 86, 0.08)" stroke-width="0.6" stroke-dasharray="4 4" />
+          <line x1="10" y1="260" x2="790" y2="260" stroke="rgba(67, 78, 86, 0.08)" stroke-width="0.6" stroke-dasharray="4 4" />
+
+          <g stroke="rgba(67, 78, 86, 0.3)" stroke-width="0.8">
+            <path d="M 20 20 L 30 20 M 25 15 L 25 25" />
+            <path d="M 770 20 L 780 20 M 775 15 L 775 25" />
+            <path d="M 20 520 L 30 520 M 25 515 L 25 525" />
+            <path d="M 770 520 L 780 520 M 775 515 L 775 525" />
+          </g>
+
+          <g transform="translate(400, 260)">
+            <circle cx="0" cy="0" r="220" fill="none" stroke="rgba(67, 78, 86, 0.16)" stroke-width="0.8" />
+            <circle cx="0" cy="0" r="226" fill="none" stroke="rgba(67, 78, 86, 0.08)" stroke-width="0.5" />
+            <line x1="0" y1="-220" x2="0" y2="-226" stroke="#56626B" stroke-width="1" />
+            <line x1="220" y1="0" x2="226" y2="0" stroke="#56626B" stroke-width="1" />
+            <line x1="0" y1="220" x2="0" y2="226" stroke="#56626B" stroke-width="1" />
+            <line x1="-220" y1="0" x2="-226" y2="0" stroke="#56626B" stroke-width="1" />
+          </g>
+
+          <g stroke-width="0.8" opacity="0.7">
+            <polygon points="190,130 610,130 400,420" fill="none" stroke="rgba(67, 78, 86, 0.12)" stroke-dasharray="4 4" />
+            <path d="M 190 130 Q 400 90 610 130" fill="none" stroke="rgba(32, 74, 120, 0.3)" stroke-dasharray="3 3" />
+            <path d="M 610 130 Q 530 300 400 420" fill="none" stroke="rgba(28, 94, 67, 0.3)" stroke-dasharray="3 3" />
+            <path d="M 400 420 Q 270 300 190 130" fill="none" stroke="rgba(130, 51, 41, 0.3)" stroke-dasharray="3 3" />
+          </g>
+
+          <g>
+            <line x1="190" y1="130" x2="350" y2="230" stroke="var(--color-astro)" stroke-width="1.4" stroke-dasharray="6 4" class="anim-vernier-flow" marker-end="url(#marker-astro-arrow)" />
+            <line x1="610" y1="130" x2="450" y2="230" stroke="var(--color-bio)" stroke-width="1.4" stroke-dasharray="6 4" class="anim-vernier-flow" marker-end="url(#marker-bio-arrow)" />
+            <line x1="400" y1="420" x2="400" y2="310" stroke="var(--color-tamil)" stroke-width="1.4" stroke-dasharray="6 4" class="anim-vernier-flow" marker-end="url(#marker-tamil-arrow)" />
+          </g>
+
+          <g transform="translate(400, 260)">
+            <circle cx="0" cy="0" r="54" fill="none" stroke="var(--color-1d)" stroke-width="1.2" />
+            <circle cx="0" cy="0" r="88" fill="none" stroke="var(--color-2d)" stroke-width="1.1" stroke-dasharray="5 4" />
+            <circle cx="0" cy="0" r="124" fill="none" stroke="var(--color-3d)" stroke-width="1" stroke-dasharray="3 3" />
+            <circle cx="0" cy="0" r="162" fill="none" stroke="var(--color-4d)" stroke-width="0.9" stroke-dasharray="7 5" />
+
+            <g font-family="'JetBrains Mono', 'Consolas', monospace" font-size="8" font-weight="700">
+              <text x="0" y="-58" text-anchor="middle" fill="var(--color-1d)">[1D: LITERAL / TEXT]</text>
+              <text x="96" y="3" text-anchor="start" fill="var(--color-2d)">[2D: CONTEXT]</text>
+              <text x="0" y="136" text-anchor="middle" fill="var(--color-3d)">[3D: RELATIONSHIP]</text>
+              <text x="-170" y="3" text-anchor="end" fill="var(--color-4d)">[4D: TEMPORAL]</text>
+            </g>
+          </g>
+
+          <g transform="translate(400, 260)">
+            <circle cx="0" cy="0" r="38" fill="var(--bg-plinth)" stroke="var(--ink-primary)" stroke-width="1.5" />
+            <circle cx="0" cy="0" r="34" fill="none" stroke="var(--color-cross)" stroke-width="0.8" stroke-dasharray="4 3" class="${isReducedMotion() ? "" : "anim-reticle-slow"}" />
+            <circle cx="0" cy="0" r="12" fill="none" stroke="var(--ink-secondary)" stroke-width="0.8" />
+            <line x1="-38" y1="0" x2="-14" y2="0" stroke="var(--ink-primary)" stroke-width="1" />
+            <line x1="14" y1="0" x2="38" y2="0" stroke="var(--ink-primary)" stroke-width="1" />
+            <line x1="0" y1="-38" x2="0" y2="-14" stroke="var(--ink-primary)" stroke-width="1" />
+            <line x1="0" y1="14" x2="0" y2="38" stroke="var(--ink-primary)" stroke-width="1" />
+            <circle cx="0" cy="0" r="2.5" fill="var(--color-cross)" />
+
+            <g font-family="'JetBrains Mono', 'Consolas', monospace" font-size="7.5" font-weight="800" letter-spacing="0.12em">
+              <text x="0" y="-7" text-anchor="middle" fill="var(--ink-primary)">MULTIDIMENSIONAL</text>
+              <text x="0" y="6" text-anchor="middle" fill="var(--ink-primary)">KNOWLEDGE</text>
+              <text x="0" y="18" text-anchor="middle" fill="var(--color-cross)" font-size="6.5">CORE // 1D-4D</text>
+            </g>
+          </g>
+
+          <g transform="translate(190, 130)">
+            <ellipse cx="0" cy="0" rx="48" ry="20" transform="rotate(-20)" fill="none" stroke="rgba(32, 74, 120, 0.3)" stroke-width="0.8" stroke-dasharray="3 3" />
+            <circle cx="0" cy="0" r="36" fill="var(--bg-paper)" stroke="var(--color-astro)" stroke-width="1.4" />
+            <circle cx="0" cy="0" r="30" fill="none" stroke="rgba(32, 74, 120, 0.25)" stroke-width="0.75" />
+            <circle cx="0" cy="-6" r="8" fill="none" stroke="var(--color-astro)" stroke-width="1" />
+            <circle cx="0" cy="-6" r="1.5" fill="var(--color-astro)" />
+            <line x1="-12" y1="-6" x2="12" y2="-6" stroke="var(--color-astro)" stroke-width="0.8" />
+            <text x="0" y="12" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="800" fill="var(--color-astro)" letter-spacing="0.08em">ASTRONOMY</text>
+            <text x="0" y="21" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="6" fill="var(--ink-muted)" letter-spacing="0.06em">ASTROPHYSICS</text>
+          </g>
+
+          <g transform="translate(610, 130)">
+            <polygon points="0,-44 38,-22 38,22 0,44 -38,22 -38,-22" fill="none" stroke="rgba(28, 94, 67, 0.3)" stroke-width="0.8" stroke-dasharray="3 3" />
+            <circle cx="0" cy="0" r="36" fill="var(--bg-paper)" stroke="var(--color-bio)" stroke-width="1.4" />
+            <circle cx="0" cy="0" r="30" fill="none" stroke="rgba(28, 94, 67, 0.25)" stroke-width="0.75" />
+            <polygon points="0,-12 8,-7 8,3 0,8 -8,3 -8,-7" fill="none" stroke="var(--color-bio)" stroke-width="1" />
+            <line x1="0" y1="-12" x2="0" y2="-16" stroke="var(--color-bio)" stroke-width="0.8" />
+            <line x1="8" y1="3" x2="12" y2="5" stroke="var(--color-bio)" stroke-width="0.8" />
+            <text x="0" y="12" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="800" fill="var(--color-bio)" letter-spacing="0.08em">BIOLOGY</text>
+            <text x="0" y="21" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="6" fill="var(--ink-muted)" letter-spacing="0.06em">BIO SYSTEMS</text>
+          </g>
+
+          <g transform="translate(400, 420)">
+            <rect x="-44" y="-44" width="88" height="88" rx="14" fill="none" stroke="rgba(130, 51, 41, 0.3)" stroke-width="0.8" stroke-dasharray="3 3" />
+            <circle cx="0" cy="0" r="36" fill="var(--bg-paper)" stroke="var(--color-tamil)" stroke-width="1.4" />
+            <circle cx="0" cy="0" r="30" fill="none" stroke="rgba(130, 51, 41, 0.25)" stroke-width="0.75" />
+            <text x="0" y="-1" text-anchor="middle" font-family="'Latha', 'Nirmala UI', serif" font-size="16" font-weight="700" fill="var(--color-tamil)">அ</text>
+            <text x="0" y="14" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="800" fill="var(--color-tamil)" letter-spacing="0.08em">CLASSICAL TAMIL</text>
+            <text x="0" y="23" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="6" fill="var(--ink-muted)" letter-spacing="0.06em">SANGAM CORPUS</text>
+          </g>
+        </svg>
+      </div>
+    `;
+  }
+
+  function playLoginToIntroTransition(callback) {
+    const overlay = document.getElementById("transition-overlay");
+    if (!overlay || isReducedMotion()) {
+      if (typeof callback === "function") callback();
+      return;
+    }
+
+    overlay.innerHTML = `
+      <div class="transition-shutter-reticle"></div>
+      <div class="transition-status-text">CALIBRATING RETICLE // OPENING RESEARCH APERTURE</div>
+    `;
+    overlay.hidden = false;
+    void overlay.offsetWidth;
+    overlay.classList.add("active");
+
+    setTimeout(() => {
+      if (typeof callback === "function") callback();
+      setTimeout(() => {
+        overlay.classList.remove("active");
+        setTimeout(() => {
+          overlay.hidden = true;
+          overlay.innerHTML = "";
+        }, 320);
+      }, 120);
+    }, 420);
+  }
+
+  function playIntroToExploreTransition(callback) {
+    const overlay = document.getElementById("transition-overlay");
+    if (!overlay || isReducedMotion()) {
+      if (typeof callback === "function") callback();
+      return;
+    }
+
+    overlay.innerHTML = `
+      <div class="transition-shutter-reticle"></div>
+      <div class="transition-status-text">ALIGNING FOCAL PLANES // INITIALIZING KNOWLEDGE WORKSPACE</div>
+    `;
+    overlay.hidden = false;
+    void overlay.offsetWidth;
+    overlay.classList.add("active");
+
+    setTimeout(() => {
+      if (typeof callback === "function") callback();
+      setTimeout(() => {
+        overlay.classList.remove("active");
+        setTimeout(() => {
+          overlay.hidden = true;
+          overlay.innerHTML = "";
+        }, 320);
+      }, 120);
+    }, 420);
+  }
+
+  window.MKS_ANIMATIONS = {
+    renderGlobalBackground,
+    renderConvergenceVisualization,
+    playLoginToIntroTransition,
+    playIntroToExploreTransition,
+  };
+})();
+
+/* --- graph.js --- */
+(function () {
+  const DOMAIN_CONFIG = {
+    astronomy: {
+      color: "#4D7FE8",
+      lightColor: "rgba(77, 127, 232, 0.16)",
+      glowColor: "rgba(77, 127, 232, 0.35)",
+      icon: "🌌",
+      label: "Astronomy",
+    },
+    biology: {
+      color: "#4DAF83",
+      lightColor: "rgba(77, 175, 131, 0.16)",
+      glowColor: "rgba(77, 175, 131, 0.35)",
+      icon: "🧬",
+      label: "Biology",
+    },
+    tamil: {
+      color: "#8D75C7",
+      lightColor: "rgba(141, 117, 199, 0.16)",
+      glowColor: "rgba(141, 117, 199, 0.35)",
+      icon: "📜",
+      label: "Classical Tamil",
+    },
+    cross: {
+      color: "#3D9FA1",
+      lightColor: "rgba(61, 159, 161, 0.16)",
+      glowColor: "rgba(61, 159, 161, 0.35)",
+      icon: "⚛",
+      label: "Cross-Domain",
+    },
+  };
+
+  function inferDomain(entityName, relDomains) {
+    const norm = (entityName || "").toLowerCase();
+    if (
+      norm.includes("black hole") ||
+      norm.includes("white hole") ||
+      norm.includes("singularity") ||
+      norm.includes("kepler") ||
+      norm.includes("orbit") ||
+      norm.includes("radiation") ||
+      norm.includes("plasma") ||
+      norm.includes("earth planetary rotation") ||
+      norm.includes("solar")
+    ) {
+      return "astronomy";
+    }
+    if (
+      norm.includes("dna") ||
+      norm.includes("rna") ||
+      norm.includes("protein") ||
+      norm.includes("gene") ||
+      norm.includes("mutation") ||
+      norm.includes("circadian") ||
+      norm.includes("suprachiasmatic") ||
+      norm.includes("scn") ||
+      norm.includes("cellular") ||
+      norm.includes("enzyme")
+    ) {
+      return "biology";
+    }
+    if (
+      norm.includes("thirukkural") ||
+      norm.includes("tholkappiyam") ||
+      norm.includes("thiruvalluvar") ||
+      norm.includes("neer") ||
+      norm.includes("vaan") ||
+      norm.includes("ulagam") ||
+      norm.includes("ethical") ||
+      norm.includes("tamil") ||
+      norm.includes("aram")
+    ) {
+      return "tamil";
+    }
+
+    if (Array.isArray(relDomains) && relDomains.length > 0) {
+      const d = relDomains[0].toLowerCase();
+      if (d.includes("astro")) return "astronomy";
+      if (d.includes("bio")) return "biology";
+      if (d.includes("tamil")) return "tamil";
+    }
+
+    return "cross";
+  }
+
+  function getEvidenceBadgeConfig(label) {
+    const norm = (label || "").toUpperCase();
+    if (norm.includes("FACT")) return { text: "FACT", color: "#248154", bg: "rgba(77, 175, 131, 0.14)" };
+    if (norm.includes("OBSERVATIONAL")) return { text: "OBS", color: "#2D5CBD", bg: "rgba(77, 127, 232, 0.14)" };
+    if (norm.includes("TEXTUAL")) return { text: "TEXT", color: "#6C51AD", bg: "rgba(141, 117, 199, 0.14)" };
+    if (norm.includes("INTERPRETATION")) return { text: "INTERP", color: "#206E70", bg: "rgba(61, 159, 161, 0.14)" };
+    if (norm.includes("ANALOGY")) return { text: "ANALOGY", color: "#B2751C", bg: "rgba(217, 155, 66, 0.14)" };
+    if (norm.includes("HYPOTHESIS") || norm.includes("SPECULATION")) return { text: "HYPO", color: "#B2751C", bg: "rgba(217, 155, 66, 0.14)" };
+    return { text: "EVID", color: "#617589", bg: "rgba(97, 117, 137, 0.1)" };
+  }
+
+  function renderGraph(containerId, relationships) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    if (!Array.isArray(relationships) || relationships.length === 0) {
+      container.innerHTML = `
+        <div class="empty-graph-notice">
+          <p>No explicit 3D relationship network mapped for this query.</p>
+        </div>
+      `;
+      return;
+    }
+
+    // Extract unique nodes
+    const nodeMap = new Map();
+    relationships.forEach((rel) => {
+      if (rel.from_entity && !nodeMap.has(rel.from_entity)) {
+        const domKey = inferDomain(rel.from_entity, rel.domains);
+        nodeMap.set(rel.from_entity, {
+          id: rel.from_entity,
+          domain: domKey,
+          conf: DOMAIN_CONFIG[domKey],
+          connected: new Set(),
+        });
+      }
+      if (rel.to_entity && !nodeMap.has(rel.to_entity)) {
+        const domKey = inferDomain(rel.to_entity, rel.domains);
+        nodeMap.set(rel.to_entity, {
+          id: rel.to_entity,
+          domain: domKey,
+          conf: DOMAIN_CONFIG[domKey],
+          connected: new Set(),
+        });
+      }
+      if (rel.from_entity && rel.to_entity) {
+        nodeMap.get(rel.from_entity).connected.add(rel.to_entity);
+        nodeMap.get(rel.to_entity).connected.add(rel.from_entity);
+      }
+    });
+
+    const nodes = Array.from(nodeMap.values());
+    const width = 800;
+    const height = 440;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const radiusX = Math.min(width, height) * 0.44;
+    const radiusY = Math.min(width, height) * 0.35;
+
+    // Distribute nodes in an elliptical perimeter with balanced spacing
+    nodes.forEach((node, i) => {
+      const angle = (2 * Math.PI * i) / nodes.length - Math.PI / 2;
+      node.x = centerX + radiusX * Math.cos(angle);
+      node.y = centerY + radiusY * Math.sin(angle);
+    });
+
+    // Build SVG Elements
+    const svgParts = [];
+    svgParts.push(`
+      <svg class="mks-graph-svg" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <!-- Dynamic Arrowhead Markers -->
+          <marker id="arrow-default" viewBox="0 0 10 10" refX="28" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(97, 117, 137, 0.65)" />
+          </marker>
+          <marker id="arrow-active" viewBox="0 0 10 10" refX="30" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#17324D" />
+          </marker>
+
+          <!-- Graph Grid Pattern for Scientific Background -->
+          <pattern id="graph-inner-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(23, 50, 77, 0.03)" stroke-width="1" />
+          </pattern>
+        </defs>
+
+        <!-- Inner Graph Grid -->
+        <rect width="${width}" height="${height}" fill="url(#graph-inner-grid)" rx="8" />
+
+        <!-- Center Topological Nexus Aura -->
+        <circle cx="${centerX}" cy="${centerY}" r="60" fill="none" stroke="rgba(61, 159, 161, 0.12)" stroke-width="1.5" stroke-dasharray="6 4" />
+        <circle cx="${centerX}" cy="${centerY}" r="120" fill="none" stroke="rgba(61, 159, 161, 0.08)" stroke-width="1" />
+    `);
+
+    // Render Edges
+    svgParts.push('<g class="graph-edges">');
+    relationships.forEach((rel, idx) => {
+      const source = nodeMap.get(rel.from_entity);
+      const target = nodeMap.get(rel.to_entity);
+      if (!source || !target) return;
+
+      const isHypothesis =
+        rel.evidence_label === "HYPOTHESIS / SPECULATION" ||
+        rel.evidence_label === "CONCEPTUAL ANALOGY" ||
+        rel.relationship_type === "CROSS-DOMAIN ANALOGY";
+
+      const strokeDash = isHypothesis ? 'stroke-dasharray="6 4"' : 'stroke-dasharray="8 5"';
+      const edgeClass = isHypothesis ? "edge-line edge-dashed anim-edge-pulse" : "edge-line edge-solid anim-edge-flow";
+      const evBadge = getEvidenceBadgeConfig(rel.evidence_label);
+
+      // Midpoint for relationship label
+      const midX = (source.x + target.x) / 2;
+      const midY = (source.y + target.y) / 2;
+
+      svgParts.push(`
+        <g class="graph-edge-group" data-source="${source.id}" data-target="${target.id}" id="edge-${idx}">
+          <line
+            x1="${source.x}"
+            y1="${source.y}"
+            x2="${target.x}"
+            y2="${target.y}"
+            class="${edgeClass}"
+            ${strokeDash}
+            marker-end="url(#arrow-default)"
+          />
+          <g class="edge-label-badge" transform="translate(${midX}, ${midY})">
+            <rect x="-74" y="-12" width="148" height="24" rx="12" class="edge-badge-bg" />
+            <circle cx="-62" cy="0" r="4" fill="${evBadge.color}" />
+            <text x="5" y="4" text-anchor="middle" class="edge-badge-text">
+              ${rel.relationship_type || "RELATIONSHIP"}
+            </text>
+          </g>
+        </g>
+      `);
+    });
+    svgParts.push("</g>");
+
+    // Render Nodes
+    svgParts.push('<g class="graph-nodes">');
+    nodes.forEach((node) => {
+      const conf = node.conf;
+      svgParts.push(`
+        <g class="graph-node" data-id="${node.id}" transform="translate(${node.x}, ${node.y})" tabindex="0" role="button" aria-label="Concept node: ${node.id} (${conf.label})">
+          <!-- Outer Radiant Aura -->
+          <circle cx="0" cy="0" r="32" fill="${conf.lightColor}" class="node-halo" />
+          <!-- Main Node Disc -->
+          <circle cx="0" cy="0" r="24" fill="#FFFFFF" stroke="${conf.color}" stroke-width="2.5" class="node-circle" />
+          <!-- Inner Core Dot -->
+          <circle cx="0" cy="0" r="5" fill="${conf.color}" class="node-core" />
+          <!-- Domain Icon Badge -->
+          <g transform="translate(14, -14)">
+            <circle cx="0" cy="0" r="9" fill="#FFFFFF" stroke="${conf.color}" stroke-width="1" />
+            <text x="0" y="3" text-anchor="middle" font-size="9">${conf.icon}</text>
+          </g>
+          <!-- Text Label Below Node -->
+          <g class="node-label-group" transform="translate(0, 38)">
+            <rect x="-65" y="-10" width="130" height="20" rx="4" fill="rgba(255, 255, 255, 0.92)" stroke="rgba(23, 50, 77, 0.1)" stroke-width="0.8" />
+            <text x="0" y="3.5" text-anchor="middle" class="node-label" fill="#17324D">
+              ${node.id.length > 20 ? node.id.substring(0, 18) + "…" : node.id}
+            </text>
+          </g>
+        </g>
+      `);
+    });
+    svgParts.push("</g>");
+
+    svgParts.push("</svg>");
+    container.innerHTML = svgParts.join("");
+
+    // Attach Interactive Hover / Focus Highlighting
+    const svgEl = container.querySelector(".mks-graph-svg");
+    const nodeEls = container.querySelectorAll(".graph-node");
+    const edgeEls = container.querySelectorAll(".graph-edge-group");
+
+    nodeEls.forEach((nodeEl) => {
+      const nodeId = nodeEl.getAttribute("data-id");
+
+      function highlightConnected() {
+        svgEl.classList.add("has-selection");
+        nodeEls.forEach((n) => {
+          const id = n.getAttribute("data-id");
+          const isTarget = id === nodeId;
+          const isConnected = nodeMap.get(nodeId).connected.has(id);
+          if (isTarget || isConnected) {
+            n.classList.add("highlighted");
+            n.classList.remove("dimmed");
+          } else {
+            n.classList.add("dimmed");
+            n.classList.remove("highlighted");
+          }
+        });
+
+        edgeEls.forEach((e) => {
+          const s = e.getAttribute("data-source");
+          const t = e.getAttribute("data-target");
+          if (s === nodeId || t === nodeId) {
+            e.classList.add("highlighted");
+            e.classList.remove("dimmed");
+            const line = e.querySelector("line");
+            if (line) line.setAttribute("marker-end", "url(#arrow-active)");
+          } else {
+            e.classList.add("dimmed");
+            e.classList.remove("highlighted");
+            const line = e.querySelector("line");
+            if (line) line.setAttribute("marker-end", "url(#arrow-default)");
+          }
+        });
+      }
+
+      function resetHighlight() {
+        svgEl.classList.remove("has-selection");
+        nodeEls.forEach((n) => n.classList.remove("highlighted", "dimmed"));
+        edgeEls.forEach((e) => {
+          e.classList.remove("highlighted", "dimmed");
+          const line = e.querySelector("line");
+          if (line) line.setAttribute("marker-end", "url(#arrow-default)");
+        });
+      }
+
+      nodeEl.addEventListener("mouseenter", highlightConnected);
+      nodeEl.addEventListener("mouseleave", resetHighlight);
+      nodeEl.addEventListener("focus", highlightConnected);
+      nodeEl.addEventListener("blur", resetHighlight);
+    });
+  }
+
+  window.MKS_GRAPH = {
+    renderGraph,
+  };
+})();
+
+/* --- render.js --- */
+(function () {
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function getEvidenceBadgeClass(label) {
+    const norm = (label || "").toUpperCase();
+    if (norm.includes("FACT")) return "chip-evidence chip-fact";
+    if (norm.includes("OBSERVATIONAL")) return "chip-evidence chip-obs";
+    if (norm.includes("TEXTUAL")) return "chip-evidence chip-textual";
+    if (norm.includes("INTERPRETATION")) return "chip-evidence chip-interp";
+    if (norm.includes("ANALOGY")) return "chip-evidence chip-analogy";
+    if (norm.includes("HYPOTHESIS") || norm.includes("SPECULATION")) return "chip-evidence chip-hypo";
+    return "chip-evidence";
+  }
+
+  function getDomainBadgeClass(domain) {
+    const norm = (domain || "").toLowerCase();
+    if (norm.includes("astro")) return "chip-domain chip-astro";
+    if (norm.includes("bio")) return "chip-domain chip-bio";
+    if (norm.includes("tamil")) return "chip-domain chip-tamil";
+    return "chip-domain chip-cross";
+  }
+
+  // ------------------------------------------------------------
+  // 1. Query Understanding Component
+  // ------------------------------------------------------------
+  function renderQueryUnderstanding(queryData) {
+    if (!queryData) return "";
+
+    const domains = queryData.domains || [];
+    const entities = queryData.entities || [];
+    const concepts = queryData.concepts || [];
+
+    const domainChips = domains
+      .map((d) => `<span class="chip ${getDomainBadgeClass(d)}">${escapeHtml(d)}</span>`)
+      .join("");
+
+    const entityChips = entities
+      .map((e) => `<span class="chip chip-entity">${escapeHtml(e)}</span>`)
+      .join("");
+
+    const conceptChips = concepts
+      .map((c) => `<span class="chip chip-concept">${escapeHtml(c)}</span>`)
+      .join("");
+
+    return `
+      <section class="card query-understanding-card" aria-label="Query Understanding">
+        <div class="card-header-row">
+          <div class="card-title-group">
+            <span class="section-eyebrow">STAGE 01 — SYSTEM PARSING</span>
+            <h3 class="card-title">Query Understanding</h3>
+          </div>
+          <span class="chip chip-input-type">${escapeHtml(queryData.input_type || "RESEARCH QUERY")}</span>
+        </div>
+
+        <div class="qu-grid">
+          <div class="qu-item">
+            <span class="qu-label">Detected Research Domains</span>
+            <div class="chip-wrap">${domainChips || '<span class="text-muted">None specified</span>'}</div>
+          </div>
+          <div class="qu-item">
+            <span class="qu-label">Epistemic Intent</span>
+            <span class="qu-value-highlight">${escapeHtml(queryData.intent || "Multidimensional Knowledge Synthesis")}</span>
+          </div>
+          <div class="qu-item full-width">
+            <span class="qu-label">Extracted Scientific & Cultural Entities</span>
+            <div class="chip-wrap">${entityChips || '<span class="text-muted">None</span>'}</div>
+          </div>
+          <div class="qu-item full-width">
+            <span class="qu-label">Extracted Concepts & Epistemic Markers</span>
+            <div class="chip-wrap">${conceptChips || '<span class="text-muted">None</span>'}</div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // 2. Activated Dimensions Navigator Component
+  // ------------------------------------------------------------
+  function renderDimensionNavigator(sections) {
+    const activeDims = new Set((sections || []).map((s) => s.dimension));
+
+    return `
+      <div class="dimension-nav-bar" aria-label="Dimension Navigation">
+        <span class="dim-nav-label">STAGE 02 — ACTIVATED DIMENSIONS:</span>
+        <div class="dim-nav-tabs">
+          <button class="dim-tab ${activeDims.has("1D") ? "active-dim" : "inactive-dim"}" data-dim="1D">
+            <span class="dim-num">1D</span>
+            <span class="dim-desc">Text / Literal</span>
+          </button>
+          <button class="dim-tab ${activeDims.has("2D") ? "active-dim" : "inactive-dim"}" data-dim="2D">
+            <span class="dim-num">2D</span>
+            <span class="dim-desc">Context & Mechanism</span>
+          </button>
+          <button class="dim-tab ${activeDims.has("3D") ? "active-dim" : "inactive-dim"}" data-dim="3D">
+            <span class="dim-num">3D</span>
+            <span class="dim-desc">Relationships</span>
+          </button>
+          <button class="dim-tab ${activeDims.has("4D") ? "active-dim" : "inactive-dim"}" data-dim="4D">
+            <span class="dim-num">4D</span>
+            <span class="dim-desc">Temporal Dynamics</span>
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // 3. Retrieved Knowledge: Classical Tamil Verse Cards, Facts, Context
+  // ------------------------------------------------------------
+  function renderTamilVerseCard(item) {
+    const meta = item.source_metadata || {};
+    return `
+      <div class="verse-card">
+        <div class="verse-header">
+          <div class="verse-title-group">
+            <span class="verse-badge">📜 CLASSICAL TAMIL PRIMARY SOURCE</span>
+            <h4 class="verse-title">${escapeHtml(item.verse_title || "Classical Verse")}</h4>
+          </div>
+          <span class="chip ${getEvidenceBadgeClass(item.evidence_label)}">
+            ${escapeHtml(item.evidence_label || "RETRIEVED TEXTUAL EVIDENCE")}
+          </span>
+        </div>
+
+        <!-- Sacred Archival Unicode Tamil Display -->
+        <div class="verse-original" lang="ta">
+          ${escapeHtml(item.tamil_script).replace(/\n/g, "<br />")}
+        </div>
+
+        <div class="verse-field-row">
+          <span class="field-tag">PHONETIC TRANSLITERATION</span>
+          <p class="verse-translit">${escapeHtml(item.transliteration).replace(/\n/g, "<br />")}</p>
+        </div>
+
+        <div class="verse-field-row">
+          <span class="field-tag">SCHOLARLY TRANSLATION</span>
+          <p class="verse-translation">${escapeHtml(item.translation)}</p>
+        </div>
+
+        <div class="verse-field-row">
+          <span class="field-tag">LITERAL MEANING / CONTEXTUAL GLOSS</span>
+          <p class="verse-literal">${escapeHtml(item.literal_meaning)}</p>
+        </div>
+
+        <!-- Archival Provenance Box -->
+        <div class="verse-metadata-box">
+          <div class="meta-col"><strong>Canonical Work:</strong> ${escapeHtml(meta.work || "Classical Anthology")}</div>
+          <div class="meta-col"><strong>Section / Book:</strong> ${escapeHtml(meta.section || "—")}</div>
+          <div class="meta-col"><strong>Chapter / Adhigaaram:</strong> ${escapeHtml(meta.chapter || "—")}</div>
+          <div class="meta-col"><strong>Verse No:</strong> ${escapeHtml(meta.verse_number || "—")}</div>
+          <div class="meta-col"><strong>Attributed Scholar:</strong> ${escapeHtml(meta.author || "Classical Scholar")}</div>
+          <div class="meta-col"><strong>Historical Era:</strong> ${escapeHtml(meta.historical_era || "Sangam / Post-Sangam")}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderComparisonTable(item) {
+    const cols = item.columns || ["Dimension", "A", "B"];
+    const rows = item.rows || [];
+
+    const ths = cols.map((c) => `<th>${escapeHtml(c)}</th>`).join("");
+    const trs = rows
+      .map(
+        (r) => `<tr>${r.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`
+      )
+      .join("");
+
+    return `
+      <div class="comparison-container">
+        <h4 class="subcard-title">${escapeHtml(item.title || "Comparative Analysis")}</h4>
+        <div class="table-scroller">
+          <table class="scientific-table">
+            <thead><tr>${ths}</tr></thead>
+            <tbody>${trs}</tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  function render1DSection(section) {
+    if (!section) return "";
+    const itemsHtml = (section.items || [])
+      .map((item) => {
+        if (item.type === "tamil_verse") {
+          return renderTamilVerseCard(item);
+        }
+        if (item.type === "comparison_table") {
+          return renderComparisonTable(item);
+        }
+        return `
+          <div class="definition-card">
+            <div class="def-header">
+              <h4 class="subcard-title">${escapeHtml(item.title || "Definition")}</h4>
+              ${
+                item.evidence_label
+                  ? `<span class="chip ${getEvidenceBadgeClass(item.evidence_label)}">${escapeHtml(
+                      item.evidence_label
+                    )}</span>`
+                  : ""
+              }
+            </div>
+            <p class="def-text">${escapeHtml(item.text)}</p>
+            ${
+              item.formula
+                ? `<div class="math-formula-box"><code>${escapeHtml(item.formula)}</code></div>`
+                : ""
+            }
+          </div>
+        `;
+      })
+      .join("");
+
+    return `
+      <section class="card dimension-card dim-1d-card" id="dim-panel-1d" aria-label="1D Text and Literal Facts">
+        <div class="dim-card-header">
+          <div class="dim-badge dim-badge-1d">1D</div>
+          <div>
+            <span class="section-eyebrow">RETRIEVED KNOWLEDGE</span>
+            <h3 class="dim-heading">1D — Text / Literal Formulations</h3>
+            <p class="dim-sub">Grounded empirical facts, canonical equations, definitions, and primary literature verses.</p>
+          </div>
+        </div>
+        <div class="dim-body">${itemsHtml}</div>
+      </section>
+    `;
+  }
+
+  function render2DSection(section) {
+    if (!section) return "";
+    const itemsHtml = (section.items || [])
+      .map(
+        (item) => `
+        <div class="context-card">
+          <div class="def-header">
+            <h4 class="subcard-title">${escapeHtml(item.title || "Contextual Interpretation")}</h4>
+            ${
+              item.evidence_label
+                ? `<span class="chip ${getEvidenceBadgeClass(item.evidence_label)}">${escapeHtml(
+                    item.evidence_label
+                  )}</span>`
+                : ""
+            }
+          </div>
+          <p class="context-text">${escapeHtml(item.text)}</p>
+        </div>
+      `
+      )
+      .join("");
+
+    return `
+      <section class="card dimension-card dim-2d-card" id="dim-panel-2d" aria-label="2D Interpretation and Context">
+        <div class="dim-card-header">
+          <div class="dim-badge dim-badge-2d">2D</div>
+          <div>
+            <span class="section-eyebrow">RETRIEVED KNOWLEDGE</span>
+            <h3 class="dim-heading">2D — Interpretation / Scientific & Cultural Context</h3>
+            <p class="dim-sub">Physical boundary conditions, biological regulatory pathways, and literary mechanisms.</p>
+          </div>
+        </div>
+        <div class="dim-body">${itemsHtml}</div>
+      </section>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // 4. Relationship Analysis Component (3D Graph & Mapped Links)
+  // ------------------------------------------------------------
+  function render3DSection(section, relationships) {
+    const overview = section
+      ? (section.items || []).map((i) => `<p class="graph-overview-text">${escapeHtml(i.text)}</p>`).join("")
+      : "";
+
+    const relRows = (relationships || [])
+      .map(
+        (r) => `
+        <div class="rel-row">
+          <div class="rel-entities">
+            <span class="rel-from">${escapeHtml(r.from_entity)}</span>
+            <span class="rel-arrow">→</span>
+            <span class="rel-to">${escapeHtml(r.to_entity)}</span>
+          </div>
+          <div class="rel-badges">
+            <span class="chip chip-rel-type">${escapeHtml(r.relationship_type)}</span>
+            <span class="chip ${getEvidenceBadgeClass(r.evidence_label)}">${escapeHtml(
+          r.evidence_label
+        )}</span>
+          </div>
+          <p class="rel-desc">${escapeHtml(r.description || "")}</p>
+        </div>
+      `
+      )
+      .join("");
+
+    return `
+      <section class="card dimension-card dim-3d-card" id="dim-panel-3d" aria-label="3D Relationships">
+        <div class="dim-card-header">
+          <div class="dim-badge dim-badge-3d">3D</div>
+          <div>
+            <span class="section-eyebrow">STAGE 04 — RELATIONSHIP ANALYSIS</span>
+            <h3 class="dim-heading">3D — Symbol, Concept & Structural Relationships</h3>
+            <p class="dim-sub">Interactive topological network mapping connections across entities and evidence tiers.</p>
+          </div>
+        </div>
+        <div class="dim-body">
+          ${overview}
+          <div class="graph-container-wrapper">
+            <div id="mks-relationship-graph" class="graph-viewport"></div>
+            <div class="graph-instructions">
+              <span>Interactive Network: Hover or focus on any node to isolate connected entities and highlight relationship pathways.</span>
+            </div>
+          </div>
+          <div class="relationship-list">
+            <h4 class="subcard-title">Mapped Epistemic Links (${(relationships || []).length})</h4>
+            <div class="rel-rows-scroller">${relRows}</div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // 4D Temporal Dynamics Component
+  // ------------------------------------------------------------
+  function render4DSection(section) {
+    if (!section) return "";
+    const itemsHtml = (section.items || [])
+      .map((item) => {
+        const steps = (item.progression_steps || [])
+          .map(
+            (s, idx) => `
+            <div class="timeline-step">
+              <div class="step-num">${idx + 1}</div>
+              <div class="step-content">${escapeHtml(s)}</div>
+            </div>
+          `
+          )
+          .join("");
+
+        return `
+          <div class="temporal-card">
+            <div class="def-header">
+              <h4 class="subcard-title">${escapeHtml(item.title || "Temporal Progression")}</h4>
+              ${
+                item.evidence_label
+                  ? `<span class="chip ${getEvidenceBadgeClass(item.evidence_label)}">${escapeHtml(
+                      item.evidence_label
+                    )}</span>`
+                  : ""
+              }
+            </div>
+            <p class="temporal-text">${escapeHtml(item.text)}</p>
+            ${
+              steps
+                ? `<div class="timeline-container"><div class="timeline-line"></div>${steps}</div>`
+                : ""
+            }
+          </div>
+        `;
+      })
+      .join("");
+
+    return `
+      <section class="card dimension-card dim-4d-card" id="dim-panel-4d" aria-label="4D Temporal Dynamics">
+        <div class="dim-card-header">
+          <div class="dim-badge dim-badge-4d">4D</div>
+          <div>
+            <span class="section-eyebrow">DIMENSIONAL SYNTHESIS</span>
+            <h3 class="dim-heading">4D — Future, Hypothetical & Temporal Dynamics</h3>
+            <p class="dim-sub">Evolutionary progressions, cosmological timelines, and theoretical horizons.</p>
+          </div>
+        </div>
+        <div class="dim-body">${itemsHtml}</div>
+      </section>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // 5. Cross-Domain Analysis & Epistemic Warning Notice
+  // ------------------------------------------------------------
+  function renderCrossDomainAnalysis(query, relationships, warnings) {
+    const isMultiDomain = (query.domains || []).length > 1;
+    const analogyRels = (relationships || []).filter(
+      (r) => r.relationship_type === "CROSS-DOMAIN ANALOGY" || r.evidence_label === "CONCEPTUAL ANALOGY"
+    );
+    const hasAnalogy = analogyRels.length > 0;
+    const showEpistemicNotice = isMultiDomain || hasAnalogy || (warnings && warnings.length > 0);
+
+    if (!showEpistemicNotice) return "";
+
+    const analogyList = analogyRels
+      .map(
+        (a) => `
+        <div class="analogy-item">
+          <strong>${escapeHtml(a.from_entity)} ↔ ${escapeHtml(a.to_entity)}:</strong>
+          <span>${escapeHtml(a.description || "")}</span>
+        </div>
+      `
+      )
+      .join("");
+
+    return `
+      <section class="card cross-domain-card" aria-label="Cross-Domain Analysis">
+        <div class="card-header-row">
+          <div class="card-title-group">
+            <span class="section-eyebrow">STAGE 05 — CROSS-DOMAIN ANALYSIS</span>
+            <h3 class="card-title">Cross-Domain Epistemic Synthesis</h3>
+          </div>
+          <span class="chip chip-domain chip-cross">INTERDISCIPLINARY BRIDGE</span>
+        </div>
+
+        <aside class="notice epistemic-warning-notice" role="alert">
+          <div class="notice-icon">⚠</div>
+          <div class="notice-text">
+            <strong>CRITICAL EPISTEMIC PRINCIPLE:</strong>
+            <span>Conceptual relationships and cross-domain analogies represent interpretive, structural syntheses and MUST NOT be conflated with direct physical evidence or empirical derivation. Classical Tamil poetics and modern astrophysics operate across distinct epistemic frameworks.</span>
+          </div>
+        </aside>
+
+        ${
+          analogyList
+            ? `
+          <div class="analogies-box">
+            <h4 class="subcard-title">Synthesized Structural Analogies</h4>
+            <div class="analogy-rows">${analogyList}</div>
+          </div>
+        `
+            : ""
+        }
+      </section>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // 6. Final Result Component (Multidimensional Summary)
+  // ------------------------------------------------------------
+  function renderFinalResult(summary) {
+    if (!summary) return "";
+    return `
+      <section class="card summary-card" aria-label="Final Multidimensional Result">
+        <div class="card-header-row">
+          <div class="card-title-group">
+            <span class="section-eyebrow">STAGE 06 — FINAL SYNTHESIZED RESULT</span>
+            <h3 class="card-title">Multidimensional Knowledge Synthesis</h3>
+          </div>
+          <span class="chip chip-concept">UNIFIED MODEL</span>
+        </div>
+        <p class="summary-body">${escapeHtml(summary)}</p>
+      </section>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // 7. Sources & Academic Citations Component
+  // ------------------------------------------------------------
+  function renderSources(sources) {
+    if (!Array.isArray(sources) || sources.length === 0) return "";
+
+    const listHtml = sources
+      .map(
+        (src) => `
+        <div class="source-card">
+          <div class="source-main">
+            <h5 class="source-title">${escapeHtml(src.title)}</h5>
+            <p class="source-authors">${escapeHtml(src.authors || "")} (${escapeHtml(src.year || "n.d.")})</p>
+            <p class="source-pub">${escapeHtml(src.publication || "")} ${
+          src.citation ? `— <em>${escapeHtml(src.citation)}</em>` : ""
+        }</p>
+          </div>
+          ${
+            src.doi
+              ? `<div class="source-doi"><span>DOI:</span> <code>${escapeHtml(src.doi)}</code></div>`
+              : ""
+          }
+        </div>
+      `
+      )
+      .join("");
+
+    return `
+      <section class="card sources-card" aria-label="Academic Sources and Scholarly Provenance">
+        <div class="card-title-group">
+          <span class="section-eyebrow">STAGE 07 — ACADEMIC PROVENANCE</span>
+          <h3 class="card-title">Sources & Canonical Citations</h3>
+        </div>
+        <div class="sources-grid">${listHtml}</div>
+      </section>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // Master Answer Assembler (Executing in exact required sequence)
+  // ------------------------------------------------------------
+  function renderAnswer(payload, containerEl) {
+    if (!payload || !payload.answer) return;
+
+    const query = payload.query || {};
+    const answer = payload.answer || {};
+    const sections = answer.sections || [];
+    const relationships = answer.relationships || [];
+    const sources = answer.sources || [];
+    const warnings = answer.warnings || [];
+
+    const sec1D = sections.find((s) => s.dimension === "1D");
+    const sec2D = sections.find((s) => s.dimension === "2D");
+    const sec3D = sections.find((s) => s.dimension === "3D");
+    const sec4D = sections.find((s) => s.dimension === "4D");
+
+    let html = "";
+
+    // 1. Query Understanding
+    html += renderQueryUnderstanding(query);
+
+    // 2. Activated Dimensions
+    html += renderDimensionNavigator(sections);
+
+    // 3. Retrieved Knowledge (1D Literal Facts, Formulas, Tamil Verses + 2D Context & Mechanisms)
+    if (sec1D) html += render1DSection(sec1D);
+    if (sec2D) html += render2DSection(sec2D);
+
+    // 4. Relationship Analysis (3D SVG Graph & Epistemic Links)
+    if (sec3D || (relationships && relationships.length > 0)) {
+      html += render3DSection(sec3D, relationships);
+    }
+
+    // 4D Temporal Dynamics (if active)
+    if (sec4D) {
+      html += render4DSection(sec4D);
+    }
+
+    // 5. Cross-Domain Analysis when applicable
+    html += renderCrossDomainAnalysis(query, relationships, warnings);
+
+    // 6. Final Result
+    html += renderFinalResult(answer.summary);
+
+    // 7. Sources
+    html += renderSources(sources);
+
+    containerEl.innerHTML = html;
+
+    // Trigger SVG graph rendering if 3D panel is present
+    const has3D = !!sec3D || (relationships && relationships.length > 0);
+    if (has3D && window.MKS_GRAPH) {
+      setTimeout(() => {
+        window.MKS_GRAPH.renderGraph("mks-relationship-graph", relationships);
+      }, 50);
+    }
+  }
+
+  window.MKS_RENDER = {
+    renderAnswer,
+  };
+})();
+
+/* --- app.js --- */
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const stateEls = { idle: $("state-idle"), loading: $("state-loading"), error: $("state-error"), result: $("state-result") };
+
+  function showExplorerState(stateName) {
+    Object.entries(stateEls).forEach(([key, el]) => {
+      if (!el) return;
+      el.hidden = key !== stateName;
+    });
+  }
+
+  function setExplorerError(code, message) {
+    const codeEl = $("error-code"), msgEl = $("error-message");
+    if (codeEl) codeEl.textContent = code || "ERROR";
+    if (msgEl) msgEl.textContent = message || "An unexpected error occurred.";
+    showExplorerState("error");
+  }
+
+  async function executeQuery(rawQuery) {
+    const query = (rawQuery || "").trim();
+    const input = $("query-input");
+    if (input) input.value = query;
+
+    if (!query) {
+      setExplorerError("EMPTY_QUERY", "Please enter a concept, topic, question, or cross-domain query.");
+      return;
+    }
+
+    showExplorerState("loading");
+
+    try {
+      const payload = await window.MKS_API.fetchAnswer(query);
+      showExplorerState("result");
+      window.MKS_RENDER.renderAnswer(payload, stateEls.result);
+
+      const dimTabs = stateEls.result.querySelectorAll(".dim-tab.active-dim");
+      dimTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const dim = tab.getAttribute("data-dim");
+          const targetCard = $("dim-panel-" + dim.toLowerCase());
+          if (targetCard) {
+            targetCard.scrollIntoView({ behavior: "smooth", block: "start" });
+            targetCard.style.outline = "2px solid var(--color-cross)";
+            setTimeout(() => { targetCard.style.outline = "none"; }, 1200);
+          }
+        });
+      });
+    } catch (err) {
+      const normalized = window.MKS_API.normalizeError(err);
+      setExplorerError(normalized.code, normalized.message);
+    }
+  }
+
+  function initExampleChips() {
+    const container = $("example-chips");
+    if (!container) return;
+    const queries = window.MKS_API.EXAMPLE_QUERIES || [];
+    container.innerHTML = queries
+      .map((q) => `<button type="button" class="example-chip-btn" data-query="${q.replace(/"/g, "&quot;")}">${q}</button>`)
+      .join("");
+
+    container.addEventListener("click", (e) => {
+      const btn = e.target.closest(".example-chip-btn");
+      if (btn) {
+        const q = btn.getAttribute("data-query");
+        if (q) executeQuery(q);
+      }
+    });
+  }
+
+  function initAuthBindings() {
+    const form = $("login-form"), emailInput = $("login-email"), passInput = $("login-password");
+    const togglePassBtn = $("toggle-password-btn"), errorAlert = $("login-error-alert");
+    const logoutBtn = $("logout-btn"), mobileLogoutBtn = $("mobile-logout-btn");
+
+    if (togglePassBtn && passInput) {
+      togglePassBtn.addEventListener("click", () => {
+        const isPass = passInput.type === "password";
+        passInput.type = isPass ? "text" : "password";
+        togglePassBtn.textContent = isPass ? "Hide" : "Show";
+        togglePassBtn.setAttribute("aria-label", isPass ? "Hide password" : "Show password");
+      });
+    }
+
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (errorAlert) errorAlert.hidden = true;
+        const email = emailInput ? emailInput.value : "";
+        const password = passInput ? passInput.value : "";
+        const result = window.MKS_AUTH.login(email, password);
+        if (!result.success) {
+          if (errorAlert) {
+            errorAlert.textContent = result.error;
+            errorAlert.hidden = false;
+          }
+          return;
+        }
+        window.MKS_ANIMATIONS.playLoginToIntroTransition(() => {
+          window.location.hash = "#/intro";
+        });
+      });
+    }
+
+    if (logoutBtn) logoutBtn.addEventListener("click", () => window.MKS_AUTH.logout());
+    if (mobileLogoutBtn) mobileLogoutBtn.addEventListener("click", () => window.MKS_AUTH.logout());
+  }
+
+  function initUIEventHandlers() {
+    const analyzeBtn = $("analyze-btn"), queryInput = $("query-input");
+    if (analyzeBtn && queryInput) {
+      analyzeBtn.addEventListener("click", () => executeQuery(queryInput.value));
+      queryInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          executeQuery(queryInput.value);
+        }
+      });
+    }
+
+    const retryBtn = $("retry-query-btn");
+    if (retryBtn && queryInput) {
+      retryBtn.addEventListener("click", () => executeQuery(queryInput.value));
+    }
+
+    const introCta = $("intro-cta-btn");
+    if (introCta) {
+      introCta.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.MKS_ANIMATIONS.playIntroToExploreTransition(() => {
+          window.location.hash = "#/explore";
+        });
+      });
+    }
+
+    document.querySelectorAll(".domain-search-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const q = btn.getAttribute("data-query");
+        window.location.hash = "#/explore";
+        setTimeout(() => { if (q) executeQuery(q); }, 80);
+      });
+    });
+
+    const badge = $("backend-badge");
+    if (badge && window.MKS_API && window.MKS_API.CONFIG) {
+      badge.textContent = `Backend: ${window.MKS_API.CONFIG.backend}`;
+    }
+  }
+
+  function initVisualRouteListeners() {
+    window.addEventListener("mks:route-change", (e) => {
+      const view = e.detail && e.detail.view;
+      if (view === "login") {
+        window.MKS_ANIMATIONS.renderConvergenceVisualization("login-convergence-visual");
+      } else if (view === "intro") {
+        window.MKS_ANIMATIONS.renderConvergenceVisualization("intro-convergence-visual");
+      }
+    });
+  }
+
+  function init() {
+    window.MKS_ANIMATIONS.renderGlobalBackground("global-bg");
+    initExampleChips();
+    initAuthBindings();
+    initUIEventHandlers();
+    initVisualRouteListeners();
+    window.MKS_ROUTER.initRouter();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+  </script>
+</body>
+</html>

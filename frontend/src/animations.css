@@ -1,0 +1,106 @@
+/* ============================================================
+ * MULTIDIMENSIONAL KNOWLEDGE SYSTEM
+ * Motion library — deliberate, scientific, never chaotic.
+ * Slow orbital layers · breathing core · flowing knowledge.
+ * ============================================================ */
+
+/* ---------- Knowledge Core & Convergence Nexus ---------- */
+
+@keyframes nexusSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes nexusSpinRev {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+@keyframes nexusBreathe {
+  0%, 100% { transform: scale(0.97); opacity: 0.75; }
+  50% { transform: scale(1.035); opacity: 1; }
+}
+@keyframes nexusPulse {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.18); opacity: 0.15; }
+}
+@keyframes nexusFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -62; }
+}
+@keyframes nexusAura {
+  0%, 100% { transform: scale(0.96); opacity: 0.55; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+@keyframes nexusHalo {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+@keyframes nexusFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes dashDraw {
+  from { stroke-dashoffset: 320; }
+  to { stroke-dashoffset: 0; }
+}
+
+.nexus-aura { animation: nexusAura 9s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.nexus-flow-line { stroke-dasharray: 6 8; animation: nexusFlow 2.6s linear infinite; }
+.nexus-flow-dash { animation: nexusFlow 1.7s linear infinite; }
+.nexus-ring-slow { animation: nexusSpin 46s linear infinite; transform-origin: center; transform-box: fill-box; }
+.nexus-ring-rev { animation: nexusSpinRev 30s linear infinite; transform-origin: center; transform-box: fill-box; }
+.nexus-core-breathe { animation: nexusBreathe 5.5s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.nexus-core-dot { animation: nexusBreathe 4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.nexus-core-pulse { animation: nexusPulse 3.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.nexus-node-halo { animation: nexusHalo 6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.nexus-node { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); transform-origin: center; transform-box: fill-box; }
+.nexus-node:hover { transform: scale(1.06); }
+.nexus-node:hover .nexus-node-art { animation: nexusFloat 2.4s ease-in-out infinite; }
+.nexus-node-art { transform-origin: center; transform-box: fill-box; }
+.nexus-node:hover .nexus-flow-dash { animation-duration: 0.8s; }
+.nexus-spoke-line { animation: nexusFlow 3.4s linear infinite; }
+
+/* ---------- Dimension wave ---------- */
+
+.dim-wave-draw { stroke-dasharray: 340; animation: dashDraw 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.dim-wave-glow { animation: nexusBreathe 4.5s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+
+/* ---------- Domain environments (Domains page) ---------- */
+
+@keyframes domOrbitSpin {
+  from { transform-origin: 210px 150px; transform: rotate(0deg); }
+  to { transform-origin: 210px 150px; transform: rotate(360deg); }
+}
+.dom-orbit { animation: domOrbitSpin 22s linear infinite; }
+.dom-star { animation: nexusPulse 3.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes domHelixShift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(2.5px); }
+}
+.dom-helix { animation: domHelixShift 3.2s ease-in-out infinite; }
+.dom-rung { animation: nexusPulse 4.2s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes domCellBreathe {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+.dom-cell { animation: domCellBreathe 5s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes domGlyphDrift {
+  0%, 100% { transform: translateY(0) rotate(-2deg); opacity: 0.4; }
+  50% { transform: translateY(-7px) rotate(2deg); opacity: 0.7; }
+}
+.dom-glyph { animation: domGlyphDrift 6s ease-in-out infinite; }
+
+/* ---------- Knowledge graph edges ---------- */
+
+.kg-edge { transition: stroke-width 0.4s ease; }
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .nexus-aura, .nexus-flow-line, .nexus-flow-dash, .nexus-ring-slow, .nexus-ring-rev,
+  .nexus-core-breathe, .nexus-core-dot, .nexus-core-pulse, .nexus-node-halo,
+  .nexus-node:hover .nexus-node-art, .nexus-spoke-line, .dim-wave-draw, .dim-wave-glow,
+  .dom-orbit, .dom-star, .dom-helix, .dom-rung, .dom-cell, .dom-glyph {
+    animation: none !important;
+  }
+  .dim-wave-draw { stroke-dashoffset: 0 !important; }
+}
